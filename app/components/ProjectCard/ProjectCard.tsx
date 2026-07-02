@@ -21,7 +21,8 @@ const ProjectCard = ( {id, title, description, img_url, x, y} : Props) => {
                     alt={description} 
                 />
                 <div className={`${styles.cardDiv}`}>
-                    <h1 className={`${styles.title} text-3xl m-auto p-8 text-center font-bold`}>{title}</h1>
+                    <h1 className={`${styles.title} text-3xl mx-auto px-8 text-center font-bold`}>{title}</h1>
+                    <p className={`${styles.text}`}>(click)</p>
                 </div>
             </div>
         </Link>

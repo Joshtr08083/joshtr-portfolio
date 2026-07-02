@@ -33,6 +33,8 @@
     width: 100%;
     height: 100%;
     background-color: var(--back-transparent);
+    flex-direction: column;
+    justify-content: center;
 }
 
 .container:hover .cardImg {
@@ -41,4 +43,14 @@
 
 .title {
     color: var(--txtcol);
+}
+
+.text {
+    color: var(--txtcol);
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 5px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
 }

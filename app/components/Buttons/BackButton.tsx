@@ -13,7 +13,7 @@ const BackButton = ( { classes = "" } : Props) => {
   return (
     <button 
         onClick = {() => {router.back()}}
-        className = {`btn btn-outline shadow-xl/50 ${classes}`}
+        className = {`btn btn-outline ${classes}`}
     >
         Back
     </button>

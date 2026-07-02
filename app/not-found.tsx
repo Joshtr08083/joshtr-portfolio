@@ -1,6 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
 import BackButton from './components/Buttons/BackButton'
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "404",
+  description: "Page not found | Joshtr",
+};
 
 const Page = () => {
   return (
@@ -14,7 +20,7 @@ const Page = () => {
 
         <div className="absolute inset-0 flex flex-row items-center justify-center">
           <nav className='flex flex-row gap-10'>
-            <BackButton classes="btn-xl"/>
+            <BackButton classes="btn-xl shadow-xl/50"/>
             <Link href='/' className='btn btn-outline btn-xl shadow-xl/50'>
               Home
             </Link>
