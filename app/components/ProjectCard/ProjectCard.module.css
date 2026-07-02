@@ -1,5 +1,44 @@
-.image {
-    width: auto;
-    height: auto;
-    
+:root {
+    --back: #5da780;
+    --txtcol: #232323;
+    --back-transparent: #d6e9dfcf;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --back: #292253;
+    --txtcol: #ced0cf;
+    --back-transparent: #000000c2;
+  }
+}
+
+
+.cardDiv {
+    display: none;
+}
+
+.container {
+    transition: transform 0.5s;
+}
+
+.container:hover  {
+    transform: translateY(-5%);
+}
+
+.container:hover .cardDiv {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--back-transparent);
+}
+
+.container:hover .cardImg {
+    filter: blur(5px);
+}
+
+.title {
+    color: var(--txtcol);
 }

@@ -2,9 +2,9 @@
 @plugin "daisyui";
 
 :root {
-  --background: #419f73;
+  --background: #7dc9a6;
   --foreground: #1d1d1d;
-  --mat-lines: #cacaca;
+  --mat-lines: #7a8699;
 }
 
 @theme inline {
@@ -17,7 +17,6 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1A1921;
-    /* --background: #000; */
     --foreground: #cacaca;
     --mat-lines: #a4a4a4;
   }

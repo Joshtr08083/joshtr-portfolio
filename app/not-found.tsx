@@ -14,7 +14,7 @@ const Page = () => {
 
         <div className="absolute inset-0 flex flex-row items-center justify-center">
           <nav className='flex flex-row gap-10'>
-            <BackButton />
+            <BackButton classes="btn-xl"/>
             <Link href='/' className='btn btn-outline btn-xl shadow-xl/50'>
               Home
             </Link>

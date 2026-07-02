@@ -13,7 +13,7 @@ const Page = () => {
       <div className="relative w-full h-screen">
         <h1
           className="absolute top-0 left-1/2 -translate-x-1/2 mt-18 text-6xl font-bold border-solid border-b-2 pe-10 ps-10 pb-2"
-          style={{ textShadow: "20px 20px 5px #00000060" }}
+          style={{ textShadow: "12px 12px 8px #00000060" }}
         >
           JOSHTR
         </h1>
