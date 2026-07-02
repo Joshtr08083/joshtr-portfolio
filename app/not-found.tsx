@@ -1,0 +1,27 @@
+import React from 'react'
+import Link from 'next/link'
+import BackButton from './components/Buttons/BackButton'
+
+const Page = () => {
+  return (
+    <>
+        <h1
+          className="absolute top-0 left-1/2 -translate-x-1/2 mt-18 text-6xl font-bold border-solid border-b-2 pe-10 ps-10 pb-2"
+          style={{ textShadow: "20px 20px 5px #00000060" }}
+        >
+          404 Page Not Found
+        </h1>
+
+        <div className="absolute inset-0 flex flex-row items-center justify-center">
+          <nav className='flex flex-row gap-10'>
+            <BackButton />
+            <Link href='/' className='btn btn-outline btn-xl shadow-xl/50'>
+              Home
+            </Link>
+          </nav>
+        </div>
+    </>
+  )
+}
+
+export default Page
