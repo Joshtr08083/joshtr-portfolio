@@ -1,0 +1,18 @@
+:root {
+    --back-transparent: #d6e9df90;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --back-transparent: #00000090;
+  }
+}
+
+.bannerCover {
+    background-color: var(--back-transparent);
+    z-index: 10;
+}
+
+.bannerImg {
+    filter: blur(6px);
+}

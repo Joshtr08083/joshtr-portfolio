@@ -1,14 +1,16 @@
-import React from 'react'
 import ProjectCard from '../components/ProjectCard/ProjectCard'
 import ServerError from '../components/Error/ServerError';
+import { getAllProjects } from '@/app/api/actions';
+import Title from '../components/Title/Title';
 
-interface Project {
-  id: number;
+
+export interface Project {
+  id: string;
   title: string;
   description: string;
   img_url: string;
-  x: number;
-  y: number;
+  img_x: number;
+  img_y: number;
 }
 
 const ViewProjects = async () => {
@@ -17,11 +19,8 @@ const ViewProjects = async () => {
   let projects: Project[] | null = null;
   let error : string = "";
   try{
-    res = await fetch('http://localhost:4000/projects');
-
-    if (res) {
-      projects = await res.json();
-    }
+    res = await getAllProjects();
+    projects = res as Project[];
   }
   catch (err) {
     console.error("JSON fetch failed:\n", err);
@@ -32,13 +31,7 @@ const ViewProjects = async () => {
 
   return (
     <>
-      <h1
-          className="mx-auto mt-24 text-6xl font-bold border-solid border-b-2 pe-10 ps-10 pb-2"
-          style={{ textShadow: "12px 12px 8px #00000060" }}
-        >
-          View Projects
-        </h1>
-      <div className="pb-2" />
+      <Title title={"View Projects"} fromTop={18} size={6} bottomLine textShadow />
       {
       projects? 
       (
@@ -47,14 +40,15 @@ const ViewProjects = async () => {
             {projects.map(project => 
               <li key={project.id}>
                 <ProjectCard 
-                  x={project.x}
-                  y={project.y} 
+                  img_x={project.img_x}
+                  img_y={project.img_y} 
                   id={project.id} 
                   title={project.title} 
                   description={project.description} 
                   img_url={project.img_url} 
                 />
-              </li>)}
+              </li>
+            )}
           </ul>
         </main> 
       ): 

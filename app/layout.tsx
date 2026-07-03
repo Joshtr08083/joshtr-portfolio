@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Background from "./components/Background/Background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,17 +33,10 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       
-      <body>
-        <div className="cuttingMatBack">
-          <div className="cuttingMatGrid cuttingMatLine"></div>
-          <div className="cuttingMatAngleLine cuttingMatLine" style={{'--angle': '30deg'} as React.CSSProperties}></div>
-          <div className="cuttingMatAngleLine cuttingMatLine" style={{'--angle': '60deg'} as React.CSSProperties}></div>
-          <div className="cuttingMatAngleLine cuttingMatLine" style={{'--angle': '45deg'} as React.CSSProperties}></div>
-          <div className="cuttingMatCircle cuttingMatLine"></div>
-
-          <div className="childrenContent">
-            {children}
-          </div>
+      <body className="rootBody">
+        <Background />
+        <div className="childrenContent">
+          {children}
         </div>
       </body>
     </html>
