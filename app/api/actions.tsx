@@ -11,7 +11,7 @@ export async function getAllProjects() {
 
 export async function getProjectData(projectId : string) {
     const row = db
-        .prepare("SELECT title, page_data FROM projects WHERE id = ?")
+        .prepare("SELECT title, description, page_data FROM projects WHERE id = ?")
         .get(projectId);
     return row
 }
