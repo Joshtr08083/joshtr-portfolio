@@ -27,11 +27,6 @@ const Page = () => {
           </nav>
         </div>
 
-        <div className="flex flex-col">
-          <div className="pb-96"></div>
-          <div className="pb-96"></div>
-          <div className="pb-96"></div>
-        </div>
     </>
   )
 }

@@ -6,20 +6,23 @@ interface Props {
     fromTop: number;
     bottomLine?: boolean;
     textShadow?: boolean;
-    size: number;
     extras?: string | null;
 }
 
-const Title = ( {title, fromTop, bottomLine = false, size, extras = null, textShadow = false} : Props) => {
+
+const Title = ( {title, fromTop, bottomLine = false, extras = null, textShadow = false} : Props) => {
   return (
     <h1 
         className={
-            `text-${size}xl 
+            `text-4xl 
+            md:text-6xl
             font-bold 
-            mx-auto 
             mt-${fromTop} 
             pb-2 
-            ${bottomLine? 'border-solid md:border-b-2 md:px-10' : ""} 
+            mx-10 md:mx-auto
+            px-0
+            lg:px-10
+            ${bottomLine? 'border-solid border-b-2' : ""} 
             ${extras? extras : ""}
             text-center
         `}

@@ -65,7 +65,7 @@ const projectPage = async ( { params } : Props) => {
       {
         projectData? 
         (
-          <Title title={title} fromTop={18} size={6} bottomLine textShadow />
+          <Title title={title} fromTop={18} bottomLine textShadow />
         ):
         (
           <ServerError error={error} />

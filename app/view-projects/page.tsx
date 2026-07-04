@@ -31,7 +31,7 @@ const ViewProjects = async () => {
 
   return (
     <>
-      <Title title={"View Projects"} fromTop={18} size={6} bottomLine textShadow />
+      <Title title={"View Projects"} fromTop={18} bottomLine textShadow />
       {
       projects? 
       (
