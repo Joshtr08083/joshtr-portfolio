@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
-    <div className="flex w-full flex-col justify-start gap-20">
-        <BackButton classes={"absolute top-4 left-4 px-6 shadow-xl/50"}/>
+    <div className="flex w-full flex-col justify-start">
+        <BackButton nav classes={"absolute shadow-xl/50"} url={"/"}/>
         {children}
     </div>
   );

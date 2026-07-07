@@ -35,7 +35,7 @@ const ViewProjects = async () => {
       {
       projects? 
       (
-        <main className="pb-48 w-full flex">
+        <main className="pb-48 w-full flex mt-20">
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-24 m-auto">
             {projects.map(project => 
               <li key={project.id}>

@@ -1,8 +1,9 @@
 import { getProjectData} from '@/app/api/actions';
 import ServerError from '@/app/components/Error/ServerError';
-import Image from 'next/image';
 import styles from "./project.module.css";
 import Title from '@/app/components/Title/Title';
+import ModuleRenderer from '@/app/components/PageModules/ModuleRenderer';
+import { Module } from '@/app/components/PageModules/ModuleRenderer';
 import type { Metadata } from "next";
 
 
@@ -16,7 +17,6 @@ interface Props {
 export async function generateMetadata({ params } : Props): Promise<Metadata> {
   const resParams = await params;
 
-  let projectData
   try {
     const res = await getProjectData(resParams.id) ?? JSON.parse("{}");
     
@@ -43,17 +43,14 @@ const projectPage = async ( { params } : Props) => {
   
   const resParams = await params;
 
-  let projectData;
+  let page_data;
   let title;
   
   let error : string = "";
   try{
     const res = await getProjectData(resParams.id) ?? JSON.parse("{}");
-    projectData = JSON.parse(res["page_data"]);
+    page_data = JSON.parse(res["page_data"]);
     title = res["title"];
-    if (projectData == null) {
-      error = "Project Data is null"
-    }
   }
   catch (err) {
     console.error("JSON fetch failed:\n", err);
@@ -63,9 +60,20 @@ const projectPage = async ( { params } : Props) => {
   return (
     <>
       {
-        projectData? 
+        (page_data && title)? 
         (
-          <Title title={title} fromTop={18} bottomLine textShadow />
+          <>
+            <Title title={title} fromTop={18} bottomLine textShadow />
+            <div className={`${styles.moduleContainer} w-xs sm:w-xl md:w-2xl xl:w-5xl`}>
+                {
+                  page_data.modules.map(
+                    (module:Module, i:number) => (
+                      <ModuleRenderer key={i} module={module} />
+                    )
+                  )
+                }
+            </div>
+          </>
         ):
         (
           <ServerError error={error} />

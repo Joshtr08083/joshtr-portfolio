@@ -1,10 +1,12 @@
 :root {
     --back-transparent: #d6e9df90;
+    --mod-background: #a1a1a1;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --back-transparent: #00000090;
+    --mod-background: #2f2962;
   }
 }
 
@@ -15,4 +17,11 @@
 
 .bannerImg {
     filter: blur(6px);
+}
+
+.moduleContainer {
+  margin: auto;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
 }

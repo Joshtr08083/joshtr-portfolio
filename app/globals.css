@@ -35,58 +35,8 @@
   justify-content: start;
   gap: 20;
   width: 100%;
-  min-width: none;height: 100vh;
+  min-width: none;
+  min-height: 100vh;
   display: flex;
   z-index: 1;
 }
-
-/* .cuttingMatBack {
-  inset: 0;
-  background-color: var(--background);
-  z-index: 0;
-  display: flex;
-  flex-direction: row;
-  
-}
-
-.cuttingMatLine {
-    position: absolute;
-    opacity: 30%;
-}
-
-.cuttingMatGrid {
-  background-size: 30px 30px, 30px 30px;
-  background-position: -1px -1px, -1px -1px;
-  background-repeat: repeat, repeat;
-  background-image:
-    linear-gradient(to right, var(--mat-lines) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--mat-lines) 1px, transparent 1px);
-
-}
-
-.cuttingMatAngleLine {
-    min-width: 2px;
-    min-height: 10%;
-    background-color: var(--mat-lines);
-    left: 0;
-    bottom: 0;
-    transform-origin: bottom left;
-    transform: rotate(var(--angle));
-}
-
-
-.cuttingMatCircle {
-
-  background-color: transparent;
-  border-top: solid 2px var(--mat-lines);
-  border-right: solid 2px var(--mat-lines);
-  border-top-right-radius: 60vh;
-  width: 60vh;
-  height: 60vh;
-  overflow: hidden;
-  bottom: 0;
-  left: 0;
-}
-
-
- */

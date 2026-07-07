@@ -1,0 +1,19 @@
+.button {
+    border-radius: 100%;
+    display: flex;
+}
+
+.button::after {
+    content: "<";
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .button {
+        border-radius: 8px;
+    }
+
+    .button::after {
+        content: "Back"
+    }
+}

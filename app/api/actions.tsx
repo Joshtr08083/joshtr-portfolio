@@ -1,6 +1,7 @@
 "use server";
 
 import db from "@/lib/db"
+import {cache} from 'react';
 
 export async function getAllProjects() {
     const rows = db
@@ -9,9 +10,9 @@ export async function getAllProjects() {
     return rows
 }
 
-export async function getProjectData(projectId : string) {
+export const getProjectData = cache(async (projectId : string) => {
     const row = db
         .prepare("SELECT title, description, page_data FROM projects WHERE id = ?")
         .get(projectId);
     return row
-}
+});
