@@ -1,0 +1,5 @@
+.pre {
+    margin: 0 !important;
+    border-bottom-right-radius: var(--radius-2xl) !important; 
+    border-bottom-left-radius: var(--radius-2xl) !important; 
+}

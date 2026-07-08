@@ -43,7 +43,7 @@ const projectPage = async ( { params } : Props) => {
   
   const resParams = await params;
 
-  let page_data;
+  let page_data: any;
   let title;
   
   let error : string = "";
@@ -56,15 +56,37 @@ const projectPage = async ( { params } : Props) => {
     console.error("JSON fetch failed:\n", err);
     error = String(err);
   }
+  
+  const renderModules = () => {
+    try {
+        if (!page_data) {
+          throw new Error("page data is undefined")
+        }
+        const output = page_data["modules"].map(
+          (module:Module, i:number) => (
+            <ModuleRenderer key={i} module={module} />
+          )
+        )
+        return output
+    } catch (err) {
+      error += `[ Page Data ] ${err}`;
+      return undefined
+    }
+  }
+
+  let modules;
+  if (page_data) {
+     modules = renderModules();
+  }
 
   return (
     <>
       {
-        (page_data && title)? 
-        (
+        (page_data && title && modules)? 
+        ( 
           <>
             <Title title={title} fromTop={18} bottomLine textShadow />
-            <div className={`${styles.moduleContainer} w-xs sm:w-xl md:w-2xl xl:w-5xl`}>
+            <div className={`${styles.moduleContainer} w-full sm:w-xl md:w-2xl xl:w-5xl pb-15`}>
                 {
                   page_data.modules.map(
                     (module:Module, i:number) => (

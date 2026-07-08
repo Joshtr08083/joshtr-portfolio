@@ -1,33 +1,18 @@
 :root {
+    /* https://www.realtimecolors.com/?colors=18181B-7DC9A6-7071a9-c8DED3-6ad58c&fonts=Inter-Inter */
     --panel-color: #c8ded3;
     --divider-color: black;
+    --primary-color: #7071a9;
+    --opposite-text: rgb(255, 255, 255);
 }
 @media (prefers-color-scheme: dark) {
+    /* https://www.realtimecolors.com/?colors=ECF9FF-1A1921-b5c0c5-403A73-604fc3&fonts=Inter-Inter */
     :root {
         --panel-color: #403a73;
         --divider-color: white;
+        --primary-color: #b5c0c5;
+        --opposite-text: rgb(0, 0, 0);
     }
-}
-
-.imageContainerBack {
-    background-color: var(--bg);
-    width: 100%;
-    display: flex;
-    margin-top: calc(var(--spacing) * var(--mt));
-}
-
-.imageContainer {
-    margin: auto;
-    background-color: var(--background);
-    width: var(--w);
-    height: 100%;
-}
-
-.textContainer {
-    margin-top: calc(var(--spacing) * var(--mt));
-    padding-top: calc(var(--spacing) * var(--pt));
-    padding-bottom: calc(var(--spacing) * var(--pb));
-    background-color: var(--bg);
 }
 
 .divider {
@@ -38,3 +23,28 @@
     background-color: var(--bg);
     border-radius: 20%;
 }
+
+.dividerWithBack {
+    padding-top: calc(var(--spacing) * var(--pt));
+    padding-bottom: calc(var(--spacing) * var(--pb));
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+}
+
+.dividerWithBack::before {
+    content: "";
+    margin: auto;
+    height: calc(var(--h) * 1px);
+    width: calc(var(--w) * 1%);
+    background-color: var(--color)
+}
+
+.codeHeader {
+    width: 100%;
+    background-color: var(--primary-color);
+    padding-block: 15px;
+    padding-inline: 10px;
+    color: var(--opposite-text);
+}
+

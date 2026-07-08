@@ -35,8 +35,6 @@
   justify-content: start;
   gap: 20;
   width: 100%;
-  min-width: none;
   min-height: 100vh;
-  display: flex;
   z-index: 1;
 }

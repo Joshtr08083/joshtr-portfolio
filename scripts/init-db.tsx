@@ -23,4 +23,12 @@ const update = db.prepare(`
   SET page_data = ? 
   WHERE id = ?
 `);
-const result = update.run(raspberrypiData, 'pi-controller')
+update.run(raspberrypiData, 'pi-controller')
+
+const robotArmData = fs.readFileSync(path.join(process.cwd(), "data", "robot-arm.json"), 'utf-8');
+JSON.parse(robotArmData);
+update.run(robotArmData, 'robot-arm')
+
+const LoremIpsumData = fs.readFileSync(path.join(process.cwd(), "data", "lorem-ipsum.json"), 'utf-8');
+JSON.parse(LoremIpsumData);
+update.run(LoremIpsumData, 'lorem-ipsum')

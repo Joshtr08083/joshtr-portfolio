@@ -1,31 +1,28 @@
-import styles from "./PageModules.module.css"
-
 export interface TextProps {
     type: string;
-    content: string;
-    roundedTop?: boolean;
-    roundedBottom?: boolean;
-    marginTop?: number;
-    paddingTop?: number;
-    paddingBottom?: number;
-    backgroundColor?: string;
+    content: string; // (required) the actual text
+    roundedTop?: boolean; // (opt) bevel the background top
+    roundedBottom?: boolean; // (opt) bevel the background bottoom
+    marginTop?: number; // (opt) distance above the text
+    paddingTop?: number; // (opt) background extends above the text
+    paddingBottom?: number; // (opt) background extends below the text
+    backgroundColor?: string; // (opt) color of the background
 }
 
-const TextModule = ({content, roundedTop, roundedBottom, marginTop = 0, paddingTop = 4, paddingBottom = 4, backgroundColor = "var(--panel-color)"} : TextProps) => {
+const TextModule = ({content, roundedTop = false, roundedBottom = false, marginTop = 0, paddingTop = 4, paddingBottom = 4, backgroundColor = "var(--panel-color)"} : TextProps) => {
   return (
     <p 
         className={`
-                    ${styles.textContainer} 
                     ${roundedBottom? "rounded-b-2xl": ""} 
                     ${roundedTop? "rounded-t-2xl": ""}
                     px-6
                     `} 
-        style={{
-                '--mt': marginTop,
-                '--pt': paddingTop,
-                '--pb': paddingBottom,
-                '--bg': backgroundColor
-                } as React.CSSProperties}
+        style = {{
+          marginTop: `calc(var(--spacing) * ${marginTop})`,
+          paddingTop: `calc(var(--spacing) * ${paddingTop})`,
+          paddingBottom: `calc(var(--spacing) * ${paddingBottom})`,
+          backgroundColor: backgroundColor
+        }}
     >
         {content}
     </p>
