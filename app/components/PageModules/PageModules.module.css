@@ -4,6 +4,12 @@
     --divider-color: black;
     --primary-color: #7071a9;
     --opposite-text: rgb(255, 255, 255);
+
+    --note-header: #454545;
+    --note-normal: #f4f4f4;
+    --note-warning: #dddaa6;
+    --note-critical: #dda6a6;
+    --note-tip: #b5dda6;
 }
 @media (prefers-color-scheme: dark) {
     /* https://www.realtimecolors.com/?colors=ECF9FF-1A1921-b5c0c5-403A73-604fc3&fonts=Inter-Inter */
@@ -12,6 +18,12 @@
         --divider-color: white;
         --primary-color: #b5c0c5;
         --opposite-text: rgb(0, 0, 0);
+
+        --note-header: #b0b0b0;
+        --note-normal: #26252d;
+        --note-warning: hsl(49, 70%, 25%);
+        --note-critical: hsl(0, 50%, 25%);;
+        --note-tip: hsl(91, 50%, 25%);;
     }
 }
 
