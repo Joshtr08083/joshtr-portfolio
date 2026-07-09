@@ -17,7 +17,7 @@ export interface NoteProps {
 }
 
 const noteHeaderText = {
-    "normal": "🛈 NOTE",
+    "normal": "ⓘ NOTE",
     "warning": "▲ WARNING",
     "critical": "⚠  CRITICAL",
     "tip": "✮ TIP"
