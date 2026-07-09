@@ -1,27 +1,17 @@
 export interface TextProps {
     type: string;
     content: string; // (required) the actual text
-    roundedTop?: boolean; // (opt) bevel the background top
-    roundedBottom?: boolean; // (opt) bevel the background bottoom
-    marginTop?: number; // (opt) distance above the text
-    paddingTop?: number; // (opt) background extends above the text
-    paddingBottom?: number; // (opt) background extends below the text
-    backgroundColor?: string; // (opt) color of the background
+    paddingInline?: number // (opt) L/R padding
+    paddingBlock?: number // (opt) T/B padding
 }
 
-const TextModule = ({content, roundedTop = false, roundedBottom = false, marginTop = 0, paddingTop = 4, paddingBottom = 4, backgroundColor = "var(--panel-color)"} : TextProps) => {
+const TextModule = ({content, paddingInline = 6, paddingBlock = 0} : TextProps) => {
+
   return (
     <p 
-        className={`
-                    ${roundedBottom? "rounded-b-2xl": ""} 
-                    ${roundedTop? "rounded-t-2xl": ""}
-                    px-6
-                    `} 
         style = {{
-          marginTop: `calc(var(--spacing) * ${marginTop})`,
-          paddingTop: `calc(var(--spacing) * ${paddingTop})`,
-          paddingBottom: `calc(var(--spacing) * ${paddingBottom})`,
-          backgroundColor: backgroundColor
+          paddingInline: `calc(var(--spacing) * ${paddingInline})`,
+          paddingBlock: `calc(var(--spacing) * ${paddingBlock})`
         }}
     >
         {content}

@@ -7,41 +7,24 @@ export interface ImageProps {
     title: string; // (required) title text of the image
     height: number; // (required) height of the image
     width?: number; // (opt) width of the image, defaults to 100%
-    roundedTop?: boolean; // (opt) bevels the top part of the image
-    roundedBottom?: boolean; // (opt) bevels the bottom part of the image
-    marginTop?: number; // (opt) distance above the image
-    paddingTop?: number; // (opt) background extends above image
-    paddingBottom?: number; // (opt) background extends below image
-    showBack?: boolean; // (opt) show background
-    backgroundColor?: string; // (opt) color of background
-    roundedBackgroundBottom?: boolean; // (opt) bevel the bottom of the background, not the image
-    loading?: "lazy" | "eager"; // (opt) lazy load vs eager load
+    loading?: "lazy" | "eager"; // (opt) lazy load vs eager load,
+    border?: boolean;
+    rounded?: boolean;
 
 }
 
-const ImageModule = ({ url, alt, title, height, width = 100, marginTop = 0, roundedTop = false, roundedBottom = false, showBack, backgroundColor="var(--panel-color)", loading="lazy", paddingTop=0, paddingBottom=0, roundedBackgroundBottom = false}: ImageProps) => {
+const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=true, rounded = true}: ImageProps) => {
   
   return (
-    <div className={`
-          w-full flex m-auto 
-          ${(roundedBackgroundBottom)? "rounded-b-2xl" : ""}`
-        }
-         style={{
-          marginTop: `calc(var(--spacing) * ${marginTop})`,
-          height: `${height}vh`,
-          backgroundColor: (showBack? backgroundColor : "transparent"),
-          paddingTop: `calc(var(--spacing) * ${paddingTop})`,
-          paddingBottom: `calc(var(--spacing) * ${paddingBottom})`
-          }}
-    >
       <div 
         className={`
-                    relative overflow-hidden border h-full m-auto
-                    ${roundedBottom? "rounded-b-2xl": ""} 
-                    ${roundedTop? "rounded-t-2xl": ""}
+                    relative overflow-hidden ${border? "border":""} m-auto ${rounded? "rounded-2xl": ""}
                   `}
 
-        style={{ width: `${width}%` }}
+        style={{
+          width: `${width}%`,
+          height: `${height}vh`
+        }}
       >
         <Image 
           src={url}
@@ -53,7 +36,6 @@ const ImageModule = ({ url, alt, title, height, width = 100, marginTop = 0, roun
           loading={loading}
         />
       </div>
-    </div>
   )
 }
 

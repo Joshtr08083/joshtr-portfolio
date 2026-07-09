@@ -27,31 +27,6 @@
     }
 }
 
-.divider {
-    margin-inline: auto;
-    margin-top: calc(var(--spacing) * var(--mt));
-    margin-bottom: calc(var(--spacing) * var(--mb));
-    color: transparent;
-    background-color: var(--bg);
-    border-radius: 20%;
-}
-
-.dividerWithBack {
-    padding-top: calc(var(--spacing) * var(--pt));
-    padding-bottom: calc(var(--spacing) * var(--pb));
-    display: flex;
-    flex-direction: column;
-    background-color: var(--bg);
-}
-
-.dividerWithBack::before {
-    content: "";
-    margin: auto;
-    height: calc(var(--h) * 1px);
-    width: calc(var(--w) * 1%);
-    background-color: var(--color)
-}
-
 .codeHeader {
     width: 100%;
     background-color: var(--primary-color);
