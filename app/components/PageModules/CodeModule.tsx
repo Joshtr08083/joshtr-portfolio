@@ -1,21 +1,15 @@
 import Code from "../Code/Code";
 import styles from "./PageModules.module.css"
+import { CodeProps } from "./types.d"
 
-export interface CodeProps {
-    type: string;
-    content: string; // (required) the code
-    language: string; // (required) language the code is written in
-    filename?: string | undefined; // (opt) name of the file the code is from, could be useful
-    width?: number; // (opt) with of the code block
-}
-
-const CodeModule = ({content, language, width = 100, filename=undefined} : CodeProps) => {
+const CodeModule = ({content, language, width = 100, filename=undefined, marginTop=0} : CodeProps) => {
   return (
     
     <div 
         className = "flex flex-col m-auto gap-0"
         style={{
-            width: `${width}%`
+            width: `${width}%`,
+            marginTop: `calc(var(--spacing) * ${marginTop})`
         }}
     >
         <span className={`${styles.codeHeader} rounded-t-2xl flex flex-row justify-between`}>

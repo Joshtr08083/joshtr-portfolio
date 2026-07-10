@@ -1,19 +1,7 @@
 import Image from "next/image"
+import { ImageProps } from "@/app/components/PageModules/types.d"
 
-export interface ImageProps {
-    type: string; 
-    url: string; // (required) url reference to the image
-    alt: string; // (required) alt text description
-    title: string; // (required) title text of the image
-    height: number; // (required) height of the image
-    width?: number; // (opt) width of the image, defaults to 100%
-    loading?: "lazy" | "eager"; // (opt) lazy load vs eager load,
-    border?: boolean;
-    rounded?: boolean;
-
-}
-
-const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=true, rounded = true}: ImageProps) => {
+const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=true, rounded = true, marginTop=0}: ImageProps) => {
   
   return (
       <div 
@@ -23,7 +11,8 @@ const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", bor
 
         style={{
           width: `${width}%`,
-          height: `${height}vh`
+          height: `${height}vh`,
+          marginTop: `calc(var(--spacing) * ${marginTop})`
         }}
       >
         <Image 

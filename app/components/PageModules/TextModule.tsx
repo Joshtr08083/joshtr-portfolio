@@ -1,13 +1,7 @@
 import Text from "@/app/components/Text/Text"
+import { TextProps } from "@/app/components/PageModules/types.d"
 
-export interface TextProps {
-    type: string;
-    content: string; // (required) the actual text
-    paddingInline?: number // (opt) L/R padding
-    paddingBlock?: number // (opt) T/B padding
-}
-
-const TextModule = ({content, paddingInline = 6, paddingBlock = 0} : TextProps) => {
+const TextModule = ({content, paddingInline = 6, paddingBlock = 0, marginTop=0} : TextProps) => {
 
   return (
     <Text components={{
@@ -15,7 +9,8 @@ const TextModule = ({content, paddingInline = 6, paddingBlock = 0} : TextProps) 
           <p
             style = {{
               paddingInline: `calc(var(--spacing) * ${paddingInline})`,
-              paddingBlock: `calc(var(--spacing) * ${paddingBlock})`
+              paddingBlock: `calc(var(--spacing) * ${paddingBlock})`,
+              marginTop: `calc(var(--spacing) * ${marginTop})`
             }}
           >
             {children}

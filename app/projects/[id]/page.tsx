@@ -2,10 +2,8 @@ import { getProjectData} from '@/app/api/actions';
 import ServerError from '@/app/components/Error/ServerError';
 import styles from "./project.module.css";
 import Title from '@/app/components/Title/Title';
-import ModuleRenderer from '@/app/components/PageModules/ModuleRenderer';
-import { Module } from '@/app/components/PageModules/ModuleRenderer';
 import type { Metadata } from "next";
-
+import PageRender from '@/app/components/PageRender/PageRender'
 
 
 
@@ -57,44 +55,17 @@ const projectPage = async ( { params } : Props) => {
     error = String(err);
   }
   
-  const renderModules = () => {
-    try {
-        if (!page_data) {
-          throw new Error("page data is undefined")
-        }
-        const output = page_data["modules"].map(
-          (module:Module, i:number) => (
-            <ModuleRenderer key={i} module={module} />
-          )
-        )
-        return output
-    } catch (err) {
-      error += `[ Page Data ] ${err}`;
-      return undefined
-    }
-  }
-
-  let modules;
-  if (page_data) {
-     modules = renderModules();
-  }
 
   return (
     <>
       {
-        (page_data && title && modules)? 
+        (page_data && title)? 
         ( 
           <>
             <Title title={title} fromTop={18} bottomLine textShadow />
-            <div className={`${styles.moduleContainer} w-full sm:w-xl md:w-2xl xl:w-5xl pb-15`}>
-                {
-                  page_data.modules.map(
-                    (module:Module, i:number) => (
-                      <ModuleRenderer key={i} module={module} />
-                    )
-                  )
-                }
-            </div>
+            <main className={`${styles.moduleContainer} w-full sm:w-xl md:w-2xl xl:w-5xl pb-15`}>
+                <PageRender data={page_data["modules"]} />
+            </main>
           </>
         ):
         (
