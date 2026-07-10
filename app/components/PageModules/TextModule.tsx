@@ -1,3 +1,5 @@
+import Text from "@/app/components/Text/Text"
+
 export interface TextProps {
     type: string;
     content: string; // (required) the actual text
@@ -8,14 +10,20 @@ export interface TextProps {
 const TextModule = ({content, paddingInline = 6, paddingBlock = 0} : TextProps) => {
 
   return (
-    <p 
-        style = {{
-          paddingInline: `calc(var(--spacing) * ${paddingInline})`,
-          paddingBlock: `calc(var(--spacing) * ${paddingBlock})`
-        }}
-    >
-        {content}
-    </p>
+    <Text components={{
+        p: ({children}) => (
+          <p
+            style = {{
+              paddingInline: `calc(var(--spacing) * ${paddingInline})`,
+              paddingBlock: `calc(var(--spacing) * ${paddingBlock})`
+            }}
+          >
+            {children}
+          </p>
+        )
+      }} 
+      content={content}
+    />
   )
 }
 

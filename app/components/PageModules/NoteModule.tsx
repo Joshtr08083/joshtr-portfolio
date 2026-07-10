@@ -1,3 +1,5 @@
+import Text from "@/app/components/Text/Text";
+
 export interface NoteProps {
     type: string;
     content: string; // (required) the actual text
@@ -16,26 +18,52 @@ const noteHeaderText = {
 
 const NoteModule = ({content, level, paddingBlock = 5, paddingInline=5, width=100} : NoteProps) => {
   return (
-    <aside
-        className={`
-            mx-auto
-            rounded-2xl
-            flex
-            flex-col
-            gap-2
-            inset-shadow-xs/50
-            dark:inset-shadow-xs/100
-        `}
-        style={{
-            backgroundColor: `var(--note-${level})`,
-            paddingBlock: `calc(var(--spacing) * ${paddingBlock})`,
-            paddingInline: `calc(var(--spacing) * ${paddingInline})`,
-            width: `${width}%`
+    <Text 
+        components={{
+            p: ({node, children}) => (
+                <aside
+                    className={`
+                        mx-auto
+                        rounded-2xl
+                        flex
+                        flex-col
+                        gap-2
+                        inset-shadow-xs/50
+                        dark:inset-shadow-xs/100
+                    `}
+                    style={{
+                        backgroundColor: `var(--note-${level})`,
+                        paddingBlock: `calc(var(--spacing) * ${paddingBlock})`,
+                        paddingInline: `calc(var(--spacing) * ${paddingInline})`,
+                        width: `${width}%`
+                    }}
+                >
+                    {children}
+                </aside>
+            )
         }}
-    >
-        <span className="text-xs" style={{color: "var(--note-header)"}}>{noteHeaderText[level].toUpperCase()}</span>
-        {content}
-    </aside>
+        content={content}
+    />
+    // <aside
+        // className={`
+        //     mx-auto
+        //     rounded-2xl
+        //     flex
+        //     flex-col
+        //     gap-2
+        //     inset-shadow-xs/50
+        //     dark:inset-shadow-xs/100
+        // `}
+        // style={{
+        //     backgroundColor: `var(--note-${level})`,
+        //     paddingBlock: `calc(var(--spacing) * ${paddingBlock})`,
+        //     paddingInline: `calc(var(--spacing) * ${paddingInline})`,
+        //     width: `${width}%`
+        // }}
+    // >
+    //     <span className="text-xs" style={{color: "var(--note-header)"}}>{noteHeaderText[level].toUpperCase()}</span>
+    //     {content}
+    // </aside>
   )
 }
 
