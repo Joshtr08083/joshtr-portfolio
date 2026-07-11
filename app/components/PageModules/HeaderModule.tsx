@@ -9,7 +9,7 @@ const alignMap = {
     "right": "justify-end"
 }
 
-const HeaderModule = ({content, level, align="left", size=3, paddingInline=6, marginTop=0} : HeaderProps) => {
+const HeaderModule = ({content, level, align="left", size=3, paddingInline=6, marginTop=0, id=undefined} : HeaderProps) => {
     const HeaderTag = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
     
     return (
@@ -23,6 +23,7 @@ const HeaderModule = ({content, level, align="left", size=3, paddingInline=6, ma
                     paddingInline: `calc(var(--spacing) * ${paddingInline})`,
                     marginTop: `calc(var(--spacing) * ${marginTop})`
                 }}
+                id = {id}
             >
                 {content}
             </HeaderTag>

@@ -12,9 +12,9 @@
     --note-tip: #b5dda6;
 }
 @media (prefers-color-scheme: dark) {
-    /* https://www.realtimecolors.com/?colors=ECF9FF-1A1921-b5c0c5-403A73-604fc3&fonts=Inter-Inter */
+    /* https://www.realtimecolors.com/?colors=ECF9FF-1A1921-b5c0c5-3a5473-c79765&fonts=Inter-Inter */
     :root {
-        --panel-color: #403a73;
+        --panel-color: #3a5473;
         --divider-color: white;
         --primary-color: #b5c0c5;
         --opposite-text: rgb(0, 0, 0);

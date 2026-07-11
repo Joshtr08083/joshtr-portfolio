@@ -48,6 +48,7 @@ export interface HeaderProps extends PositionProps{
     align?: "left" | "center" | "right" // (opt) text alignment
     paddingInline?: number; // (opt)  shifts text away from border
     size?: number; // (opt) font size of header
+    id?: string; // (opt) id allows you to jump to the page content
 }
 
 export interface NoteProps extends PositionProps {
@@ -56,7 +57,7 @@ export interface NoteProps extends PositionProps {
     level: "normal" | "warning" | "critical" | "tip"; // (required) importance level of the note
     paddingBlock?: number; // (opt) padding of the note block around the content
     paddingInline?: number; // (opt) padding inline of the not block
-    width?: number;
+    width?: number; 
 }
 
 export interface SectionProps extends PositionProps {
@@ -68,4 +69,12 @@ export interface SectionProps extends PositionProps {
     marginTop?: number;
     backgroundColor?: string;
     showBack?: boolean;
+}
+
+export interface ListProps extends PositionProps {
+    type: string;
+    items: Array<string>
+    ordered?: boolean
+    paddingInline?: number
+    paddingBlock?: number
 }

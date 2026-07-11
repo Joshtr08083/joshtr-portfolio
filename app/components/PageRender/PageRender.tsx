@@ -1,4 +1,4 @@
-import { TextProps, ImageProps, DividerProps, CodeProps, HeaderProps, NoteProps, SectionProps } from "@/app/components/PageModules/types.d"
+import { TextProps, ImageProps, DividerProps, CodeProps, HeaderProps, NoteProps, SectionProps, ListProps } from "@/app/components/PageModules/types.d"
 
 import ImageModule from "@/app/components/PageModules/ImageModule"
 import TextModule from "@/app/components/PageModules/TextModule"
@@ -9,8 +9,9 @@ import NoteModule from "@/app/components/PageModules/NoteModule"
 import SectionModule from "../PageModules/SectionModule"
 
 import ServerError from "../Error/ServerError"
+import ListModule from "../PageModules/ListModule"
 
-export type Module = (ImageProps | TextProps | DividerProps | CodeProps | HeaderProps | NoteProps | SectionProps)
+export type Module = (ImageProps | TextProps | DividerProps | CodeProps | HeaderProps | NoteProps | SectionProps | ListProps)
 
 interface Props {
     data: any
@@ -34,6 +35,8 @@ const PageRender = ( {data } : Props) => {
                 return <NoteModule key={key} {...module as NoteProps} />
             case "section":
                 return <SectionModule key={key} {...module as SectionProps} />
+            case "list":
+                return <ListModule key={key} {...module as ListProps} />
             default: 
                 return null
         }
@@ -44,6 +47,7 @@ const PageRender = ( {data } : Props) => {
             const output: Array<React.ReactNode> = data.map(
                 (module:Module, i:number) => get_module(i, module)
             )
+            
             return output
         } catch (err) {
             error += `Error rendering modules: ${err}`;

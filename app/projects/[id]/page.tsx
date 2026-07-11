@@ -5,9 +5,6 @@ import Title from '@/app/components/Title/Title';
 import type { Metadata } from "next";
 import PageRender from '@/app/components/PageRender/PageRender'
 
-
-
-
 interface Props {
     params: Promise<{ id: string }>;
 }
