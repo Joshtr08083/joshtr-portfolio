@@ -44,6 +44,7 @@ const markupRegex = [
   }
 ]
 
+
 const splitRegex = /(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|\<.*?\>\(.*?\)|\{.*?\}\(.*?\)|\|.*?\|\(.*?\)|\_.*?\_)/;
 
 const parseMarkup = (text:string) => {
@@ -53,7 +54,7 @@ const parseMarkup = (text:string) => {
 
       const match = part.match(regex)
       if (match) {
-        return component(match, index)
+        return component(match, index);
       }
     }
     return part

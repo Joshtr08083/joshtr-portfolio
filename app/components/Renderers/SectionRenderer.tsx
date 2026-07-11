@@ -1,8 +1,7 @@
-import Text from "@/app/components/Text/Text"
-import PageRender from "../PageRender/PageRender";
+import { renderModules } from "@/app/components/Renderers/ModuleRenderer"
 import { SectionProps } from "./types.d";
 
-const SectionModule = ({module_data, paddingTop=10, paddingBottom=10, rounded=true, marginTop=0, backgroundColor="var(--panel-color)", showBack=true} : SectionProps) => {
+const SectionRenderer = ({module_data, paddingTop=10, paddingBottom=10, rounded=true, marginTop=0, backgroundColor="var(--panel-color)", showBack=true} : SectionProps) => {
 
   return (
     <section 
@@ -17,9 +16,9 @@ const SectionModule = ({module_data, paddingTop=10, paddingBottom=10, rounded=tr
             paddingBottom: `calc(var(--spacing) * ${paddingBottom})`,
         }}    
     >
-        <PageRender data={module_data} />
+        {renderModules(module_data)}
     </section>
   )
 }
 
-export default SectionModule
+export default SectionRenderer

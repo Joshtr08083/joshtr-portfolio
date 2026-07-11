@@ -1,4 +1,4 @@
-interface PositionProps {
+export interface PositionProps {
     marginTop?: number
 }
 
@@ -60,21 +60,16 @@ export interface NoteProps extends PositionProps {
     width?: number; 
 }
 
-export interface SectionProps extends PositionProps {
-    type: string;
-    module_data: any;
-    paddingTop?: number;
-    paddingBottom?: number;
-    rounded?: boolean;
-    marginTop?: number;
-    backgroundColor?: string;
-    showBack?: boolean;
-}
-
 export interface ListProps extends PositionProps {
     type: string;
     items: Array<string>
     ordered?: boolean
     paddingInline?: number
     paddingBlock?: number
+}
+
+export interface GridProps extends PositionProps {
+    type: string;
+    children: Array<Object>;
+    columns: number;
 }
