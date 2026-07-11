@@ -20,40 +20,40 @@ const markupRegex = [
   },
   {
     regex: /^\*(.*?)\*$/, component: 
-    (match: RegExpMatchArray) => <em>{match[1]}</em>
+    (match: RegExpMatchArray, key:number) => <em key={key}>{match[1]}</em>
   },
   {
     regex: /^\{([^\}]+)\}\(([^)]+)\)$/,
-    component: (match: RegExpMatchArray) => <Link className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]}>{match[1]}</Link>
+    component: (match: RegExpMatchArray, key:number) => <Link key={key} className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]}>{match[1]}</Link>
   },
   {
     regex: /^\<([^\>]+)\>\(([^)]+)\)$/, 
-    component: (match: RegExpMatchArray) => <span style={{color: match[2]}}>{match[1]}</span>
+    component: (match: RegExpMatchArray, key:number) => <span key={key} style={{color: match[2]}}>{match[1]}</span>
   },
   {
     regex: /^\[([^\}]+)\]\(([^)]+)\)$/,
-    component: (match: RegExpMatchArray) => <a className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]} target="_blank" rel="noopener noreferrer">{match[1]}</a>
+    component: (match: RegExpMatchArray, key:number) => <a key={key} className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]} target="_blank" rel="noopener noreferrer">{match[1]}</a>
   },
   {
     regex: /^\|([^\|]+)\|\(([^)]+)\)$/,
-    component: (match: RegExpMatchArray) => <a className="text-gray-950 hover:text-gray-600 dark:text-gray-50 dark:hover:text-gray-400" href={match[2]}>{match[1]}</a>
+    component: (match: RegExpMatchArray, key:number) => <a key={key} className="text-gray-950 hover:text-gray-600 dark:text-gray-50 dark:hover:text-gray-400" href={match[2]}>{match[1]}</a>
   },
   {
     regex: /^\_(.*?)\_$/, 
-    component: (match: RegExpMatchArray) => <span className="underline">{match[1]}</span>
+    component: (match: RegExpMatchArray, key:number) => <span key={key} className="underline">{match[1]}</span>
   }
 ]
 
 const splitRegex = /(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|\<.*?\>\(.*?\)|\{.*?\}\(.*?\)|\|.*?\|\(.*?\)|\_.*?\_)/;
 
 const parseMarkup = (text:string) => {
-  return text.split(splitRegex).map((part:string, index:number) => {
+  return text.split(splitRegex).map((part, index) => {
     for (const { regex, component } of markupRegex) {
       if (!part) { return null }
 
       const match = part.match(regex)
       if (match) {
-        return <span key={index}>{component(match, index)}</span>
+        return component(match, index)
       }
     }
     return part
