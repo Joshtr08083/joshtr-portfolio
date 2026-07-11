@@ -3,14 +3,45 @@ interface Props {
   content: string;
 }
 
+/* 
+Usage:
+  **BOLD**
+  *ITALICS*
+  _UNDERLINE_
+  <TEXT>(COLOR)
+  {TEXT}(INTERNAL PAGE URL)
+  [TEXT](EXTERNAL PAGE URL)
+  |TEXT|{SAME PAGE URL}
+*/
 const markupRegex = [
-  {regex: /^\*\*(.*?)\*\*$/, component: (match: RegExpMatchArray, key:number) => <strong key={key}>{match[1]}</strong>},                                                                                                            //bold **TEXT**
-  {regex: /^\*(.*?)\*$/, component: (match: RegExpMatchArray) => <em>{match[1]}</em>},                                                                                                                                              //italics *TEXT*,
-  {regex: /^\{([^\}]+)\}\(([^)]+)\)$/,component: (match: RegExpMatchArray) => <Link className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]}>{match[1]}</Link>}, // NextJS router link {TEXT}(URL)
-  {regex: /^\<([^\>]+)\>\(([^)]+)\)$/, component: (match: RegExpMatchArray) => <span style={{color: match[2]}}>{match[1]}</span>},                                                                                                  // color <TEXT>(color)
-  {regex: /^\[([^\}]+)\]\(([^)]+)\)$/,component: (match: RegExpMatchArray) => <a className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]}>{match[1]}</a>},       // link [TEXT](URL)
-  {regex: /^\|([^\|]+)\|\(([^)]+)\)$/,component: (match: RegExpMatchArray) => <a className="text-gray-950 hover:text-gray-600 dark:text-gray-50 dark:hover:text-gray-400" href={match[2]}>{match[1]}</a>},       // jump link |TEXT|(URL)
-  {regex: /^\_(.*?)\_$/, component: (match: RegExpMatchArray) => <span className="underline">{match[1]}</span>}                                                                                                                     // underline _TEXT_
+  {
+    regex: /^\*\*(.*?)\*\*$/, 
+    component: (match: RegExpMatchArray, key:number) => <strong key={key}>{match[1]}</strong>
+  },
+  {
+    regex: /^\*(.*?)\*$/, component: 
+    (match: RegExpMatchArray) => <em>{match[1]}</em>
+  },
+  {
+    regex: /^\{([^\}]+)\}\(([^)]+)\)$/,
+    component: (match: RegExpMatchArray) => <Link className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]}>{match[1]}</Link>
+  },
+  {
+    regex: /^\<([^\>]+)\>\(([^)]+)\)$/, 
+    component: (match: RegExpMatchArray) => <span style={{color: match[2]}}>{match[1]}</span>
+  },
+  {
+    regex: /^\[([^\}]+)\]\(([^)]+)\)$/,
+    component: (match: RegExpMatchArray) => <a className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]} target="_blank" rel="noopener noreferrer">{match[1]}</a>
+  },
+  {
+    regex: /^\|([^\|]+)\|\(([^)]+)\)$/,
+    component: (match: RegExpMatchArray) => <a className="text-gray-950 hover:text-gray-600 dark:text-gray-50 dark:hover:text-gray-400" href={match[2]}>{match[1]}</a>
+  },
+  {
+    regex: /^\_(.*?)\_$/, 
+    component: (match: RegExpMatchArray) => <span className="underline">{match[1]}</span>
+  }
 ]
 
 const splitRegex = /(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|\<.*?\>\(.*?\)|\{.*?\}\(.*?\)|\|.*?\|\(.*?\)|\_.*?\_)/;
