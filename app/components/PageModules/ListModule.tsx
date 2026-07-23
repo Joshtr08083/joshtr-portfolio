@@ -1,18 +1,18 @@
 import Text from "@/app/components/Text/Text"
 import { ListProps } from "./types.d"
 import { Content } from "next/font/google"
+import positionStyles from "./PositionStyles"
 
-const ListModule = ({items, paddingInline = 16, paddingBlock = 0, marginTop=0, ordered = true} : ListProps) => {
+const ListModule = ({items, paddingInline = 16, paddingBlock = 0, positioning=undefined, ordered = true} : ListProps) => {
     const ListTag = ordered? "ol" : "ul"
-  
+    
     return (
         <ListTag
-
             className={`${(ordered? "list-decimal" : "list-disc")}`}
             style={{
+                ...positionStyles({...positioning}),
                 paddingInline: `calc(var(--spacing) * ${paddingInline})`,
-                paddingBlock: `calc(var(--spacing) * ${paddingBlock})`,
-                marginTop: `calc(var(--spacing) * ${marginTop})`
+                paddingBlock: `calc(var(--spacing) * ${paddingBlock})`
             }}
         >
             {

@@ -3,7 +3,8 @@ import ServerError from '@/app/components/Error/ServerError';
 import styles from "./project.module.css";
 import Title from '@/app/components/Title/Title';
 import type { Metadata } from "next";
-import PageRenderer from '@/app/components/Renderers/PageRenderer'
+// import PageRenderer from '@/app/components/Renderers/PageRenderer'
+import { renderModules } from '@/app/components/Renderers/ModuleRenderer';
 
 interface Props {
     params: Promise<{ id: string }>;
@@ -61,7 +62,8 @@ const projectPage = async ( { params } : Props) => {
           <>
             <Title title={title} fromTop={18} bottomLine textShadow />
             <main className={`${styles.moduleContainer} w-full sm:w-xl md:w-2xl xl:w-5xl pb-15`}>
-                <PageRenderer data={page_data["modules"]} />
+                {/* <PageRenderer data={page_data["modules"]} /> */}
+                { renderModules(page_data["modules"])}
             </main>
           </>
         ):

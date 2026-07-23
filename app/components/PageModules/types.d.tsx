@@ -1,15 +1,20 @@
 export interface PositionProps {
-    marginTop?: number
+    marginTop?: number;
+    justify?: "start" | "end" | "center" | "auto"
 }
 
-export interface TextProps extends PositionProps {
+export interface Positioning {
+    positioning?: PositionProps
+}
+
+export interface TextProps extends Positioning {
     type: string;
     content: string; // (required) the actual text
     paddingInline?: number // (opt) L/R padding
     paddingBlock?: number // (opt) T/B padding
 }
 
-export interface ImageProps extends PositionProps {
+export interface ImageProps extends Positioning {
     type: string; 
     url: string; // (required) url reference to the image
     alt: string; // (required) alt text description
@@ -24,7 +29,7 @@ export interface ImageProps extends PositionProps {
 
 export interface DividerProps  {
     type: string;
-    top: number; // (required) the distance above the line (if background is omitted, it will be symmetrical)
+    top: number; // (required) the distance above the line (if bottom is omitted, it will be symmetrical)
     bottom?: number; // (opt) distance below the line
     width?: number;  // (opt) width of the line
     showLine?: boolean; // (opt) whether or not to show horizontal line
@@ -33,7 +38,7 @@ export interface DividerProps  {
 
 }
 
-export interface CodeProps extends PositionProps {
+export interface CodeProps extends Positioning {
     type: string;
     content: string; // (required) the code
     language: string; // (required) language the code is written in
@@ -41,7 +46,7 @@ export interface CodeProps extends PositionProps {
     width?: number; // (opt) with of the code block
 }
 
-export interface HeaderProps extends PositionProps{
+export interface HeaderProps extends Positioning{
     type: string;
     level: 1 | 2 | 3| 4 | 5 | 6; // (required) h1, h2, h3, etc.
     content: string; // (required) the actual text
@@ -51,7 +56,7 @@ export interface HeaderProps extends PositionProps{
     id?: string; // (opt) id allows you to jump to the page content
 }
 
-export interface NoteProps extends PositionProps {
+export interface NoteProps extends Positioning {
     type: string;
     content: string; // (required) the actual text
     level: "normal" | "warning" | "critical" | "tip"; // (required) importance level of the note
@@ -60,7 +65,7 @@ export interface NoteProps extends PositionProps {
     width?: number; 
 }
 
-export interface ListProps extends PositionProps {
+export interface ListProps extends Positioning {
     type: string;
     items: Array<string>
     ordered?: boolean
@@ -68,8 +73,37 @@ export interface ListProps extends PositionProps {
     paddingBlock?: number
 }
 
-export interface GridProps extends PositionProps {
+export interface SectionProps extends Positioning {
     type: string;
-    children: Array<Object>;
+    paddingTop?: number;
+    paddingBottom?: number;
+    rounded?: boolean;
+    backgroundColor?: string;
+    showBack?: boolean;
+    children: React.ReactNode;
+}
+export interface SectionModuleProps extends SectionProps {
+    elements: any;
+}
+
+export interface GridProps extends Positioning {
+    type: string;
     columns: number;
+    padding?: number;
+    rounded?: boolean;
+    backgroundColor?: string;
+    showBack?: boolean;
+    children: React.ReactNode;
+}
+export interface GridModuleProps extends GridProps {
+    elements: any;
+}
+
+export interface ContainerProps extends Positioning {
+    type: string;
+    children: React.ReactNode;
+    flex?: "col" | "row"
+}
+export interface ContainerModuleProps extends ContainerProps {
+    elements: any;
 }

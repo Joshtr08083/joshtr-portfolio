@@ -1,15 +1,16 @@
 import Code from "../Code/Code";
 import styles from "./PageModules.module.css"
 import { CodeProps } from "./types.d"
+import positionStyles from "./PositionStyles"
 
-const CodeModule = ({content, language, width = 100, filename=undefined, marginTop=0} : CodeProps) => {
+const CodeModule = ({content, language, width = 100, filename=undefined, positioning=undefined} : CodeProps) => {
   return (
     
     <div 
         className = "flex flex-col m-auto gap-0"
         style={{
+            ...positionStyles({...positioning}),
             width: `${width}%`,
-            marginTop: `calc(var(--spacing) * ${marginTop})`
         }}
     >
         <span className={`${styles.codeHeader} rounded-t-2xl flex flex-row justify-between`}>

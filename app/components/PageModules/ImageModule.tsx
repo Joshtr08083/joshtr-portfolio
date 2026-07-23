@@ -1,8 +1,9 @@
 import Image from "next/image"
 import { ImageProps } from "@/app/components/PageModules/types.d"
+import positionStyles from "./PositionStyles"
 
-const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=true, rounded = true, marginTop=0}: ImageProps) => {
-  
+const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=true, rounded = true, positioning=undefined}: ImageProps) => {
+  console.log(positioning);
   return (
       <div 
         className={`
@@ -10,9 +11,9 @@ const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", bor
                   `}
 
         style={{
+          ...positionStyles({...positioning}),
           width: `${width}%`,
           height: `${height}vh`,
-          marginTop: `calc(var(--spacing) * ${marginTop})`
         }}
       >
         <Image 

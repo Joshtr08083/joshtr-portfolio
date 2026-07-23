@@ -1,14 +1,15 @@
 import Text from "@/app/components/Text/Text"
 import { TextProps } from "@/app/components/PageModules/types.d"
+import positionStyles from "./PositionStyles"
 
-const TextModule = ({content, paddingInline = 8, paddingBlock = 0, marginTop=0} : TextProps) => {
+const TextModule = ({content, paddingInline = 8, paddingBlock = 0, positioning=undefined} : TextProps) => {
 
   return (
     <p
       style = {{
-              paddingInline: `calc(var(--spacing) * ${paddingInline})`,
-              paddingBlock: `calc(var(--spacing) * ${paddingBlock})`,
-              marginTop: `calc(var(--spacing) * ${marginTop})`
+        ...positionStyles({...positioning}),
+        paddingInline: `calc(var(--spacing) * ${paddingInline})`,
+        paddingBlock: `calc(var(--spacing) * ${paddingBlock})`
       }}
     >
     <Text
