@@ -9,7 +9,7 @@ const CodeModule = ({content, language, width = 100, filename=undefined, positio
     <div 
         className = "flex flex-col gap-0"
         style={{
-            ...positionStyles({...positioning}),
+            ...positionStyles({...positioning}, {marginInline: "auto"}),
             width: `${width}%`,
         }}
     >

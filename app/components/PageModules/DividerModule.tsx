@@ -4,7 +4,7 @@ import { DividerProps } from "./types.d"
 const DividerModule = ({width = 100, showLine=true, top=10, bottom=top, height=1, color="var(--divider-color)"} : DividerProps) => {
   return (
     <hr 
-      className={`${styles.divider}`} 
+      className={`${styles.divider} mx-auto`} 
       style={{
         backgroundColor: (showLine? color : "transparent"),
         marginTop: `calc(var(--spacing) * ${top})`,
