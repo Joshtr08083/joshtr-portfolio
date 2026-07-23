@@ -3,15 +3,14 @@ import { ImageProps } from "@/app/components/PageModules/types.d"
 import positionStyles from "./PositionStyles"
 
 const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=true, rounded = true, positioning=undefined}: ImageProps) => {
-  console.log(positioning);
   return (
       <div 
         className={`
-                    relative overflow-hidden ${border? "border":""} m-auto ${rounded? "rounded-2xl": ""}
+                    relative overflow-hidden ${border? "border":""} ${rounded? "rounded-2xl": ""}
                   `}
 
         style={{
-          ...positionStyles({...positioning}),
+          ...positionStyles({...positioning}, {marginInline: "auto"}),
           width: `${width}%`,
           height: `${height}vh`,
         }}

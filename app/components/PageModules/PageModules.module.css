@@ -1,6 +1,6 @@
 :root {
     /* https://www.realtimecolors.com/?colors=18181B-7DC9A6-7071a9-c8DED3-6ad58c&fonts=Inter-Inter */
-    --panel-color: #c8ded3;
+    --panel-color: #c8ded3db;
     --divider-color: black;
     --primary-color: #7071a9;
     --opposite-text: rgb(255, 255, 255);
@@ -14,7 +14,7 @@
 @media (prefers-color-scheme: dark) {
     /* https://www.realtimecolors.com/?colors=ECF9FF-1A1921-b5c0c5-3a5473-c79765&fonts=Inter-Inter */
     :root {
-        --panel-color: #3a5473;
+        --panel-color: #3a5473db;
         --divider-color: white;
         --primary-color: #b5c0c5;
         --opposite-text: rgb(0, 0, 0);

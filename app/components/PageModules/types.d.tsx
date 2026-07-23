@@ -1,6 +1,8 @@
 export interface PositionProps {
-    marginTop?: number;
-    justify?: "start" | "end" | "center" | "auto"
+    marginTop?: number | undefined;
+    justifySelf?: "start" | "end" | "center" | "auto";
+    marginInline?: string | number;
+    marginBlock?: string | number;
 }
 
 export interface Positioning {
@@ -12,6 +14,7 @@ export interface TextProps extends Positioning {
     content: string; // (required) the actual text
     paddingInline?: number // (opt) L/R padding
     paddingBlock?: number // (opt) T/B padding
+    align?: "left" | "center" | "right" | "justify"
 }
 
 export interface ImageProps extends Positioning {
@@ -89,10 +92,11 @@ export interface SectionModuleProps extends SectionProps {
 export interface GridProps extends Positioning {
     type: string;
     columns: number;
-    padding?: number;
+    paddingInline?: number;
     rounded?: boolean;
     backgroundColor?: string;
     showBack?: boolean;
+    gap?: number;
     children: React.ReactNode;
 }
 export interface GridModuleProps extends GridProps {

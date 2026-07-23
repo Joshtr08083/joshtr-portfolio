@@ -7,7 +7,7 @@ const CodeModule = ({content, language, width = 100, filename=undefined, positio
   return (
     
     <div 
-        className = "flex flex-col m-auto gap-0"
+        className = "flex flex-col gap-0"
         style={{
             ...positionStyles({...positioning}),
             width: `${width}%`,

@@ -3,7 +3,7 @@ import { ListProps } from "./types.d"
 import { Content } from "next/font/google"
 import positionStyles from "./PositionStyles"
 
-const ListModule = ({items, paddingInline = 16, paddingBlock = 0, positioning=undefined, ordered = true} : ListProps) => {
+const ListModule = ({items, paddingInline = 16, paddingBlock = 0, positioning={marginInline: 0, justifySelf: "start"}, ordered = true} : ListProps) => {
     const ListTag = ordered? "ol" : "ul"
     
     return (

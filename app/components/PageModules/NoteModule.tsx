@@ -13,7 +13,6 @@ const NoteModule = ({content, level, paddingBlock = 5, paddingInline=5, width=10
   return (
     <div
         className={`
-            mx-auto
             rounded-2xl
             flex
             flex-col
@@ -22,7 +21,7 @@ const NoteModule = ({content, level, paddingBlock = 5, paddingInline=5, width=10
             dark:inset-shadow-xs/100
         `}
         style={{
-            ...positionStyles({...positioning}),
+            ...positionStyles({...positioning}, {marginInline: "auto"}),
             backgroundColor: `var(--note-${level})`,
             paddingBlock: `calc(var(--spacing) * ${paddingBlock})`,
             paddingInline: `calc(var(--spacing) * ${paddingInline})`,
