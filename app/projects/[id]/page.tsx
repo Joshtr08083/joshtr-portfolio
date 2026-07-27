@@ -10,11 +10,12 @@ interface Props {
     params: Promise<{ id: string }>;
 }
 
+
 export async function generateMetadata({ params } : Props): Promise<Metadata> {
   const resParams = await params;
 
   try {
-    const res = await getProjectData(resParams.id) ?? JSON.parse("{}");
+    const res = await getProjectData(resParams.id);
     
     return {
       title: res["title"],
@@ -44,7 +45,7 @@ const projectPage = async ( { params } : Props) => {
   
   let error : string = "";
   try{
-    const res = await getProjectData(resParams.id) ?? JSON.parse("{}");
+    const res = await getProjectData(resParams.id);
     page_data = JSON.parse(res["page_data"]);
     title = res["title"];
   }
