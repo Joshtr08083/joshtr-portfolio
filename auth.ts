@@ -23,15 +23,30 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     signIn: "/signin",
   },
   callbacks: {
-    async signIn({account}) {
-      console.log(process.env.GITHUB_WHITELIST);
-      if (account?.provider !== "github") return false
+    async jwt({ token, account }) {
+      if (account?.provider === "github") {
+        const adminWhitelist = (process.env.GITHUB_WHITELIST || "")
+          .split(",")
+          .map((id) => id.trim())
 
-      const githubId = account.providerAccountId;  
-      const whitelistEnv = process.env.GITHUB_WHITELIST || "";
-      const allowedIds = whitelistEnv.split(",").map(id => id.trim());
+        token.role = adminWhitelist.includes(account.providerAccountId)
+          ? "admin"
+          : "user"
+      }
+
+      return token
+
+    },
+    async session({ session, token }) {   
       
-      return allowedIds.includes(githubId);
-    }
+      if (token.role) {
+        session.user.role = token.role as string
+      } else {
+        session.user.role = "none"
+      }
+      console.log(session);
+
+      return session
+    },
   }
 })
