@@ -16,15 +16,6 @@ interface ProjectData {
   page_data: string;
 }
 
-
-// const fetchProjectData = cache(async (projectId : string) => {
-//     const row = db
-//         .prepare("SELECT title, description, page_data FROM projects WHERE id = ?")
-//         .get(projectId);
-//     return row
-// });
-
-
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const getProjectData = cache(async (projectId: string, maxAttempts = 4): Promise<ProjectData> => {
@@ -41,6 +32,7 @@ export const getProjectData = cache(async (projectId: string, maxAttempts = 4): 
             return res;
         }
 
+        console.error(`Failed to fetch page data (Attempt ${attempt}`);
         throw new Error(`No project data returned for ${projectId}`);
     }
     catch (err) {
