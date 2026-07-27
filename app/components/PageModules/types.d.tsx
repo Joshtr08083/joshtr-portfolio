@@ -17,6 +17,12 @@ export interface TextProps extends Positioning {
     align?: "left" | "center" | "right" | "justify" // (opt) justify-text
 }
 
+interface ScreenSize {
+    small: number;
+    medium: number;
+    large: number;
+}
+
 export interface ImageProps extends Positioning {
     type: string; 
     url: string; // (req) url reference to the image
@@ -27,7 +33,9 @@ export interface ImageProps extends Positioning {
     loading?: "lazy" | "eager"; // (opt) lazy load vs eager load,
     border?: boolean; // (opt) border around image
     rounded?: boolean; // (opt) beveled border edges
-
+    x?: number; // (opt) internal position of image horizontal
+    y?: number; // (opt) internal position of image vertical
+    screenSizes: ScreenSize; // (opt) expected size of the image on different screens (e.g., 50vw means image is about half the width of the screen)
 }
 
 export interface DividerProps  {
