@@ -14,7 +14,7 @@
 @media (prefers-color-scheme: dark) {
     /* https://www.realtimecolors.com/?colors=ECF9FF-1A1921-b5c0c5-3a5473-c79765&fonts=Inter-Inter */
     :root {
-        --panel-color: #3a5473db;
+        --panel-color: #2f445dee;
         --divider-color: white;
         --primary-color: #b5c0c5;
         --opposite-text: rgb(0, 0, 0);

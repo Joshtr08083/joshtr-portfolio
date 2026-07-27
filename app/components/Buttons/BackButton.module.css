@@ -1,21 +1,23 @@
 .button {
-    border-radius: 100%;
+    border-radius: 8px;
     display: flex;
-    width: 35px;
-    height: 35px;
 }
+
 
 .button::after {
-    content: "<";
-    margin: auto;
+    content: "Back"
 }
 
-@media (min-width: 768px) {
+
+@media (max-width: 768px) {
     .button {
-        border-radius: 8px;
+        width: 35px;
+        height: 35px;
+        border-radius: 100%;
     }
 
     .button::after {
-        content: "Back"
+        content: "<";
+        margin: auto;
     }
 }
