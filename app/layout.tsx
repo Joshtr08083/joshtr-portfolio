@@ -33,7 +33,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       
-      <body className="rootBody">
+      <body className="rootBody" suppressHydrationWarning>
         <Background />
         <div className="childrenContent">
           {children}

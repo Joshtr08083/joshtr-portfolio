@@ -14,6 +14,7 @@ const Page = () => {
 
       <Title title={"Joshtr"} fromTop={18} bottomLine textShadow/>
 
+
       <div className="absolute inset-0 flex flex-col md:flex-row items-center justify-center">
         <nav className='flex flex-col md:flex-row gap-10'>
           <Link href='/view-projects' className='btn btn-outline btn-xl shadow-xl/50'>
