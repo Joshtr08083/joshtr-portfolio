@@ -12,7 +12,7 @@ interface Props {
 
 const BackButton = ( { classes = "", nav = false, url="" }: Props) => {
   const router = useRouter();
-  const buttonClass = `btn btn-outline ${classes} ${(nav == true)? `${styles.button} top-2 left-2 px-3 h-8 md:top-4 md:left-4 md:px-6 md:h-10` : ""}`;
+  const buttonClass = `btn btn-outline ${classes} ${(nav == true)? `${styles.button} top-2 left-2  md:top-4 md:left-4 md:px-6 md:h-10` : ""}`;
 
   return (
     (url == "")? 

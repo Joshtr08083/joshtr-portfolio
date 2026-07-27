@@ -1,6 +1,6 @@
 import Link from 'next/link';
 interface Props {
-  content: string;
+  children: React.ReactNode;
 }
 
 /* 
@@ -16,31 +16,31 @@ Usage:
 const markupRegex = [
   {
     regex: /^\*\*(.*?)\*\*$/, 
-    component: (match: RegExpMatchArray, key:number) => <strong key={key}>{match[1]}</strong>
+    component: (match: RegExpMatchArray, key:number) => <strong key={key}><Text>{match[1]}</Text></strong>
   },
   {
     regex: /^\*(.*?)\*$/, component: 
-    (match: RegExpMatchArray, key:number) => <em key={key}>{match[1]}</em>
+    (match: RegExpMatchArray, key:number) => <em key={key}><Text>{match[1]}</Text></em>
   },
   {
     regex: /^\{([^\}]+)\}\(([^)]+)\)$/,
-    component: (match: RegExpMatchArray, key:number) => <Link key={key} className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]}>{match[1]}</Link>
+    component: (match: RegExpMatchArray, key:number) => <Link key={key} className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]}><Text>{match[1]}</Text></Link>
   },
   {
     regex: /^\<([^\>]+)\>\(([^)]+)\)$/, 
-    component: (match: RegExpMatchArray, key:number) => <span key={key} style={{color: match[2]}}>{match[1]}</span>
+    component: (match: RegExpMatchArray, key:number) => <span key={key} style={{color: match[2]}}><Text>{match[1]}</Text></span>
   },
   {
     regex: /^\[([^\}]+)\]\(([^)]+)\)$/,
-    component: (match: RegExpMatchArray, key:number) => <a key={key} className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]} target="_blank" rel="noopener noreferrer">{match[1]}</a>
+    component: (match: RegExpMatchArray, key:number) => <a key={key} className="text-blue-600 underline hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-100" href={match[2]} target="_blank" rel="noopener noreferrer"><Text>{match[1]}</Text></a>
   },
   {
     regex: /^\|([^\|]+)\|\(([^)]+)\)$/,
-    component: (match: RegExpMatchArray, key:number) => <a key={key} className="text-gray-950 hover:text-gray-600 dark:text-gray-50 dark:hover:text-gray-400" href={match[2]}>{match[1]}</a>
+    component: (match: RegExpMatchArray, key:number) => <a key={key} className="text-amber-600 hover:text-amber-900 dark:text-fuchsia-300 dark:hover:text-fuchsia-100" href={match[2]}><Text>{match[1]}</Text></a>
   },
   {
     regex: /^\_(.*?)\_$/, 
-    component: (match: RegExpMatchArray, key:number) => <span key={key} className="underline">{match[1]}</span>
+    component: (match: RegExpMatchArray, key:number) => <span key={key} className="underline"><Text>{match[1]}</Text></span>
   }
 ]
 
@@ -61,10 +61,11 @@ const parseMarkup = (text:string) => {
   })
 }
 
-const Text = ({content} : Props) => {
+const Text = ({children} : Props) => {
+  if (children as string == null) {return `Failed to parse text: ${children}`}
   return (
     <>
-      {parseMarkup(content)}
+      {parseMarkup(children as string)}
     </>
   )
 }

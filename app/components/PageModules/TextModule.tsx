@@ -13,9 +13,7 @@ const TextModule = ({content, paddingInline = 8, paddingBlock = 0, align="left",
         textAlign: align
       }}
     >
-    <Text
-      content={content}
-    />
+    <Text>{content}</Text>
     </p>
   )
 }

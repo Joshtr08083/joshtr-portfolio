@@ -1,12 +1,16 @@
 :root {
     --back-transparent: #d6e9df90;
     --mod-background: #a1a1a1;
+    --spinner-light: #c8ded3;
+    --spinner-dark: #c8ded3;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --back-transparent: #00000090;
     --mod-background: #2f2962;
+    --spinner-light: #f2f0ffac;
+    --spinner-dark: #3a5473;
   }
 }
 
@@ -24,4 +28,24 @@
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+}
+
+.loader {
+  border: 16px solid var(--spinner-light);
+  border-radius: 50%;
+  border-top: 16px solid var(--spinner-dark);
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

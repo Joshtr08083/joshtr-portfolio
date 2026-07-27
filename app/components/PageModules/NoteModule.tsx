@@ -29,7 +29,7 @@ const NoteModule = ({content, level, paddingBlock = 5, paddingInline=5, width=10
         }}
     >
         <span className="text-xs" style={{color: "var(--note-header)"}}>{noteHeaderText[level].toUpperCase()}</span>
-        <aside><Text content={content} /></aside>
+        <aside><Text>{content}</Text></aside>
     </div>
   )
 }

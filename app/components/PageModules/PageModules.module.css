@@ -23,7 +23,12 @@
         --note-normal: #26252d;
         --note-warning: hsl(49, 70%, 25%);
         --note-critical: hsl(0, 50%, 25%);;
-        --note-tip: hsl(91, 50%, 25%);;
+        --note-tip: hsl(91, 50%, 25%);
+    }
+}
+@media (max-width: 768px) {
+    :root {
+        --spacing: 0.15rem
     }
 }
 
