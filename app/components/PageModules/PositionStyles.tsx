@@ -8,7 +8,7 @@ interface Props {
 
 const RECALCULATE_PROPS = ["marginTop", "marginInline"]
 
-const defaults = {marginTop: 0, justifySelf: "auto", marginInline: 0} as PositionProps;
+const defaults = {marginTop: 15, justifySelf: "auto", marginInline: 0} as PositionProps;
 
 const positionStyles = (
     props = {} as PositionProps,
