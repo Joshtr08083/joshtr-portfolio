@@ -44,7 +44,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       } else {
         session.user.role = "none"
       }
-      console.log(session);
 
       return session
     },

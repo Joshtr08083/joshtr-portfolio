@@ -12,10 +12,10 @@ export const proxy = auth(async (req) => {
     }
 
     if (isAdminRoute && req.auth?.user?.role !== "admin") {
-        const response = NextResponse.redirect(new URL("/", req.nextUrl))
-        response.cookies.delete("authjs.session-token")
-        response.cookies.delete("__Secure-authjs.session-token")
-        return response
+        const response = NextResponse.redirect(new URL("/signin", req.nextUrl));
+        response.cookies.delete("authjs.session-token");
+        response.cookies.delete("__Secure-authjs.session-token");
+        return response;
     }
 })
 
