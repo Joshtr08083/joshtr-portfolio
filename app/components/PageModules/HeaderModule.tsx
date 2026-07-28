@@ -1,5 +1,4 @@
-import Background from "../Background/Background";
-import styles from "./PageModules.module.css"
+import Text from "../Text/Text"
 import { HeaderProps } from "./types.d"
 import positionStyles from "./PositionStyles"
 
@@ -25,7 +24,7 @@ const HeaderModule = ({content, level, align="left", size=3, paddingInline=6, po
                 }}
                 id = {id}
             >
-                {content}
+                <Text>{content}</Text>
             </HeaderTag>
         </span>
     )

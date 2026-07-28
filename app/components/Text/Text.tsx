@@ -2,6 +2,7 @@ import Link from 'next/link';
 interface Props {
   children: React.ReactNode;
 }
+import Code from '../Code/Code';
 
 /* 
 Usage:
@@ -15,12 +16,20 @@ Usage:
 */
 const markupRegex = [
   {
+    regex: /^\`(.*?)\`$/,
+    component: (match: RegExpMatchArray, key:number) => <span key={key} className="p-2 rounded-sm" style={{backgroundColor: "#2D2D2D"}}><Text>{match[1]}</Text></span>
+  },
+  {
     regex: /^\*\*(.*?)\*\*$/, 
     component: (match: RegExpMatchArray, key:number) => <strong key={key}><Text>{match[1]}</Text></strong>
   },
   {
     regex: /^\*(.*?)\*$/, component: 
     (match: RegExpMatchArray, key:number) => <em key={key}><Text>{match[1]}</Text></em>
+  },
+  {
+    regex: /^\_(.*?)\_$/, 
+    component: (match: RegExpMatchArray, key:number) => <span key={key} className="underline"><Text>{match[1]}</Text></span>
   },
   {
     regex: /^\{([^\}]+)\}\(([^)]+)\)$/,
@@ -37,15 +46,11 @@ const markupRegex = [
   {
     regex: /^\|([^\|]+)\|\(([^)]+)\)$/,
     component: (match: RegExpMatchArray, key:number) => <a key={key} className="text-amber-600 hover:text-amber-900 dark:text-fuchsia-300 dark:hover:text-fuchsia-100" href={match[2]}><Text>{match[1]}</Text></a>
-  },
-  {
-    regex: /^\_(.*?)\_$/, 
-    component: (match: RegExpMatchArray, key:number) => <span key={key} className="underline"><Text>{match[1]}</Text></span>
   }
 ]
 
 
-const splitRegex = /(\*\*.*?\*\*|\*.*?\*|\[.*?\]\(.*?\)|\<.*?\>\(.*?\)|\{.*?\}\(.*?\)|\|.*?\|\(.*?\)|\_.*?\_)/;
+const splitRegex = /(\*\*.*?\*\*|\*.*?\*|\`.*?\`|\[.*?\]\(.*?\)|\<.*?\>\(.*?\)|\{.*?\}\(.*?\)|\|.*?\|\(.*?\)|\_.*?\_)/;
 
 const parseMarkup = (text:string) => {
   return text.split(splitRegex).map((part, index) => {
