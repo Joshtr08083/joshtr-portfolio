@@ -3,6 +3,7 @@ export interface PositionProps {
     justifySelf?: "start" | "end" | "center" | "auto";
     marginInline?: string | number;
     marginBlock?: string | number;
+    paddingInline?: string | number;
 }
 
 export interface Positioning {
@@ -14,7 +15,8 @@ export interface TextProps extends Positioning {
     content: string; // (req) the actual text
     paddingInline?: number // (opt) L/R padding
     paddingBlock?: number // (opt) T/B padding
-    align?: "left" | "center" | "right" | "justify" // (opt) justify-text
+    align?: "left" | "center" | "right" | "justify" // (opt) justify-text,
+    fontSize?: number;
 }
 
 interface ScreenSize {
@@ -32,7 +34,8 @@ export interface ImageProps extends Positioning {
     width?: number; // (opt) width of the image, defaults to 100%
     loading?: "lazy" | "eager"; // (opt) lazy load vs eager load,
     border?: boolean; // (opt) border around image
-    rounded?: boolean; // (opt) beveled border edges
+    roundedTop?: boolean; // (opt) beveled border edges
+    roundedBottom?: boolean;
     x?: number; // (opt) internal position of image horizontal
     y?: number; // (opt) internal position of image vertical
     screenSizes: ScreenSize; // (opt) expected size of the image on different screens (e.g., 50vw means image is about half the width of the screen)
@@ -88,7 +91,9 @@ export interface SectionProps extends Positioning {
     type: string;
     paddingTop?: number; // (opt) padding above section
     paddingBottom?: number; // (opt) padding below section
-    rounded?: boolean; // (opt) beveled edges of border
+    paddingInline?: number;
+    roundedTop?: boolean; // (opt) beveled edges of border
+    roundedBottom?: boolean;
     backgroundColor?: string; // (opt) background color
     showBack?: boolean; // (opt) show background color vs transparent
     children: React.ReactNode; // do NOT define in JSON

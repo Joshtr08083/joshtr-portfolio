@@ -2,11 +2,11 @@ import Image from "next/image"
 import { ImageProps } from "@/app/components/PageModules/types.d"
 import positionStyles from "./PositionStyles"
 
-const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=true, rounded = true, positioning=undefined, x=50, y=50, screenSizes={small: 100, medium: 50, large: 33}}: ImageProps) => {
+const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=false, roundedTop = true, roundedBottom = true, positioning=undefined, x=50, y=50, screenSizes={small: 100, medium: 50, large: 33}}: ImageProps) => {
   return (
       <div 
         className={`
-                    relative overflow-hidden ${border? "border":""} ${rounded? "rounded-2xl": ""}
+                    relative overflow-hidden ${border? "border":""} ${roundedTop? "rounded-t-2xl": ""} ${roundedBottom? "rounded-b-2xl": ""}
                   `}
 
         style={{

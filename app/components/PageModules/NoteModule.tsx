@@ -9,7 +9,7 @@ const noteHeaderText = {
     "tip": "✮ TIP"
 }
 
-const NoteModule = ({content, level, paddingBlock = 5, paddingInline=5, width=100, positioning=undefined} : NoteProps) => {
+const NoteModule = ({content, level, paddingBlock = 5, width=100, positioning=undefined} : NoteProps) => {
   return (
     <div
         className={`
@@ -21,10 +21,9 @@ const NoteModule = ({content, level, paddingBlock = 5, paddingInline=5, width=10
             dark:inset-shadow-xs/100
         `}
         style={{
-            ...positionStyles({...positioning}, {marginInline: "auto"}),
+            ...positionStyles({...positioning}, {marginInline: "auto", paddingInline: 5}),
             backgroundColor: `var(--note-${level})`,
             paddingBlock: `calc(var(--spacing) * ${paddingBlock})`,
-            paddingInline: `calc(var(--spacing) * ${paddingInline})`,
             width: `${width}%`
         }}
     >
