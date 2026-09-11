@@ -2,11 +2,16 @@ import Image from "next/image"
 import { ImageProps } from "@/app/components/PageModules/types.d"
 import positionStyles from "./PositionStyles"
 
-const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=false, roundedTop = true, roundedBottom = true, positioning=undefined, x=50, y=50, screenSizes={small: 100, medium: 50, large: 33}}: ImageProps) => {
+const defaultRounded = {topLeft: true, topRight: true, bottomLeft: true, bottomRight: true};
+const defaultScreenSizes = {small: 100, medium: 50, large: 33};
+const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=false, rounded=undefined, positioning=undefined, x=50, y=50, screenSizes=undefined}: ImageProps) => {
+  rounded = {...defaultRounded, ...rounded}
+  screenSizes = {...defaultScreenSizes, ...screenSizes}
+
   return (
       <div 
         className={`
-                    relative overflow-hidden ${border? "border":""} ${roundedTop? "rounded-t-2xl": ""} ${roundedBottom? "rounded-b-2xl": ""}
+                    relative overflow-hidden ${border? "border":""} ${rounded.topLeft? "rounded-tl-2xl": ""} ${rounded.topRight? "rounded-tr-2xl": ""} ${rounded.bottomLeft? "rounded-bl-2xl": ""} ${rounded.bottomRight? "rounded-br-2xl": ""}
                   `}
 
         style={{

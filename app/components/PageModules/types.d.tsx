@@ -25,6 +25,13 @@ interface ScreenSize {
     large: number;
 }
 
+interface FourRounded {
+    topLeft: boolean;
+    topRight: boolean;
+    bottomLeft: boolean;
+    bottomRight: boolean;
+}
+
 export interface ImageProps extends Positioning {
     type: string; 
     url: string; // (req) url reference to the image
@@ -34,11 +41,10 @@ export interface ImageProps extends Positioning {
     width?: number; // (opt) width of the image, defaults to 100%
     loading?: "lazy" | "eager"; // (opt) lazy load vs eager load,
     border?: boolean; // (opt) border around image
-    roundedTop?: boolean; // (opt) beveled border edges
-    roundedBottom?: boolean;
+    rounded?: FourRounded;
     x?: number; // (opt) internal position of image horizontal
     y?: number; // (opt) internal position of image vertical
-    screenSizes: ScreenSize; // (opt) expected size of the image on different screens (e.g., 50vw means image is about half the width of the screen)
+    screenSizes?: ScreenSize; // (opt) expected size of the image on different screens (e.g., 50vw means image is about half the width of the screen)
 }
 
 export interface DividerProps  {
