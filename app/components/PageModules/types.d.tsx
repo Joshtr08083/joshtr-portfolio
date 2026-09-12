@@ -118,6 +118,9 @@ export interface GridProps extends Positioning {
     showBack?: boolean; // (opt) show background color vs transparent
     gap?: number; // (opt) gap between columns
     children: React.ReactNode; // do NOT define in JSON
+    align?: "center" | "start" | "end";
+    justify?: "center" | "start" | "end";
+    dynamicMinCellWidth?: number;
 }
 export interface GridModuleProps extends GridProps {
     elements: any; // (req) children modules

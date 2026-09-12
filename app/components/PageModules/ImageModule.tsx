@@ -4,6 +4,7 @@ import positionStyles from "./PositionStyles"
 
 const defaultRounded = {topLeft: true, topRight: true, bottomLeft: true, bottomRight: true};
 const defaultScreenSizes = {small: 100, medium: 50, large: 33};
+
 const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=false, rounded=undefined, positioning=undefined, x=50, y=50, screenSizes=undefined}: ImageProps) => {
   rounded = {...defaultRounded, ...rounded}
   screenSizes = {...defaultScreenSizes, ...screenSizes}
