@@ -2,7 +2,7 @@ import Link from 'next/link';
 interface Props {
   children: React.ReactNode;
 }
-import Code from '../Code/Code';
+import styles from './text.module.css'
 
 /* 
 Usage:
@@ -17,7 +17,7 @@ Usage:
 const markupRegex = [
   {
     regex: /^\`(.*?)\`$/,
-    component: (match: RegExpMatchArray, key:number) => <span key={key} className="p-2 rounded-sm" style={{backgroundColor: "#2D2D2D"}}><Text>{match[1]}</Text></span>
+    component: (match: RegExpMatchArray, key:number) => <span key={key} className={`p-1 rounded-sm ${styles.inlineCodeBlock}`}><Text>{match[1]}</Text></span>
   },
   {
     regex: /^\*\*(.*?)\*\*$/, 

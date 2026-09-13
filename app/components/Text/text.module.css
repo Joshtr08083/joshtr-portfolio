@@ -1,0 +1,13 @@
+:root {
+    --inline-code-block: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --inline-code-block: #2D2D2D;
+    }
+}
+
+.inlineCodeBlock {
+    background-color: var(--inline-code-block);
+}
