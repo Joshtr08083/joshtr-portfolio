@@ -10,6 +10,8 @@
     --note-warning: #dddaa6;
     --note-critical: #dda6a6;
     --note-tip: #b5dda6;
+    
+    --section-padding: calc(var(--spacing) * 5);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -31,6 +33,34 @@
     :root {
         --spacing: 0.15rem
     }
+}
+
+/* sm */
+@media (min-width: 640px) {
+    :root {
+        --section-padding: calc(var(--spacing) * 10);
+    }
+}
+/* md */
+@media (min-width: 768px) {
+    :root {
+        --section-padding: calc(var(--spacing) * 15);
+    }
+}
+/* lg */
+@media (min-width: 1024px) {
+
+}
+/* xl */
+@media (min-width: 1280px) {
+    :root {
+        --section-padding: calc(var(--spacing) * 20);
+    }
+
+}
+/* 2xl */
+@media (min-width: 1536px) {
+
 }
 
 .codeHeader {

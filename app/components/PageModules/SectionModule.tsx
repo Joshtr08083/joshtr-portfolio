@@ -9,7 +9,7 @@ const SectionModule = ({paddingTop=10, paddingBottom=30, roundedTop=true, rounde
             ${roundedTop? "rounded-t-2xl" : ""} ${roundedBottom? "rounded-b-2xl": ""}
         `}
         style={{
-            ...positionStyles({...positioning}, {marginInline: 0, paddingInline: 20}),
+            ...positionStyles({...positioning}, {marginInline: 0, paddingInline: "var(--section-padding)"}),
             backgroundColor: (showBack)? backgroundColor : "transparent",
             paddingTop: `calc(var(--spacing) * ${paddingTop})`,
             paddingBottom: `calc(var(--spacing) * ${paddingBottom})`
