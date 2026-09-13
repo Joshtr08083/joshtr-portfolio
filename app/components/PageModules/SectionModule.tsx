@@ -1,7 +1,7 @@
 import { SectionProps } from "./types.d"
 import positionStyles from "./PositionStyles"
 
-const SectionModule = ({paddingTop=10, paddingBottom=20, roundedTop=true, roundedBottom=true, backgroundColor="var(--panel-color)", showBack=true, positioning=undefined, children} : SectionProps) => {
+const SectionModule = ({paddingTop=10, paddingBottom=30, roundedTop=true, roundedBottom=true, backgroundColor="var(--panel-color)", showBack=true, positioning=undefined, children} : SectionProps) => {
   return (
     <section 
         className={`
