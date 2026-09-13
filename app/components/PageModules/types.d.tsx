@@ -4,6 +4,7 @@ export interface PositionProps {
     marginInline?: string | number;
     marginBlock?: string | number;
     paddingInline?: string | number;
+    alignSelf?: "start" | "center" | "end" | "auto";
 }
 
 export interface Positioning {
