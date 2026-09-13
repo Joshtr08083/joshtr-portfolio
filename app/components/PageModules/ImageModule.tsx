@@ -8,7 +8,7 @@ import positionStyles from "./PositionStyles"
 const defaultRounded = {topLeft: true, topRight: true, bottomLeft: true, bottomRight: true};
 const defaultScreenSizes = {small: 100, medium: 50, large: 33};
 
-const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=false, rounded=undefined, positioning=undefined, x=50, y=50, screenSizes=undefined}: ImageProps) => {
+const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", border=false, rounded=undefined, positioning=undefined, x=50, y=50, screenSizes=undefined, expandable=true}: ImageProps) => {
   const [isOpen, setIsOpen] = useState(false);
   
   rounded = {...defaultRounded, ...rounded}
@@ -18,8 +18,8 @@ const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", bor
     <>
         <div 
           className={`
-                      cursor-pointer
-                      relative overflow-hidden ${border? "border":""} ${rounded.topLeft? "rounded-tl-2xl": ""} ${rounded.topRight? "rounded-tr-2xl": ""} ${rounded.bottomLeft? "rounded-bl-2xl": ""} ${rounded.bottomRight? "rounded-br-2xl": ""}
+            relative overflow-hidden ${border? "border":""} ${rounded.topLeft? "rounded-tl-2xl": ""} ${rounded.topRight? "rounded-tr-2xl": ""} 
+            ${rounded.bottomLeft? "rounded-bl-2xl": ""} ${rounded.bottomRight? "rounded-br-2xl": ""} ${expandable? "cursor-pointer" : ""}
                     `}
 
           style={{
@@ -27,7 +27,7 @@ const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", bor
             width: `${width}%`,
             height: `${height}vh`,
           }}
-          onClick={() => {setIsOpen(true)}}
+          onClick={() => {if (expandable) setIsOpen(true)}}
         >
           <Image 
             src={url}
@@ -40,7 +40,7 @@ const ImageModule = ({ url, alt, title, height, width = 100, loading="lazy", bor
             loading={loading}
           />
         </div>
-        {isOpen && (
+        {(expandable && isOpen) && (
           <div 
             className={`
               fixed inset-0 z-50 flex items-center justify-center bg-black/80 cursor-pointer w-screen
