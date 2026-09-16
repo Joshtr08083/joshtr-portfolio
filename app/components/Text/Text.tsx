@@ -21,7 +21,7 @@ const markupRegex = [
   },
   {
     regex: /^\*\*(.*?)\*\*$/, 
-    component: (match: RegExpMatchArray, key:number) => <strong key={key}><Text>{match[1]}</Text></strong>
+    component: (match: RegExpMatchArray, key:number) => <strong key={key} className={styles.bold}><Text>{match[1]}</Text></strong>
   },
   {
     regex: /^\*(.*?)\*$/, component: 

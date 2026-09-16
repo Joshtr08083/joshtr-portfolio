@@ -136,3 +136,10 @@ export interface ContainerProps extends Positioning {
 export interface ContainerModuleProps extends ContainerProps {
     elements: any; // (req) children modules
 }
+
+export interface YoutubeProps extends Positioning {
+    type: string;
+    videoId: string;
+    width?: number;
+    height?: number;
+}

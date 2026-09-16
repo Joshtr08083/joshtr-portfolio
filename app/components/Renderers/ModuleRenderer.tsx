@@ -12,8 +12,9 @@ import ListModule from "@/app/components/PageModules/ListModule"
 import SectionModule from "@/app/components/PageModules/SectionModule"
 import GridModule from "@/app/components/PageModules/GridModule"
 import ContainerModule from "@/app/components/PageModules/ContainerModule"
+import YoutubeModue from "@/app/components/PageModules/YoutubeModule"
 
-export type Module = (Types.ImageProps | Types.TextProps | Types.DividerProps | Types.CodeProps | Types.HeaderProps | Types.NoteProps |  Types.ListProps | Types.SectionProps)
+export type Module = (Types.ImageProps | Types.TextProps | Types.DividerProps | Types.CodeProps | Types.HeaderProps | Types.NoteProps |  Types.ListProps | Types.SectionProps | Types.YoutubeProps)
 
 const getModule = ( module: Module, key:number,) => {
     switch (module.type) {
@@ -31,6 +32,8 @@ const getModule = ( module: Module, key:number,) => {
             return <NoteModule key={key} {...module as Types.NoteProps} />
         case "list":
             return <ListModule key={key} {...module as Types.ListProps} />
+        case "ytvideo":
+            return <YoutubeModue key={key} {...module as Types.YoutubeProps} />
         case "section":
             const {elements: section_data, ...section_props} = module as Types.SectionModuleProps;
             return <SectionModule key={key} {...section_props}>{renderModules(section_data)}</SectionModule>

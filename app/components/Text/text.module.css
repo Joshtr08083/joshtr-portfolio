@@ -11,3 +11,7 @@
 .inlineCodeBlock {
     background-color: var(--inline-code-block);
 }
+
+.bold {
+    font-weight: bold;
+}
