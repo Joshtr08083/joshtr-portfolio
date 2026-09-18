@@ -38,7 +38,8 @@ export interface ImageProps extends Positioning {
     url: string; // (req) url reference to the image
     alt: string; // (req) alt text description
     title: string; // (req) title text of the image
-    height: number; // (req) height of the image
+    aspectRatio: Array<number>
+    height?: number; // (opt) height of the image (overrides aspect ratio)
     width?: number; // (opt) width of the image, defaults to 100%
     loading?: "lazy" | "eager"; // (opt) lazy load vs eager load,
     border?: boolean; // (opt) border around image
