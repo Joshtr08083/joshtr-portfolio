@@ -5,7 +5,7 @@ import {cache} from 'react';
 
 export async function getAllProjects() {
     const rows = db
-        .prepare("SELECT id, title, img_url, img_x, img_y, description FROM projects")
+        .prepare("SELECT id, title, img_url, img_x, img_y, description FROM projects ORDER BY rank ASC")
         .all();
     return rows
 }

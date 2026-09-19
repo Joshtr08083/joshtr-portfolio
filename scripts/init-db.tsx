@@ -10,19 +10,21 @@ db.exec(`
     img_x INTEGER,
     img_y INTEGER,
     description TEXT,
+    rank INTEGER,
     page_data JSON
   )
 `);
 
-
-const raspberrypiData = fs.readFileSync(path.join(process.cwd(), "data", "pi5.json"), 'utf-8');
-JSON.parse(raspberrypiData);
 
 const update = db.prepare(`
   UPDATE projects 
   SET page_data = ? 
   WHERE id = ?
 `);
+
+
+const raspberrypiData = fs.readFileSync(path.join(process.cwd(), "data", "pi5.json"), 'utf-8');
+JSON.parse(raspberrypiData);
 update.run(raspberrypiData, 'pi-controller')
 
 const robotArmData = fs.readFileSync(path.join(process.cwd(), "data", "robot-arm.json"), 'utf-8');
