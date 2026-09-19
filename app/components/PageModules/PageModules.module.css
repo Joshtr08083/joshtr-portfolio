@@ -1,6 +1,6 @@
 :root {
     /* https://www.realtimecolors.com/?colors=18181B-7DC9A6-7071a9-c8DED3-6ad58c&fonts=Inter-Inter */
-    --panel-color: #c8ded3db;
+    --panel-color: #dceadb;
     --divider-color: black;
     --primary-color: #7071a9;
     --opposite-text: rgb(255, 255, 255);
@@ -73,4 +73,8 @@
 
 .dynamicGridContainer {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.timeline {
+    background-color: var(--background);
 }

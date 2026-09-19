@@ -10,9 +10,9 @@ interface Props {
   nav?: boolean;
 }
 
-const BackButton = ( { classes = "", nav = false, url="" }: Props) => {
+const BackButton = ( { classes = "", nav = false, url=""}: Props) => {
   const router = useRouter();
-  const buttonClass = `btn btn-outline ${classes} ${(nav == true)? `${styles.button} top-2 left-2  md:top-4 md:left-4 md:px-6 md:h-10` : ""}`;
+  const buttonClass = `btn btn-outline ${classes} ${(nav == true)? `${styles.button} top-1 left-2  md:top-4 md:left-4 md:px-6 md:h-10 z-30` : ""}`;
 
   return (
     (url == "")? 

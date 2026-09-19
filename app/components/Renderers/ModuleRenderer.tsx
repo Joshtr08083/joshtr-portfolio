@@ -13,8 +13,9 @@ import SectionModule from "@/app/components/PageModules/SectionModule"
 import GridModule from "@/app/components/PageModules/GridModule"
 import ContainerModule from "@/app/components/PageModules/ContainerModule"
 import YoutubeModue from "@/app/components/PageModules/YoutubeModule"
+import TimelineModule from "@/app/components/PageModules/TimelineModule"
 
-export type Module = (Types.ImageProps | Types.TextProps | Types.DividerProps | Types.CodeProps | Types.HeaderProps | Types.NoteProps |  Types.ListProps | Types.SectionModuleProps | Types.YoutubeProps | Types.ContainerModuleProps | Types.GridModuleProps)
+export type Module = (Types.ImageProps | Types.TextProps | Types.DividerProps | Types.CodeProps | Types.HeaderProps | Types.NoteProps |  Types.ListProps | Types.SectionModuleProps | Types.YoutubeProps | Types.ContainerModuleProps | Types.GridModuleProps | Types.TimelineProps)
 
 const getModule = ( module: Module, key:number,) => {
     switch (module.type) {
@@ -41,6 +42,9 @@ const getModule = ( module: Module, key:number,) => {
         }
         case "ytvideo": {
             return <YoutubeModue key={key} {...module as Types.YoutubeProps} />
+        }
+        case "timeline": {
+            return <TimelineModule key={key} {...module as Types.TimelineProps} />
         }
         case "section": {
             const {elements: data, ...props} = module as Types.SectionModuleProps;

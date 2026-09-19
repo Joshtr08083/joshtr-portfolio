@@ -144,3 +144,13 @@ export interface YoutubeProps extends Positioning {
     width?: number;
     height?: number;
 }
+
+interface TimelineHeader {
+    title: string;
+    id: string;
+}
+
+export interface TimelineProps {
+    type: string;
+    headers: TimelineHeader[];
+}
