@@ -27,7 +27,7 @@ export const getProjectData = cache(async (projectId: string, maxAttempts = 4): 
         const res = db
             .prepare("SELECT title, description, page_data FROM projects WHERE id = ?")
             .get(projectId) as ProjectData | null;
-
+        
         if (res && Object.keys(res).length > 0) {
             return res;
         }

@@ -64,7 +64,7 @@ const projectPage = async ( { params } : Props) => {
             <Title title={title} fromTop={18} bottomLine textShadow />
             <main className={`${styles.moduleContainer} w-full sm:w-xl md:w-2xl lg:w-4xl xl:w-6xl pb-15`}>
                 {/* <PageRenderer data={page_data["modules"]} /> */}
-                { renderModules(page_data["modules"])}
+                { renderModules(page_data)}
             </main>
           </>
         ):
