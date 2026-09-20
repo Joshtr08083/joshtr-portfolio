@@ -23,23 +23,11 @@ const update = db.prepare(`
 `);
 
 
-const raspberrypiData = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "pi5.json"), 'utf-8'));
-update.run(JSON.stringify(raspberrypiData["id"]), raspberrypiData["title"], raspberrypiData["img_url"], 
-                          raspberrypiData["img_x"], raspberrypiData["img_y"], raspberrypiData["description"],
-                          raspberrypiData["rank"], JSON.stringify(raspberrypiData["page_data"]));
+const files = ["pi5", "robot-arm", "portfolio", "pdigtwinterface"];
 
-const robotArmData = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "robot-arm.json"), 'utf-8'));
-update.run(JSON.stringify(robotArmData["id"]), robotArmData["title"], robotArmData["img_url"], 
-                          robotArmData["img_x"], robotArmData["img_y"], robotArmData["description"],
-                          robotArmData["rank"], JSON.stringify(robotArmData["page_data"]));
-
-const portfolioData = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "portfolio.json"), 'utf-8'));
-update.run(JSON.stringify(portfolioData["id"]), portfolioData["title"], portfolioData["img_url"], 
-                          portfolioData["img_x"], portfolioData["img_y"], portfolioData["description"],
-                          portfolioData["rank"], JSON.stringify(portfolioData["page_data"]));
-
-const plantSensor = JSON.parse(fs.readFileSync(path.join(process.cwd(), "data", "pdigtwinterface.json"), 'utf-8'));
-update.run(JSON.stringify(plantSensor["id"]), plantSensor["title"], plantSensor["img_url"], 
-                          plantSensor["img_x"], plantSensor["img_y"], plantSensor["description"],
-                          plantSensor["rank"], JSON.stringify(plantSensor["page_data"]));
-
+for (const name of files) {
+  const d = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), "data", `${name}.json`), "utf-8")
+  );
+  update.run(d.id, d.title, d.img_url, d.img_x, d.img_y, d.description, d.rank, JSON.stringify(d.page_data));
+}

@@ -1,0 +1,783 @@
+{
+    "id": "robot-arm",
+    "title": "Robot Arm",
+    "img_url": "/images/robot-arm/outline.webp",
+    "img_x": 50,
+    "img_y": 50,
+    "description": "First time playing with stepper motors and servos to make a robot arm using 3D printed parts",
+    "rank": 1,
+
+    "page_data": [
+        {
+            "type": "timeline",
+            "headers": [
+                {
+                    "title": "Top",
+                    "id": ""
+                },
+                {
+                    "title": "CAD",
+                    "id": "cad"
+                },
+                {
+                    "title": "Build",
+                    "id": "build"
+                },
+                {
+                    "title": "Electronics",
+                    "id": "electronics"
+                },
+                {
+                    "title": "Programming",
+                    "id": "programming"
+                },
+                {
+                    "title": "Results",
+                    "id": "results"
+                }
+            ]
+        },
+        {
+            "type": "image",
+            "url": "/images/robot-arm/rarm_banner_v1.1.webp",
+            "alt": "Banner showing the electronic schematics and render of robot arm",
+            "title": "Robot Arm",
+            "width": 100,
+            "height": 30,
+            "y": 40,
+            "screenSizes": {
+                "small": 100,
+                "medium": 100,
+                "large": 100
+            },
+            "loading": "eager",
+            "rounded": {
+                "bottomLeft": false,
+                "bottomRight": false
+            }
+        },
+        {
+            "type": "section",
+            "paddingTop": 0,
+            "roundedTop": false,
+            "positioning":{
+                "marginTop": 0
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "Overview",
+                    "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "A project I worked on over the summer was learning how to build a robot arm. I entered the project not really knowing much and never really doing anything at this sort of level. To really get the full experience, I designed the whole arm in Fusion360, printed the parts on a Bambu Lab A1, designed the control circuit in KiCad, soldered the electronics onto perfboards, and programmed the controls in C++.",
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "content": "Contents",
+                    "size": 2,
+                    "level": 3,
+                    "positioning": {
+                        "marginTop": 15
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "The project has been broken into these main sections:",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "list",
+                    "ordered": false,
+                    "items": [
+                        "_|The CAD|(#cad)_",
+                        "_|The Build|(#build)_",
+                        "_|The Electronics|(#electronics)_",
+                        "_|The Programming|(#programming)_",
+                        "_|The Results|(#results)_"
+                    ],
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "If there's any other info you need (items ordered, CAD files, tools used, etc.), do not hesitate to reach out. [@joshtreid08@gmail.com](mailto:joshtreid08@gmail.com)"
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The CAD",
+                    "id": "cad",
+                    "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "All of the CAD was done in Fusion360. Having never really done this before, this was a huge learning process. Many hours were spent starting at a blank screen, unsure of where to even start. I watched [builds of other designs](https://www.youtube.com/watch?v=D1tMTEYRVEs&list=PLSueoDrBt5MMTL9O8qAWZiJrNIf8-29Qz&index=4) step-by-step to get as much of an idea as possible, but I wanted to avoid using any pre-made CAD designs."
+                },
+                {
+                    "type": "header",
+                    "content": "Base",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "The first part designed was the base. It consists mainly of a large 120T pulley driven by a 20T pulley on a stepper motor. A ball bearing is pressed against the belt to apply tension. Down the center of the base is a hole to run wires through. It is covered by a cap in the screenshot, but that's not part of the final design.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "image",
+                    "url": "/images/robot-arm/base.webp",
+                    "alt": "Fusion screenshot of robot arm base.",
+                    "title": "Robot Arm-Fusion-Base",
+                    "screenSizes": {
+                        "small": 100,
+                        "medium": 80,
+                        "large": 90
+                    },
+                    "width": 100,
+                    "y": 50,
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "note",
+                    "level": "normal",
+                    "content": "All of the stepper motors are NEMA-17 Stepper Motors",
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "content": "Shoulder",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "The next part is the shoulder joint. The shoulder joint consists of a 20T driving a 100T pulley. The 100T pulley sits on a shaft with another 20T pulley, which drives another 100T pulley, giving an overall 25:1 gear ratio. To tension the belts, the stepper can move horizontally, and the other belt is tensioned by a small ball bearing.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "image",
+                    "url": "/images/robot-arm/shoulder.webp",
+                    "alt": "Fusion screenshot of robot arm shoulder.",
+                    "title": "Robot Arm-Fusion-Shoulder",
+                    "screenSizes": {
+                        "small": 100,
+                        "medium": 80,
+                        "large": 90
+                    },
+                    "y": 20,
+                    "width": 100,
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "content": "Arm Links",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "Both of the arm links are fairly straightforward designs. Two servos sit on the lower arm link (1st link) and the wrist (3rd link), and connect to the middle second link. The lower servo has 270deg range, and the upper servo has 180deg range.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "image",
+                    "url": "/images/robot-arm/arm.webp",
+                    "alt": "Fusion screenshot of the robot arm links.",
+                    "title": "Robot Arm-Fusion-ArmLinks",
+                    "screenSizes": {
+                        "small": 100,
+                        "medium": 80,
+                        "large": 90
+                    },
+                    "y": 40,
+                    "width": 100,
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "note",
+                    "level": "normal",
+                    "content": "All of the servos are DS3225 Servos",
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "content": "Claw",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "The claw design uses a four-bar linkage design. The two large gears rotate together by a servo underneath. It's a little grayed out in the screenshot, but the claw sits on a servo on the wrist, allowing it to roll.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "image",
+                    "url": "/images/robot-arm/claw.webp",
+                    "alt": "Fusion screenshot of robot arm claw.",
+                    "title": "Robot Arm-Fusion-Claw",
+                    "screenSizes": {
+                        "small": 100,
+                        "medium": 80,
+                        "large": 90
+                    },
+                    "y": 40,
+                    "width": 100,
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                }
+                
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The Build",
+                    "id": "build",
+                    "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "The vast majority of the parts were 3D printed. Of course, with the exception of the servos, steppers, scerws, heat-set inserts, ball bearings, shaft collars, 20T pulleys, and 5mm steel rods."
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Bambu Lab A1",
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "grid",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "elements": [
+                        {
+                            "type": "image",
+                            "url": "/images/robot-arm/bambua1.webp",
+                            "alt": "Image of the Bambu A1 printer in my room",
+                            "title": "Bambu Lab A1",
+                            "width": 100,
+                            "height": 30,
+                            "y": 50,
+                            "screenSizes": {
+                                "small": 100,
+                                "medium": 80,
+                                "large": 60
+                            },
+                            "positioning": {
+                                "marginInline": 0,
+                                "marginTop": 0
+                            }
+                        },
+                        {
+                            "type": "container",
+                            "flex": "col",
+                            "positioning": {
+                                "marginTop": 0
+                            },
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "content": "The previous summer I bought a Bambu Lab A1 printer that sits in my room. The printer is super beginner-friendly and fairly low maintenance, which was perfect going in with little experience.",
+                                    "positioning": {
+                                        "marginInline": 0,
+                                        "marginTop": 0
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "content": " Everything was printed in PETG, and then a soldering iron was used for m2/m3 heat-set brass inserts for screws.",
+                                    "positioning": {
+                                        "marginTop": 5,
+                                        "marginInline": 0
+                                    }
+                                }
+                            ]
+                        }
+                        
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Assembling",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "Parts were either screwed into inserts or had a nut on the other side. Most parts used M3 screws or M2 for the tiny parts. The timing belts had to be cut to the right [length](https://www.technobotsonline.com/gt2-pulley-belt-length-calculator.html) and the ends glued together to form a closed loop.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "grid",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "columns": 2,
+                    "elements": [
+                        {
+                            "type": "image",
+                            "url": "/images/robot-arm/base-build.webp",
+                            "alt": "Picture of the completed base",
+                            "title": "Build - Base",
+                            "width": 100,
+                            "height": 30,
+                            "y": 50,
+                            "screenSizes": {
+                                "small": 100,
+                                "medium": 80,
+                                "large": 60
+                            },
+                            "positioning": {
+                                "marginInline": 0,
+                                "marginTop": 0
+                            }
+                        },
+                        {
+                            "type": "image",
+                            "url": "/images/robot-arm/shoulder-build.webp",
+                            "alt": "Picture of the completed shoulder",
+                            "title": "Build - Shoulder",
+                            "width": 100,
+                            "height": 30,
+                            "y": 50,
+                            "screenSizes": {
+                                "small": 100,
+                                "medium": 80,
+                                "large": 60
+                            },
+                            "positioning": {
+                                "marginInline": 0,
+                                "marginTop": 0
+                            }
+                        },
+                        {
+                            "type": "image",
+                            "url": "/images/robot-arm/arm-build.webp",
+                            "alt": "Picture of the completed arm links",
+                            "title": "Build - Arm",
+                            "width": 100,
+                            "height": 30,
+                            "y": 50,
+                            "screenSizes": {
+                                "small": 100,
+                                "medium": 80,
+                                "large": 60
+                            },
+                            "positioning": {
+                                "marginInline": 0,
+                                "marginTop": 0
+                            }
+                        },
+                        {
+                            "type": "image",
+                            "url": "/images/robot-arm/full-build.webp",
+                            "alt": "Picture of the completed arm with claw",
+                            "title": "Build - Full Arm",
+                            "width": 100,
+                            "height": 30,
+                            "y": 50,
+                            "screenSizes": {
+                                "small": 100,
+                                "medium": 80,
+                                "large": 60
+                            },
+                            "positioning": {
+                                "marginInline": 0,
+                                "marginTop": 0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "note",
+                    "level": "normal",
+                    "content": "While building, testing was done via a bench power supply and mini prototype perfboards. However, this soon needed to be upgraded."
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The Electronics",
+                    "id": "electronics",
+                    "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "For controlling the robot, I used stepper drivers and servo drivers controlled by an ESP32 microcontroller. To make the design semi-permanent, I used perfboard and a 3D-printed box to contain everything."
+                },
+                {
+                    "type": "header",
+                    "content": "Power",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+
+                    "type": "grid",
+                    "positioning": {
+                        "marginTop": 0
+                    },
+                    "align": "start",
+                    "elements": [
+                        {
+                            "type": "container",
+                            "flex": "col",
+                            "positioning": {
+                                "marginTop": 0,
+                                "marginInline": 0,
+                                "alignSelf": "center"
+                            },
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "content": "The robot arm is powered by an LRS-350-12 which, as its name implies, provides 350W at 12V. The steppers run on 12V, but for the servos, a buck converter brings it down to 6V. ",
+                                    "positioning": {
+                                        "marginInline": 0,
+                                        "marginTop": 0
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "Another buck converter steps it down to 5V to power solely the ESP32. For communication, all parts share a ground plane.",
+                                    "positioning": {
+                                        "marginTop": 5,
+                                        "marginInline": 0
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "image",
+                            "url": "/images/robot-arm/electronics.webp",
+                            "alt": "Photo of the power supply and buck converters",
+                            "title": "Electronics - Power",
+                            "width": 100,
+                            "height": 30,
+                            "y": 50,
+                            "screenSizes": {
+                                "small": 100,
+                                "medium": 80,
+                                "large": 60
+                            },
+                            "positioning": {
+                                "marginInline": 0,
+                                "marginTop": 0
+                            }
+                        }
+
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Circuit",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+
+                    "type": "grid",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "align": "start",
+                    "elements": [
+                        {
+                            "type": "image",
+                            "url": "/images/robot-arm/circuit_stack.webp",
+                            "alt": "Photo of two perfboards stacked containing the control circuit",
+                            "title": "Electronics - Circuit Stack",
+                            "width": 100,
+                            "height": 30,
+                            "y": 50,
+                            "screenSizes": {
+                                "small": 100,
+                                "medium": 80,
+                                "large": 60
+                            },
+                            "positioning": {
+                                "marginInline": 0,
+                                "marginTop": 0
+                            }
+                        },
+                        {
+                            "type": "container",
+                            "flex": "col",
+                            "positioning": {
+                                "marginTop": 5,
+                                "marginInline": 0
+                            },
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "content": "The electronics are two perfboards stacked on each other. On the top is a PCA9685, which controls the servos, and there are also bulk capacitors for the servos' high current spikes.",
+                                    "positioning": {
+                                        "marginInline": 0,
+                                        "marginTop": 0
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "content": "On the bottom layer are two TMC2209 drivers, which control the stepper motors, and the ESP32, which controls the entire robot.",
+                                    "positioning": {
+                                        "marginTop": 5,
+                                        "marginInline": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "content": "Enclosure",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "To help keep things together, I 3D printed a box to mount the circuit, power supply, and switch together.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "image",
+                    "url": "/images/robot-arm/electronics-case.webp",
+                    "alt": "Photo of 3D printed box that holds the electronics",
+                    "title": "Electronics - Case",
+                    "screenSizes": {
+                        "small": 100,
+                        "medium": 70,
+                        "large": 80
+                    },
+                    "width": 90,
+                    "y": 50,
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The Programming",
+                    "id": "programming",
+                    "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "Finally, I made a locally-hosted webapp to control each motor on the arm. The program can be split into three parts: the ESP32s, the NodeJS backend, and the React dashboard."
+                },
+                {
+                    "type": "header",
+                    "content": "ESP32s",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "There are two ESP32. One part of the control circuit (receiver), and another separately connected to a computer/server (sender). The sender ESP32 simply transmits what it receives over Serial to the receiver ESP32 over the ESP-NOW protocol.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "For instance, to move the base stepper to **position 400** at **1ms intervals** with **1 step** per interval after a **5ms delay**, it would send: `{\"tgt\":\"base\",\"int\":1,\"del\":0,\"stp\":1}`",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "code",
+                    "language": "cpp",
+                    "filename": "controller-receiver.ino",
+                    "content": "int pos = 0;\nbool disable = doc.containsKey(\"disable\");\nbool enable = doc.containsKey(\"enable\");\nint interval = doc[\"int\"] | 5;\nint delay = doc[\"del\"] | 0;\nint steps = doc[\"stp\"] | 1;\n\nif (doc.containsKey(\"pos\")) {\n\tpos = doc[\"pos\"];\n} else if (!disable && !enable) {\n\tSerial.println(\"Error: No position provided\");\n\treturn;\n}\n\nconst char* targetId = doc[\"tgt\"];\nif (targetId == nullptr) {\n\tSerial.println(\"Error: Missing target key\");\n\treturn;\n}\n\n...\n\ntarget->setTarget(pos, interval, delay, steps);",
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "content": "NodeJS",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "The ESP32 receives the commands to send from a NodeJS that communicates directly through Serial over USB. The backend also hosts a websockets server and a database. This allows it to receive commands from a browswer dashboard, update other dashboards connected simultaneously, and store the motors' position and states.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "For example, the dashboard might want to move base to **position 400**, so it'll send over websockets to the server: `{\"base\":400}`. The server will then populatet interval and steps automatically.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "code",
+                    "language": "javascript",
+                    "filename": "server.js",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "content": "const value = jsonData[key];\nif (typeof value === \"number\") {\n\tupdateDBValue.run(key, value);\n\tconsole.log(`  - Logged ${key} in database`);\n\n\tconst motor = MOTORS[key];\n\tconst jsonPayload = {\n\t\t\"tgt\": key,\n\t\t\"pos\": value,\n\t\t\"int\": motor[\"interval\"],\n\t\t\"stp\": motor[\"steps\"]\n\t}\n\n\tconst payload = JSON.stringify(jsonPayload);\n\tserialPrint(payload);\n}"
+                },
+                {
+                    "type": "header",
+                    "content": "Dashboard",
+                    "level": 3,
+                    "size": 2,
+                    "positioning": {
+                        "marginTop": 20
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "The dashboard is built using React and compiled with Vite. It is a single page consisting of a slider, enable/disable toggle, and reset to starting position button. Because the dashboard is a webapp and keeps a connection to the backend, another device, like a phone, can be used as a controller simultaneously and both dashboards will update in realtime.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "image",
+                    "url": "/images/robot-arm/dashboard.webp",
+                    "alt": "Screenshot of the dashboard from Firefox",
+                    "title": "Programming - Dashboard",
+                    "screenSizes": {
+                        "small": 100,
+                        "medium": 80,
+                        "large": 90
+                    },
+                    "width": 95,
+                    "y": 50,
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The Results",
+                    "level": 2,
+                    "id": "results"
+                },
+                {
+                    "type": "text",
+                    "content": "Below are two videos of the robot being controlled. Unfortunately, the quality isn't great because the robot was controlled offscreen by my phone, so this was recorded by my laptop."
+                },
+                {
+                    "type": "ytvideo",
+                    "videoId": "OYML8F32zfU"
+                },
+                {
+                    "type": "ytvideo",
+                    "videoId": "srlNwiMgDFg"
+                },
+                {
+                    "type": "text",
+                    "content": "Overall, I consider the project a success. There are things that could be improved, however. The overall design is bulkier than it needed to be, the same could've been accomplished with smaller parts. The steppers are pretty slow and because of how the belts are made the belt occasionally slips. The servo on the claw risks burning out when trying to grab things, a different type of servo should have been used or a different type of motor. These are just a few of the improvements that could be made, but despite these, I'm still happy that I was able to get something together."
+                }
+            ]
+        }
+
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "id": "pdigtwinterface",
+    "title": "Plant Sensor Research",
+    "img_url": "/images/pdigtwinterface/outline.webp",
+    "img_x": 50,
+    "img_y": 50,
+    "description": "I built a sensor and dashboard for detecting plant stimuli. This was done as part of a research with a post-grad at NC State.",
+    "rank": 2,
+
+    "page_data": []
+}
