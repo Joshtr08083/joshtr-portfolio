@@ -21,7 +21,10 @@
                 "medium": 100,
                 "large": 100
             },
-            "roundedBottom": false,
+            "rounded": {
+                "bottomLeft": false,
+                "bottomRight": false
+            },
             "border": false,
             "y":40
         },
@@ -95,17 +98,12 @@
                     }
                 },
                 {
-                    "type": "divider",
-                    "width": 100,
-                    "top": 20
-                },
-                {
                     "type": "header",
                     "level": 3,
                     "size": 2,
                     "content": "Contents",
                     "positioning": {
-                        "marginTop": 0
+                        "marginTop": 20
                     }
                 },
                 {
@@ -117,236 +115,10 @@
                 },
                 {
                     "type": "list",
-                    "items": ["_|433MHz Receiver/Transmitter |(#transceiver)_", "_|ESP32|(#esp32)_", "_|Raspberry Pi 5|(#raspberrypi5)_", "_|Assembly|(#assembly)_"],
+                    "items": [],
                     "ordered": false,
                     "positioning": {
                         "marginTop": 1
-                    }
-                }
-            ]
-        },
-        {
-            "type": "section",
-            "positioning": {
-                "marginTop": 20
-            },
-            "elements": [
-                {
-                    "type": "header",
-                    "level": 2,
-                    "content": "The Receiver and Transmitter",
-                    "id": "transceiver"
-                },
-                {
-                    "type": "grid",
-                    "dynamic": true,
-                    "positioning": {
-                        "marginInline": 0,
-                        "marginTop": 5
-                    },
-                    "elements": [
-                        {
-                            "type": "container",
-                            "flex": "col",
-                            "positioning": {
-                                "marginTop": 0
-                            },
-                            "elements": [
-                                {
-                                    "type": "text",
-                                    "content": "Many simple devices work by listening for specific packets of binary data on a specific frequency (433 MHz in this case)",
-                                    "positioning": {
-                                        "marginInline": 0,
-                                        "marginTop": 0
-                                    }
-                                },
-                                {
-                                    "type": "text",
-                                    "content": "Normally this data would be transmitted from a remote that came with the device, but you could also make your own using an RF transmitter/receiver on the same frequency",
-                                    "positioning": {
-                                        "marginInline": 0,
-                                        "marginTop": 5
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "image",
-                            "url": "/images/pi-controller/superhet.webp",
-                            "alt": "Picture of a 433MHz superhet receiver and transmitter",
-                            "title": "433 MHz Transmitter/Receiver",
-                            "height": 30,
-                            "width": 90,
-                            "positioning": {
-                                "marginInline": 0,
-                                "marginTop": 0
-                            }
-                        }
-                    ]
-                },
-                {
-                    "type": "note",
-                    "level": "normal",
-                    "content": "The specific RF transmitter/receiver model is a \"[Superheterodyne UHF ASK Remote Control Module](https://a.co/d/0ioosRzQ)\"",
-                    "width": 80,
-                    "positioning": {
-                        "marginTop": 20
-                    }
-                },
-                {
-                    "type": "divider",
-                    "top": 15,
-                    "width": 100
-                },
-                {
-                    "type": "header",
-                    "size": 2,
-                    "content": "Data and ASK Modulation",
-                    "level": 3,
-                    "positioning": {
-                        "marginTop": 0
-                    }
-                },
-                {
-                    "type": "text",
-                    "content": "A common/simple way to transmit binary data on a frequency is Amplitude Shift Keying (ASK). In ASK, HIGH and LOW amplitudes represent 1s and 0s respectively. An RF receiver can listen to a remote to decode its binary data and save it to be reused."
-                },
-                {
-                    "type": "image",
-                    "url": "/images/pi-controller/ASK_mod.webp",
-                    "title": "ASK Modulation Diagram",
-                    "alt": "(Credit to GeeksForGeeks.org) Image shows how digital binary sequences are converted to modulated output waves with precise timings",
-                    "height": 30,
-                    "width": 60,
-                    "y": 15,
-                    "positioning": {
-                        "marginTop": 20
-                    }
-                },
-                {
-                    "type": "divider",
-                    "top": 20,
-                    "width": 100
-                },
-                {
-                    "type": "header",
-                    "size": 2,
-                    "content": "Copying Remotes",
-                    "level": 3,
-                    "positioning": {
-                        "marginTop": 0
-                    }
-                },
-                {
-                    "type": "text",
-                    "content": "Below is actually how my lamp remote is stored on my Raspberry Pi. Pulse patterns can be saved in different ways, but this way works by identifying the protocol used, the timings between pulses, and the binary data. These values can be used to reconstruct the ASK pulses and \"emulate\" the original remote."
-                },
-                {
-                    "type": "code",
-                    "language" : "json",
-                    "filename": "remotes.json",
-                    "width": 70,
-                    "content": "{\n\t\"name\": \"LampON\",\n\t\"type\": \"rc_remote\",\n\t\"protocol\": 1,\n\t\"delay\": 387,\n\t\"bits\": 24,\n\t\"value\": 7869186\n}"
-                },
-                {
-                    "type": "text",
-                    "content": "Sometimes a protocol can't easily be identified. In these cases, the remote can be stored as raw timings between HIGH and LOW pulses. However, this requires much more data so it won't be shown. Either way, this data can be used to tell the transmitter how to recreate these pulses, effectively becoming the remote."
-                }
-            ]
-        },
-                {
-            "type": "section",
-            "positioning": {
-                "marginTop": 20
-            },
-            "elements": [
-                {
-                    "type": "header",
-                    "level": 2,
-                    "content": "The ESP32",
-                    "id": "esp32"
-                },
-                {
-                    "type": "text",
-                    "content": "An ESP32 is a low-cost microcontroller (MCU). MCUs are chips that contain essential computer components like the CPU, RAM, Clock, and I/O on a single chip. The ESP32 is poular because it's fairly cheap and powerful, and even has WiFi and Bluetooth capabilities."
-                },
-                {
-                    "type": "image",
-                    "url": "/images/pi-controller/esp32.webp",
-                    "alt": "Image of ESP32 sitting on a PCB",
-                    "title": "ESP32 DevKit C4",
-                    "width": 60,
-                    "height": 30
-                },
-                {
-                    "type": "note",
-                    "level": "normal",
-                    "content": "The ESP32 used here is an [ESP32-DevKitC-32E](https://www.amazon.com/dp/B09MQJWQN2?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1), however an ESP32 is not strictly necessary as WiFi/Bluetooth aren't needed.",
-                    "width": 80
-                },
-                {
-                    "type": "text",
-                    "content": "*So why an ESP32 _and_ Raspberry Pi 5?*   The main reason I used an ESP32 is to precisely control the RF transmitter/receiver. As mentioned above, the RF signals have exact timings on the scale of microseconds. A Raspberry Pi 5 runs a full linux operating system alongside your program. Its resources are so split that it's hard to get exact timings. An MCU like an ESP32, however, runs a single program directly on the chip. This allows is to achieve much better timing precision."
-                },
-                {
-                    "type": "divider",
-                    "top": 20,
-                    "width": 100
-                },
-                {
-                    "type": "header",
-                    "content": "RF Controls",
-                    "level": 3,
-                    "size": 2,
-                    "positioning": {
-                        "marginTop": 0
-                    }
-                },
-                {
-                    "type": "text",
-                    "content": "The ESP32 communicates directly with the RF receiver/transmitter for recording and playing remotes. The ESP32 uses UART communication to receive commands and send data to and from the Raspberry Pi."
-                },
-                {
-                    "type": "note",
-                    "level": "normal",
-                    "content": "[UART](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter) is a communication protocl that uses two wires, TX (transmit) and RX (receive), to communicate in plaintext.",
-                    "width": 80
-                },
-                {
-                    "type": "text",
-                    "content": "For example, it might receive a command on its TX pin that looks like: "
-                },
-                {
-                    "type": "code",
-                    "language": "json",
-                    "filename": "UART",
-                    "content": "{\"cmd\": \"playRC\", \"protocol\": 1, \"delay\": 387, \"bits\": 24, \"value\": 7869186}",
-                    "width": 80
-                },
-                {
-                    "type": "text",
-                    "content": "The ESP32 would then identify the command `\"cmd\":\"playRC\"` and play the right RF signal from the given data"
-                },
-                {
-                    "type": "code",
-                    "language": "cpp",
-                    "filename": "esp32_rf.ino",
-                    "width": 80,
-                    "content": "void playRC(int protocol, int delayInt, long value, int bits) {\n\tmySwitch.disableReceive();\n\tmySwitch.enableTransmit(TX_PIN);\n\n\tmySwitch.setProtocol(protocol);\n\tmySwitch.setPulseLength(delayInt);\n\tmySwitch.send(value, bits);\n\n\tmySwitch.disableTransmit();\n\tpiSerial.println(\"{\\\"status\\\":\\\"success\\\",\\\"type\\\":\\\"playRC\\\"}\");\n}"
-                }
-
-            ]
-        },
-                {
-            "type": "section",
-            "elements": [
-                {
-                    "type": "header",
-                    "level": 2,
-                    "content": "The Raspberry Pi 5",
-                    "id": "raspberrypi5",
-                    "positioning": {
-                        "marginTop": 0
                     }
                 }
             ]
