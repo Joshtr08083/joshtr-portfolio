@@ -12,7 +12,7 @@ const Page = () => {
   return (
     <>
 
-      <Title title={"Joshtr"} fromTop={18} bottomLine textShadow/>
+      <Title title={"Joshua Reid"} fromTop={18} bottomLine textShadow/>
 
 
       <div className="absolute inset-0 flex flex-col md:flex-row items-center justify-center">

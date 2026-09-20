@@ -17,7 +17,7 @@ const ProjectCard = ( {id, title, description, img_url, img_x, img_y} : Project)
                     priority
                 />
                 <div className={`${styles.cardDiv}`}>
-                    <h1 className={`${styles.title} text-3xl mx-auto px-8 text-center font-bold`}>{title}</h1>
+                    <h2 className={`${styles.title} text-3xl mx-auto px-8 text-center font-bold`}>{title}</h2>
                     <p className={`${styles.text}`}>(click)</p>
                 </div>
             </div>

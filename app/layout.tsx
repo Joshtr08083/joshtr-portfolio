@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | JOSHTR',
-    default: 'JOSHTR'
+    template: '%s | Joshtreid',
+    default: 'Joshtreid'
   },
-  description: "JOSHTR projects website page",
+  description: "Joshtreid projects website page",
 };
 
 export const viewport: Viewport = {
