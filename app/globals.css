@@ -4,6 +4,7 @@
 @plugin "daisyui";
 
 :root {
+  color-scheme: dark light;
   /* --background: #7dc9a6; */
   --background: #aadab4;
   --foreground: #1d1d1d;
