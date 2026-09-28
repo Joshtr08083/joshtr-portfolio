@@ -2,7 +2,7 @@ import { GridProps } from "./types.d"
 import styles from "./PageModules.module.css"
 import positionStyles from "./PositionStyles"
 
-const SectionModule = ({gap=10, rounded=true, columns=2, dynamic=true, backgroundColor="var(--panel-color)", showBack=false, children, positioning=undefined, align="center", justify="center", dynamicMinCellWidth=250} : GridProps) => {
+const GridModule = ({gap=10, rounded=true, columns=2, dynamic=true, backgroundColor="var(--panel-color)", showBack=false, children, positioning=undefined, align="center", justify="center", dynamicMinCellWidth=250} : GridProps) => {
   return (
     <div 
         className={`
@@ -23,4 +23,4 @@ const SectionModule = ({gap=10, rounded=true, columns=2, dynamic=true, backgroun
   )
 }
 
-export default SectionModule
+export default GridModule
