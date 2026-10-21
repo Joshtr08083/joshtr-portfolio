@@ -2,7 +2,6 @@ import { TimelineProps } from "./types.d"
 import styles from "./PageModules.module.css"
 
 const TimelineModule = ({headers} : TimelineProps) => {
-console.log(headers);
   return (
     <div
         className="fixed w-full left-0 top-0 flex justify-center px-5 z-20"

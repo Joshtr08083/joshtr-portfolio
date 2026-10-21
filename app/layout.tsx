@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: '%s | Joshtreid',
     default: 'Joshtreid'
   },
-  description: "Joshtreid projects website page",
+  description: "Joshtreid projects website page"
 };
 
 export const viewport: Viewport = {
