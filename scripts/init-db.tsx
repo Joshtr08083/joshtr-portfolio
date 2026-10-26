@@ -2,6 +2,8 @@ import db from "../lib/db";
 import fs from 'fs';
 import path from "path"
 
+console.log("Adding/updating database tables");
+
 db.exec(`
   CREATE TABLE IF NOT EXISTS projects (
     id TEXT PRIMARY KEY,

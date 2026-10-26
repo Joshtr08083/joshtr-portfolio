@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tsx ./scripts/init-db.tsx && next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "tsx ./scripts/init-db.tsx && next start",
     "lint": "eslint"
   },
   "dependencies": {
