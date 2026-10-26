@@ -1,8 +1,12 @@
-import db from "../lib/db";
+import Database from "better-sqlite3"
 import fs from 'fs';
 import path from "path"
 
 console.log("Adding/updating database tables");
+const dbPath =
+  process.env.DATABASE_PATH ?? path.join(process.cwd(), "data", "app.db")
+
+const db = new Database(dbPath)
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS projects (
@@ -33,3 +37,5 @@ for (const name of files) {
   );
   update.run(d.id, d.title, d.img_url, d.img_x, d.img_y, d.description, d.rank, JSON.stringify(d.page_data));
 }
+
+db.close()

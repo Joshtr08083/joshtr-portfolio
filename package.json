@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tsx npx tsx --env-file=.env ./scripts/init-db.tsx && next dev",
+    "dev": "tsx --env-file=.env ./scripts/init-db.tsx && next dev",
     "build": "next build",
     "start": "tsx --env-file=.env ./scripts/init-db.tsx && next start",
     "lint": "eslint"
