@@ -7,5 +7,11 @@
     "description": "This website itself was programmed using NextJS/React, and is my first React full-stack website.",
     "rank": 4,
 
-    "page_data": []
+    "page_data": [
+        {
+            "type": "note",
+            "level": "critical",
+            "content": "This page is still under construction and may not be completed yet. I will try to finish it ASAP."
+        }
+    ]
 }

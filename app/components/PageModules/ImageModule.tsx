@@ -8,11 +8,15 @@ import positionStyles from "./PositionStyles"
 const defaultRounded = {topLeft: true, topRight: true, bottomLeft: true, bottomRight: true};
 const defaultScreenSizes = {small: 100, medium: 50, large: 33};
 
-const ImageModule = ({ url, alt, title, height=0, width = 100, loading="lazy", border=false, rounded=undefined, positioning=undefined, x=50, y=50, screenSizes=undefined, expandable=true, aspectRatio=[16, 9]}: ImageProps) => {
+const ImageModule = ({ url, alt, title, height = undefined, width = undefined, loading="lazy", border=false, rounded=undefined, positioning=undefined, x=50, y=50, screenSizes=undefined, expandable=true, aspectRatio=[16, 9]}: ImageProps) => {
   const [isOpen, setIsOpen] = useState(false);
   
   rounded = {...defaultRounded, ...rounded}
   screenSizes = {...defaultScreenSizes, ...screenSizes}
+
+  if (width === undefined && height === undefined) {
+    width = 100
+  }
 
   return (
     <>
@@ -24,9 +28,9 @@ const ImageModule = ({ url, alt, title, height=0, width = 100, loading="lazy", b
 
           style={{
             ...positionStyles({...positioning}, {marginInline: "auto"}),
-            width: `${width}%`,
-            aspectRatio: (height === 0)?`${aspectRatio[0]} / ${aspectRatio[1]}`: undefined,
-            height: (height !== 0)? `${height}vh` : 'auto'
+            width: (width !== undefined)? `${width}%` : 'auto',
+            aspectRatio: (height === undefined || width === undefined)?`${aspectRatio[0]} / ${aspectRatio[1]}`: undefined,
+            height: (height !== undefined)? `${height}vh` : 'auto'
           }}
           onClick={() => {if (expandable) setIsOpen(true)}}
         >

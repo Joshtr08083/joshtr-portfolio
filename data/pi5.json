@@ -9,6 +9,20 @@
 
     "page_data": [
         {
+            "type": "timeline",
+            "headers": [
+                {
+                    "title": "Top",
+                    "id": ""
+                }
+            ]
+        },
+        {
+            "type": "note",
+            "level": "critical",
+            "content": "This page is still under construction and may not be completed yet. I will try to finish it ASAP."
+        },
+        {
             "type": "image",
             "url": "/images/pi-controller/schematic_combined.webp",
             "alt": "Lorem Ipsum",

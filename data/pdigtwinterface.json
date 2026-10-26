@@ -7,5 +7,391 @@
     "description": "I built a sensor and dashboard for detecting plant stimuli. This was done as part of a research with a post-grad at NC State.",
     "rank": 2,
 
-    "page_data": []
+    "page_data": [
+        {
+            "type": "timeline",
+            "headers": [
+                {
+                    "title": "Top",
+                    "id": ""
+                },
+                {
+                    "title": "Design",
+                    "id": "design"
+                },
+                {
+                    "title": "Electronics",
+                    "id": "electronics"
+                },
+                {
+                    "title": "Backend",
+                    "id": "backend"
+                },
+                {
+                    "title": "Frontend",
+                    "id": "frontend"
+                },
+                {
+                    "title": "Additions",
+                    "id": "additions"
+                },
+                {
+                    "title": "Results",
+                    "id": "results"
+                }
+            ]
+        },
+        {
+            "type": "note",
+            "level": "critical",
+            "content": "This page is still under construction and may not be completed yet. I will try to finish it ASAP."
+        },
+        {
+            "type": "image",
+            "url": "/images/pdigtwinterface/banner.webp",
+            "alt": "Banner showing the electronics of the plant digital twin interface",
+            "title": "Plant Sensor Electronics",
+            "width": 100,
+            "height": 30,
+            "y": 50,
+            "screenSizes": {
+                "small": 100,
+                "medium": 100,
+                "large": 100
+            },
+            "loading": "eager",
+            "rounded": {
+                "bottomLeft": false,
+                "bottomRight": false
+            }
+        },
+        {
+            "type": "section",
+            "paddingTop": 0,
+            "roundedTop": false,
+            "positioning":{
+                "marginTop": 0
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "Introduction",
+                    "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "Across two summers I worked with a post-graduate at NC State who was researching a plant sensor material. His focus was primarily material science, however, my involvement was main revolved around the electronics and software. The goal of the project was to develop a \"digital twin interface\" for viewing plant stimuli. This involved building the electronics and programming the backend/frontend.",
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "content": "Contents",
+                    "size": 2,
+                    "level": 3,
+                    "positioning": {
+                        "marginTop": 15
+                    }
+                },
+                {
+                    "type": "text",
+                    "content": "The project has been broken into these main sections:",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "list",
+                    "ordered": false,
+                    "items": [
+                        "_|The Design|(#design)_",
+                        "_|The Electronics|(#electronics)_",
+                        "_|The Backend|(#backend)_",
+                        "_|The Frontend|(#frontend)_",
+                        "_|Other Additions|(#additions)_",
+                        "_|The Results|(#results)_"
+                    ],
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The Design",
+                    "id": "design",
+                    "level": 2
+                },
+                {
+                    "type": "grid",
+                    "align": "start",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "elements": [
+                        {
+                            "type": "container",
+                            "positioning": {
+                                "marginTop": 0
+                            },
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 0
+                                    },
+                                    "content": "The overall design of the project can be broken into 8 parts. These eight parts will be grouped together and explained in more depth, but this will give a general overview of purpose:"
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 10
+                                    },
+                                    "content": "**1. Plant Stimulus** - Stimuli, mainly touching the plant, are detected through two electrodes on the stem of the plant. The exact material and design of the electrodes was the research's focus."
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 10
+                                    },
+                                    "content": "**2. Amplify + Digitize** - An amplifier and an Analog-to-Digital Converter are used together to amplify the tiny milivolt signals from the plant into digital numeric values."
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 10
+                                    },
+                                    "content": "**3. Initial Data Processing** - An arduino receives the data and outputs a JSON string over Serial (UART)"
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 10
+                                    },
+                                    "content": "**4. ESP32 Sender** - An ESP32 sends the JSON strings wireless over ESP-NOW to a receier ESP32."
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 10
+                                    },
+                                    "content": "**5. ESP32 Receiver** - An ESP32 receives the data and sends it to the backend over Serial"
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 10
+                                    },
+                                    "content": "**6. Backend** - A backend running on any PC serves the data to the frontend and saves it to a database"
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 10
+                                    },
+                                    "content": "**7a. Frontend Interface** - The \"digital twin\" interface that shows plant stimuli on a web UI."
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 10
+                                    },
+                                    "content": "**7b. Database** - The database stores the most recent data, as well as persistent values like thresholds."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "image",
+                            "url": "/images/pdigtwinterface/flowchart.webp",
+                            "alt": "Flowchart of whole design from capturing plant stimuli to viewing it on a dashboard.",
+                            "title": "Design - Flowchart",
+                            "screenSizes": {
+                                "small": 90,
+                                "medium": 70,
+                                "large": 50
+                            },
+                            "width":70,
+                            "aspectRatio": [1, 2.15],
+                            "y": 50,
+                            "positioning": {
+                                "marginTop": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The Electronics",
+                    "id": "electronics",
+                    "level": 2
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Basic Design"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "The electronics involve reading the plant signal and sending them to be processed by the backend. Initially, I was given force-sensitive resistors to test with. Because they didn't need amplification, I used an Arduino's built in ADC. The Arduino then sends the formatted data to the sender ESP32 over UART. There are two ESP32s that communicate over an ESP-NOW network to send the data wirelessly."
+                },
+                {
+                    "type": "image",
+                    "url": "/images/pdigtwinterface/electronics-no-plant.webp",
+                    "alt": "Picture of electronics with breadboard, Arduino, ESP32, and force-sensitive resistors.",
+                    "title": "Electronics - No Plant Sensor Test",
+                    "screenSizes": {
+                        "small": 90,
+                        "medium": 70,
+                        "large": 50
+                    },
+                    "width": 70,
+                    "y": 50,
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Amplifier Circuit"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "After that circuit worked well enough, I was given a plant to test real stimuli. An issue I ran into was that all my readings were 0V. The Arduino couldn't read the tiny voltages and the high impedance plant tissue. To fix this, I used a combination of an INA333 and ADS1115. The INA333 is a high impedance input that can amplify the small voltages into usable voltages. Then, the ADS1115 acts as the Arduino's ADC with a higher resolution. Instead of using the Arduino's analog pins, I just connected the I2C pins to the ADS1115."
+                },
+                {
+                    "type": "grid",
+                    "columns": 2,
+                    "elements": [
+                        {
+                            "type": "image",
+                            "url": "/images/pdigtwinterface/amplifier-circuit.webp",
+                            "alt": "Perfboard with an INA333 and ADS1115 solder on",
+                            "title": "Electronics - INA333 + ADS1115",
+                            "screenSizes": {
+                                "small": 90,
+                                "medium": 70,
+                                "large": 50
+                            },
+                            "height": 40,
+                            "width": 100,
+                            "y": 50,
+                            "positioning": {
+                                "marginTop": 0
+                            }
+                        },
+                        {
+                            "type": "image",
+                            "url": "/images/pdigtwinterface/full-electronics.webp",
+                            "alt": "Picture of electronics with breadboard, Arduino, ESP32, and force-sensitive resistors.",
+                            "title": "Electronics - No Plant Sensor Test",
+                            "screenSizes": {
+                                "small": 90,
+                                "medium": 70,
+                                "large": 50
+                            },
+                            "height": 40,
+                            "width": 100,
+                            "y": 50,
+                            "positioning": {
+                                "marginTop": 0
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The Backend",
+                    "id": "backend",
+                    "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "Words"
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The Frontend",
+                    "id": "frontend",
+                    "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "Words"
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "Other Additions",
+                    "id": "additions",
+                    "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "Words"
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "content": "The Results",
+                    "id": "results",
+                    "level": 2
+                }
+            ]
+        }
+    ]
 }
