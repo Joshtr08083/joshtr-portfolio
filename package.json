@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tsx --env-file=.env ./scripts/init-db.tsx && next dev",
-    "build": "tsx --env-file=.env ./scripts/init-db.tsx && next build",
-    "start": "tsx --env-file=.env ./scripts/init-db.tsx && next start",
+    "dev": "tsx ./scripts/init-db.tsx && next dev",
+    "build": "tsx ./scripts/init-db.tsx && next build",
+    "start": "tsx ./scripts/init-db.tsx && next start",
     "lint": "eslint"
   },
   "dependencies": {
