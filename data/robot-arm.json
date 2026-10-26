@@ -1,7 +1,7 @@
 {
     "id": "robot-arm",
     "title": "Robot Arm",
-    "img_url": "/images/robot-arm/outline.webp",
+    "img_url": "https://assets.joshtreid.com/images/robot-arm/outline.webp",
     "img_x": 50,
     "img_y": 50,
     "description": "First time playing with stepper motors and servos to make a robot arm using 3D printed parts",
@@ -39,7 +39,7 @@
         },
         {
             "type": "image",
-            "url": "/images/robot-arm/rarm_banner_v1.1.webp",
+            "url": "https://assets.joshtreid.com/images/robot-arm/rarm_banner_v1.1.webp",
             "alt": "Banner showing the electronic schematics and render of robot arm",
             "title": "Robot Arm",
             "width": 100,
@@ -146,7 +146,7 @@
                 },
                 {
                     "type": "image",
-                    "url": "/images/robot-arm/base.webp",
+                    "url": "https://assets.joshtreid.com/images/robot-arm/base.webp",
                     "alt": "Fusion screenshot of robot arm base.",
                     "title": "Robot Arm-Fusion-Base",
                     "screenSizes": {
@@ -186,7 +186,7 @@
                 },
                 {
                     "type": "image",
-                    "url": "/images/robot-arm/shoulder.webp",
+                    "url": "https://assets.joshtreid.com/images/robot-arm/shoulder.webp",
                     "alt": "Fusion screenshot of robot arm shoulder.",
                     "title": "Robot Arm-Fusion-Shoulder",
                     "screenSizes": {
@@ -218,7 +218,7 @@
                 },
                 {
                     "type": "image",
-                    "url": "/images/robot-arm/arm.webp",
+                    "url": "https://assets.joshtreid.com/images/robot-arm/arm.webp",
                     "alt": "Fusion screenshot of the robot arm links.",
                     "title": "Robot Arm-Fusion-ArmLinks",
                     "screenSizes": {
@@ -258,7 +258,7 @@
                 },
                 {
                     "type": "image",
-                    "url": "/images/robot-arm/claw.webp",
+                    "url": "https://assets.joshtreid.com/images/robot-arm/claw.webp",
                     "alt": "Fusion screenshot of robot arm claw.",
                     "title": "Robot Arm-Fusion-Claw",
                     "screenSizes": {
@@ -308,7 +308,7 @@
                     "elements": [
                         {
                             "type": "image",
-                            "url": "/images/robot-arm/bambua1.webp",
+                            "url": "https://assets.joshtreid.com/images/robot-arm/bambua1.webp",
                             "alt": "Image of the Bambu A1 printer in my room",
                             "title": "Bambu Lab A1",
                             "width": 100,
@@ -377,7 +377,7 @@
                     "elements": [
                         {
                             "type": "image",
-                            "url": "/images/robot-arm/base-build.webp",
+                            "url": "https://assets.joshtreid.com/images/robot-arm/base-build.webp",
                             "alt": "Picture of the completed base",
                             "title": "Build - Base",
                             "width": 100,
@@ -395,7 +395,7 @@
                         },
                         {
                             "type": "image",
-                            "url": "/images/robot-arm/shoulder-build.webp",
+                            "url": "https://assets.joshtreid.com/images/robot-arm/shoulder-build.webp",
                             "alt": "Picture of the completed shoulder",
                             "title": "Build - Shoulder",
                             "width": 100,
@@ -413,7 +413,7 @@
                         },
                         {
                             "type": "image",
-                            "url": "/images/robot-arm/arm-build.webp",
+                            "url": "https://assets.joshtreid.com/images/robot-arm/arm-build.webp",
                             "alt": "Picture of the completed arm links",
                             "title": "Build - Arm",
                             "width": 100,
@@ -431,7 +431,7 @@
                         },
                         {
                             "type": "image",
-                            "url": "/images/robot-arm/full-build.webp",
+                            "url": "https://assets.joshtreid.com/images/robot-arm/full-build.webp",
                             "alt": "Picture of the completed arm with claw",
                             "title": "Build - Full Arm",
                             "width": 100,
@@ -518,7 +518,7 @@
                         },
                         {
                             "type": "image",
-                            "url": "/images/robot-arm/electronics.webp",
+                            "url": "https://assets.joshtreid.com/images/robot-arm/electronics.webp",
                             "alt": "Photo of the power supply and buck converters",
                             "title": "Electronics - Power",
                             "width": 100,
@@ -556,7 +556,7 @@
                     "elements": [
                         {
                             "type": "image",
-                            "url": "/images/robot-arm/circuit_stack.webp",
+                            "url": "https://assets.joshtreid.com/images/robot-arm/circuit_stack.webp",
                             "alt": "Photo of two perfboards stacked containing the control circuit",
                             "title": "Electronics - Circuit Stack",
                             "width": 100,
@@ -618,7 +618,7 @@
                 },
                 {
                     "type": "image",
-                    "url": "/images/robot-arm/electronics-case.webp",
+                    "url": "https://assets.joshtreid.com/images/robot-arm/electronics-case.webp",
                     "alt": "Photo of 3D printed box that holds the electronics",
                     "title": "Electronics - Case",
                     "screenSizes": {
@@ -732,7 +732,7 @@
                 },
                 {
                     "type": "image",
-                    "url": "/images/robot-arm/dashboard.webp",
+                    "url": "https://assets.joshtreid.com/images/robot-arm/dashboard.webp",
                     "alt": "Screenshot of the dashboard from Firefox",
                     "title": "Programming - Dashboard",
                     "screenSizes": {

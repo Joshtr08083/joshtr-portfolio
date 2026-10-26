@@ -1,7 +1,7 @@
 {
     "id": "pi-controller",
     "title": "Raspberry Pi Controller",
-    "img_url": "/images/pi-controller/outline.webp",
+    "img_url": "https://assets.joshtreid.com/images/pi-controller/outline.webp",
     "img_x": 50,
     "img_y": 0,
     "description": "First embeded system-ish project with a Raspberry Pi5, ESP32, and 433MHz transmitter/receivers to create a universal remote to control things like lights remotely",
@@ -24,7 +24,7 @@
         },
         {
             "type": "image",
-            "url": "/images/pi-controller/schematic_combined.webp",
+            "url": "https://assets.joshtreid.com/images/pi-controller/schematic_combined.webp",
             "alt": "Lorem Ipsum",
             "title": "Lorem Ipsum",
             "width": 100,
@@ -90,7 +90,7 @@
                         },
                         {
                             "type": "image",
-                            "url": "/images/pi-controller/basic-remote.webp",
+                            "url": "https://assets.joshtreid.com/images/pi-controller/basic-remote.webp",
                             "title": "Basic 433 MHz Remote",
                             "alt": "Image of a 433 MHz remote that controls a lamp that came with said lamp.",
                             "width": 90,

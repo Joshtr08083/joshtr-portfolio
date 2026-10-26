@@ -1,7 +1,7 @@
 {
     "id": "pdigtwinterface",
     "title": "Plant Sensor Research",
-    "img_url": "/images/pdigtwinterface/outline.webp",
+    "img_url": "https://assets.joshtreid.com/images/pdigtwinterface/outline.webp",
     "img_x": 50,
     "img_y": 50,
     "description": "I built a sensor and dashboard for detecting plant stimuli. This was done as part of a research with a post-grad at NC State.",
@@ -48,7 +48,7 @@
         },
         {
             "type": "image",
-            "url": "/images/pdigtwinterface/banner.webp",
+            "url": "https://assets.joshtreid.com/images/pdigtwinterface/banner.webp",
             "alt": "Banner showing the electronics of the plant digital twin interface",
             "title": "Plant Sensor Electronics",
             "width": 100,
@@ -210,7 +210,7 @@
                         },
                         {
                             "type": "image",
-                            "url": "/images/pdigtwinterface/flowchart.webp",
+                            "url": "https://assets.joshtreid.com/images/pdigtwinterface/flowchart.webp",
                             "alt": "Flowchart of whole design from capturing plant stimuli to viewing it on a dashboard.",
                             "title": "Design - Flowchart",
                             "screenSizes": {
@@ -256,7 +256,7 @@
                 },
                 {
                     "type": "image",
-                    "url": "/images/pdigtwinterface/electronics-no-plant.webp",
+                    "url": "https://assets.joshtreid.com/images/pdigtwinterface/electronics-no-plant.webp",
                     "alt": "Picture of electronics with breadboard, Arduino, ESP32, and force-sensitive resistors.",
                     "title": "Electronics - No Plant Sensor Test",
                     "screenSizes": {
@@ -289,7 +289,7 @@
                     "elements": [
                         {
                             "type": "image",
-                            "url": "/images/pdigtwinterface/amplifier-circuit.webp",
+                            "url": "https://assets.joshtreid.com/images/pdigtwinterface/amplifier-circuit.webp",
                             "alt": "Perfboard with an INA333 and ADS1115 solder on",
                             "title": "Electronics - INA333 + ADS1115",
                             "screenSizes": {
@@ -306,7 +306,7 @@
                         },
                         {
                             "type": "image",
-                            "url": "/images/pdigtwinterface/full-electronics.webp",
+                            "url": "https://assets.joshtreid.com/images/pdigtwinterface/full-electronics.webp",
                             "alt": "Picture of electronics with breadboard, Arduino, ESP32, and force-sensitive resistors.",
                             "title": "Electronics - No Plant Sensor Test",
                             "screenSizes": {
