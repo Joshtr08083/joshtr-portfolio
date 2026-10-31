@@ -22,6 +22,12 @@ const nextConfig: NextConfig = {
         hostname: 'assets.joshtreid.com',
         port: '',
         pathname:  '/**'
+      },
+      {
+        protocol: 'https',
+        hostname: '*.wikimedia.org',
+        port: '',
+        pathname: '/**'
       }
     ]
   }

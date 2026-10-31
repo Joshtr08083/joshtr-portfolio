@@ -154,3 +154,16 @@ export interface TimelineProps {
     type: string;
     headers: TimelineHeader[];
 }
+
+export interface Badge {
+    title: string,
+    url: string,
+    icon: string,
+    size: number,
+    invertOn: "dark" | "light" | "none"
+}
+
+export interface BadgesProps extends Positioning {
+    type: string;
+    badges?: Badge[]
+}
