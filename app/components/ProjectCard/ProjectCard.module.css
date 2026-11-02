@@ -1,26 +1,7 @@
 :root {
-    --back: #5da780;
+    --back: #ffffff;
     --txtcol: #232323;
-    --back-transparent: #d6e9dfcf;
-}
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --back: #292253;
-    --txtcol: #ced0cf;
-    --back-transparent: #000000c2;
-  }
-}
-
-@keyframes shiftUp{
-    from { transform: translateY(0%)}
-    to { transform: translateY(-5%)}
-}
-
-@keyframes appear {
-    from {opacity: 0%;}
-    to {opacity: 100%;}
+    --back-transparent: #ffffffa6;
 }
 
 .cardDiv {
@@ -34,6 +15,35 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.cardImg {
+    filter:invert() contrast(120%) brightness(120%)
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --back: #292253;
+    --txtcol: #ced0cf;
+    --back-transparent: #000000c2;
+  }
+
+  .cardImg {
+    filter: none
+  }
+
+}
+
+@keyframes shiftUp{
+    from { transform: translateY(0%)}
+    to { transform: translateY(-5%)}
+}
+
+@keyframes appear {
+    from {opacity: 0%;}
+    to {opacity: 100%;}
+}
+
+
 
 .container {
     transition: transform 0.5s;

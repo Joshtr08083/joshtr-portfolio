@@ -74,9 +74,23 @@
             },
             "elements": [
                 {
+                    "type":"badges",
+                    "badges": [
+                        {
+                            "title": "Github Repository",
+                            "icon": "https://raw.githubusercontent.com/primer/octicons/9c3c9d7426881584f6f507f3f4a54aea5879648e/icons/mark-github-24.svg",
+                            "url": "https://github.com/Joshtr08083/plant_digital_twin_interface.git",
+                            "invertOn": "dark"
+                        }
+                    ]
+                },
+                {
                     "type": "header",
                     "content": "Introduction",
-                    "level": 2
+                    "level": 2,
+                    "positioning": {
+                        "marginTop": 10
+                    }
                 },
                 {
                     "type": "text",

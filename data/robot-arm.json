@@ -65,9 +65,33 @@
             },
             "elements": [
                 {
+                    "type": "badges",
+                    "badges": [
+                        {
+                            "url": "https://github.com/Joshtr08083/RobotArmController.git",
+                            "icon": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/960px-Octicons-mark-github.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail",
+                            "title": "Github Repo",
+                            "invertOn": "dark"
+                        },
+                        {
+                            "url": "https://drive.google.com/drive/folders/1sBcj68yBResuS-qNEp9FOOEiglqJbRaN?usp=drive_link",
+                            "icon": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Drive_icon_%282026%29.svg/960px-Google_Drive_icon_%282026%29.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail",
+                            "title": "Google Drive"
+                        },
+                        {
+                            "url": "https://www.youtube.com/playlist?list=PLPtwnbKRkUj8",
+                            "icon": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/960px-YouTube_full-color_icon_%282017%29.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail",
+                            "title": "Youtube Demos"
+                        }
+                    ]
+                },
+                {
                     "type": "header",
                     "content": "Overview",
-                    "level": 2
+                    "level": 2,
+                    "positioning": {
+                        "marginTop": 10
+                    }
                 },
                 {
                     "type": "text",

@@ -14,8 +14,9 @@ import GridModule from "@/app/components/PageModules/GridModule"
 import ContainerModule from "@/app/components/PageModules/ContainerModule"
 import YoutubeModue from "@/app/components/PageModules/YoutubeModule"
 import TimelineModule from "@/app/components/PageModules/TimelineModule"
+import BadgesModule from "@/app/components/PageModules/BadgesModule"
 
-export type Module = (Types.ImageProps | Types.TextProps | Types.DividerProps | Types.CodeProps | Types.HeaderProps | Types.NoteProps |  Types.ListProps | Types.SectionModuleProps | Types.YoutubeProps | Types.ContainerModuleProps | Types.GridModuleProps | Types.TimelineProps)
+export type Module = (Types.ImageProps | Types.TextProps | Types.DividerProps | Types.CodeProps | Types.HeaderProps | Types.NoteProps |  Types.ListProps | Types.SectionModuleProps | Types.YoutubeProps | Types.ContainerModuleProps | Types.GridModuleProps | Types.TimelineProps | Types.BadgesProps)
 
 const getModule = ( module: Module, key:number,) => {
     switch (module.type) {
@@ -45,6 +46,9 @@ const getModule = ( module: Module, key:number,) => {
         }
         case "timeline": {
             return <TimelineModule key={key} {...module as Types.TimelineProps} />
+        }
+        case "badges": {
+            return <BadgesModule key={key} {...module} />
         }
         case "section": {
             const {elements: data, ...props} = module as Types.SectionModuleProps;
