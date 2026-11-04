@@ -4,7 +4,7 @@
     "img_url": "https://assets.joshtreid.com/images/pdigtwinterface/outline.webp",
     "img_x": 50,
     "img_y": 50,
-    "description": "I built a sensor and dashboard for detecting plant stimuli. This was done as part of a research with a post-grad at NC State.",
+    "description": "I built a sensor and dashboard for detecting plant stimuli. This was done as part of research with a post-grad at NC State.",
     "rank": 2,
 
     "page_data": [
@@ -42,11 +42,6 @@
             ]
         },
         {
-            "type": "note",
-            "level": "critical",
-            "content": "This page is still under construction and may not be completed yet. I will try to finish it ASAP."
-        },
-        {
             "type": "image",
             "url": "https://assets.joshtreid.com/images/pdigtwinterface/banner.webp",
             "alt": "Banner showing the electronics of the plant digital twin interface",
@@ -81,6 +76,11 @@
                             "icon": "https://raw.githubusercontent.com/primer/octicons/9c3c9d7426881584f6f507f3f4a54aea5879648e/icons/mark-github-24.svg",
                             "url": "https://github.com/Joshtr08083/plant_digital_twin_interface.git",
                             "invertOn": "dark"
+                        },
+                        {
+                            "url": "https://youtube.com/playlist?list=PLSGwh8eJF_hE&si=El2EvGJUmog5vdUv",
+                            "icon": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/960px-YouTube_full-color_icon_%282017%29.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail",
+                            "title": "Youtube Demos"
                         }
                     ]
                 },
@@ -94,7 +94,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "Across two summers I worked with a post-graduate at NC State who was researching a plant sensor material. His focus was primarily material science, however, my involvement was main revolved around the electronics and software. The goal of the project was to develop a \"digital twin interface\" for viewing plant stimuli. This involved building the electronics and programming the backend/frontend.",
+                    "content": "Over two summers, I worked with a post-graduate at NC State who was researching a plant sensor material. His focus was primarily material science; however, my involvement mainly revolved around the electronics and software. The goal of the project was to develop a \"digital twin interface\" for viewing plant stimuli. This involved building the electronics and programming the backend/frontend.",
                     "positioning": {
                         "marginTop": 10
                     }
@@ -162,35 +162,35 @@
                                     "positioning": {
                                         "marginTop": 0
                                     },
-                                    "content": "The overall design of the project can be broken into 8 parts. These eight parts will be grouped together and explained in more depth, but this will give a general overview of purpose:"
+                                    "content": "The project's overall design can be broken into 8 parts. These eight parts will be grouped and explained in more depth, but this will give a general overview of the purpose:"
                                 },
                                 {
                                     "type": "text",
                                     "positioning": {
                                         "marginTop": 10
                                     },
-                                    "content": "**1. Plant Stimulus** - Stimuli, mainly touching the plant, are detected through two electrodes on the stem of the plant. The exact material and design of the electrodes was the research's focus."
+                                    "content": "**1. Plant Stimulus** - Stimuli, mainly touching the plant, are detected through two electrodes on the stem of the plant. The research focused on the exact material and design of the electrodes."
                                 },
                                 {
                                     "type": "text",
                                     "positioning": {
                                         "marginTop": 10
                                     },
-                                    "content": "**2. Amplify + Digitize** - An amplifier and an Analog-to-Digital Converter are used together to amplify the tiny milivolt signals from the plant into digital numeric values."
+                                    "content": "**2. Amplify + Digitize** - An amplifier and an Analog-to-Digital Converter are used together to amplify the tiny millivolt signals from the plant into digital numeric values."
                                 },
                                 {
                                     "type": "text",
                                     "positioning": {
                                         "marginTop": 10
                                     },
-                                    "content": "**3. Initial Data Processing** - An arduino receives the data and outputs a JSON string over Serial (UART)"
+                                    "content": "**3. Initial Data Processing** - An Arduino receives the data and outputs a JSON string over Serial (UART)"
                                 },
                                 {
                                     "type": "text",
                                     "positioning": {
                                         "marginTop": 10
                                     },
-                                    "content": "**4. ESP32 Sender** - An ESP32 sends the JSON strings wireless over ESP-NOW to a receier ESP32."
+                                    "content": "**4. ESP32 Sender** - An ESP32 sends the JSON strings wirelessly over ESP-NOW to a receiver ESP32."
                                 },
                                 {
                                     "type": "text",
@@ -204,14 +204,14 @@
                                     "positioning": {
                                         "marginTop": 10
                                     },
-                                    "content": "**6. Backend** - A backend running on any PC serves the data to the frontend and saves it to a database"
+                                    "content": "**6. Backend** - A backend running on any PC. It serves the data to the frontend and saves it to a database"
                                 },
                                 {
                                     "type": "text",
                                     "positioning": {
                                         "marginTop": 10
                                     },
-                                    "content": "**7a. Frontend Interface** - The \"digital twin\" interface that shows plant stimuli on a web UI."
+                                    "content": "**7a. Frontend Interface** - The \"digital twin\" interface that shows plant stimuli on a dashboard that runs as a website in the browser."
                                 },
                                 {
                                     "type": "text",
@@ -266,7 +266,7 @@
                     "positioning": {
                         "marginTop": 5
                     },
-                    "content": "The electronics involve reading the plant signal and sending them to be processed by the backend. Initially, I was given force-sensitive resistors to test with. Because they didn't need amplification, I used an Arduino's built in ADC. The Arduino then sends the formatted data to the sender ESP32 over UART. There are two ESP32s that communicate over an ESP-NOW network to send the data wirelessly."
+                    "content": "The electronics involve reading the plant signal and sending it to be processed by the backend. Initially, I was given force-sensitive resistors to test with. Because they didn't need amplification, I used an Arduino's built-in ADC. The Arduino then sends the formatted data to the ESP32 over UART."
                 },
                 {
                     "type": "image",
@@ -295,7 +295,7 @@
                     "positioning": {
                         "marginTop": 5
                     },
-                    "content": "After that circuit worked well enough, I was given a plant to test real stimuli. An issue I ran into was that all my readings were 0V. The Arduino couldn't read the tiny voltages and the high impedance plant tissue. To fix this, I used a combination of an INA333 and ADS1115. The INA333 is a high impedance input that can amplify the small voltages into usable voltages. Then, the ADS1115 acts as the Arduino's ADC with a higher resolution. Instead of using the Arduino's analog pins, I just connected the I2C pins to the ADS1115."
+                    "content": "After that circuit worked well enough, I was given a plant to test real stimuli. An issue I ran into was that all my readings were 0V. The Arduino couldn't read the tiny voltages and the high-impedance plant tissue. To fix this, I used a combination of an INA333 and ADS1115. The INA333 is a high-impedance input that can amplify the small voltages into usable voltages. Then, the ADS1115 acts as the Arduino's ADC with a higher resolution. Instead of using the Arduino's analog pins, I just connected the I2C pins to the ADS1115."
                 },
                 {
                     "type": "grid",
@@ -304,7 +304,7 @@
                         {
                             "type": "image",
                             "url": "https://assets.joshtreid.com/images/pdigtwinterface/amplifier-circuit.webp",
-                            "alt": "Perfboard with an INA333 and ADS1115 solder on",
+                            "alt": "Perfboard with an INA333 and ADS1115 soldered on",
                             "title": "Electronics - INA333 + ADS1115",
                             "screenSizes": {
                                 "small": 90,
@@ -321,8 +321,48 @@
                         {
                             "type": "image",
                             "url": "https://assets.joshtreid.com/images/pdigtwinterface/full-electronics.webp",
-                            "alt": "Picture of electronics with breadboard, Arduino, ESP32, and force-sensitive resistors.",
-                            "title": "Electronics - No Plant Sensor Test",
+                            "alt": "Picture of the original electronics (Arduino + ESP32) connected to the amplifier circuit including the ADS1115 and INA333.",
+                            "title": "Electronics - Plant Sensor Circuit",
+                            "screenSizes": {
+                                "small": 90,
+                                "medium": 70,
+                                "large": 50
+                            },
+                            "height": 40,
+                            "width": 100,
+                            "y": 50,
+                            "positioning": {
+                                "marginTop": 0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "ESP32 Network"
+                },
+                {
+                    "type": "grid",
+                    "columns": 2,
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "elements": [
+                        {
+                            "type": "text",
+                            "positioning": {
+                                "marginTop": 5,
+                                "alignSelf": "start"
+                            },
+                            "content": "To allow the plant sensors to be in a different physical location from the backend server, the backend and plant sensors communicate using an ESP32 network. Using ESP-NOW, a sender and receiver ESP32 can communicate wirelessly with no internet connection. This receiver ESP32 acts as a USB ESP-NOW dongle for the backend server."
+                        },
+                        {
+                            "type": "image",
+                            "url": "https://assets.joshtreid.com/images/pdigtwinterface/esp32_receiver.webp",
+                            "alt": "Picture of an ESP-NOW USB dongle for the backend server",
+                            "title": "Electronics - ESP-NOW-Dongle",
                             "screenSizes": {
                                 "small": 90,
                                 "medium": 70,
@@ -353,7 +393,81 @@
                 },
                 {
                     "type": "text",
-                    "content": "Words"
+                    "content": "The backend mainly relies on the Django web framework. It serves three main purposes: listening to the receiver, writing to the database, and serving the web dashboard."
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Docker"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "The backend is really multiple processes running as Docker containers. The Django web framework becomes two different containers: telemetry and webapp. Telemetry performs many functions that revolve around reading serial data. webapp handles all of the front-facing endpoints, specifically HTTP (website) and WebSockets (sensor data)."
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "Beyond the main two, there are three other containers. redis runs Redis, which coordinates communication between the two Django processes. database runs PostgreSQL, which allows for persistent database storage of sensor readings and config settings. migrate is a short-lived container that makes sure the PostgreSQL database schema is correct before the Django processes run."
+                },
+                {
+                    "type": "header",
+                    "content": "Telemetry",
+                    "level": 3,
+                    "size": 2
+                },
+                {
+                    "type": "text",
+                    "content": "The backend executes a Django management command. This command spawns three workers on their own threads, which run continuously. The main worker is the serial reader worker, which continuously parses JSON data on Serial and pushes it onto thread-safe queues.",
+                    "positioning": {
+                        "marginTop": 5
+                    }
+                },
+                {
+                    "type": "code",
+                    "language": "python",
+                    "filename": "read_serial.py",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "while True:\n    raw_line = ser.readline().replace(b'\\x00', b'')\n    line = raw_line.decode('utf-8', errors='ignore').strip()\n    if not line:\n        continue\n\n    try:\n        data, end_index = decoder.raw_decode(line)\n        if end_index < len(line):\n            ser.reset_input_buffer()\n        status, data_payload, error = data.get('status'), data.get('data'), data.get('error')\n    except (json.JSONDecodeError, AttributeError):\n        status, data_payload, error = None, None, f\"unparseable line: {line[:100]}\"\n\n    payload = {\n        \"line\": line,\n        \"status\": status,\n        \"data\": data_payload,\n        \"error\": error\n    }\n\n    db_queue.put(payload)\n    broadcast_queue.put(payload)"
+                },
+                {
+                    "type": "text",
+                    "content": "Another worker, the database worker, reads from `db\\_queue` and applies each set of sensor_data to a buffer. If the buffer exceeds a certain length or time, it bulk writes all of the buffer data to the database. While not shown below, the worker also prunes data entries in the database older than a specific cutoff time.",
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "code",
+                    "language": "python",
+                    "filename": "read_serial.py",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "while True:\n    try:\n        item = db_queue.get(timeout=1.0)\n        buffer.append(SensorReading(\n            raw_line=item[\"line\"],\n            data=item[\"data\"],\n            status=item[\"status\"],\n            error=item[\"error\"],\n        ))\n    except queue.Empty:\n        pass\n\n    now = time.monotonic()\n\n    if (len(buffer) >= options['db_batch_size']) or (buffer and now - last_flush >= 3.0): \n        try:\n            SensorReading.objects.bulk_create(buffer)\n        except (ValueError, DatabaseError) as db_err:\n            self.stderr.write(f\"Database insertion failed: {db_err}. Clearing buffer.\")\n        finally:\n            buffer.clear()\n            last_flush = now"
+                },
+                {
+                    "type": "text",
+                    "content": "The third worker, the broadcast worker, reads from `broadcast\\_queue` and publishes the sensor data to the `live\\_readings` channel group. Then, another Django process, which runs the WebSocket server, listens on the same channel and broadcasts the sensor data to all connected browsers. These two processes are linked via Redis.",
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "code",
+                    "language": "python",
+                    "filename": "read_serial.py",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "while True:\n    item = None\n    try:\n        while True:\n            item = broadcast_queue.get_nowait()\n    except queue.Empty:\n        pass\n\n    if item:\n        now = time.monotonic()\n        if now - last_broadcast >= options['broadcast_interval']:\n            try:\n                async_to_sync(channel_layer.group_send)(\n                    \"live_readings\",\n                    {\n                        \"type\": \"send_reading\",\n                        \"reading\": {\n                            \"timestamp\": timezone.now().isoformat(),\n                            \"raw\": item[\"line\"],\n                            \"data\": item[\"data\"],\n                            \"status\": item[\"status\"],\n                            \"error\": item[\"error\"],\n                        },\n                    }\n                )"
                 }
             ]
         },
@@ -371,7 +485,112 @@
                 },
                 {
                     "type": "text",
-                    "content": "Words"
+                    "content": "The Frontend is the dashboard that shows a model of a plant, along with sensor readings and a way to change settings. The frontend is a website that runs locally, hosted by the backend `webapp` container. It is written in React and is compiled using Vite into static files that are copied into the Django project when the Docker images are made."
+                },
+                {
+                    "type": "image",
+                    "url": "https://assets.joshtreid.com/images/pdigtwinterface/dashboard.webp",
+                    "alt": "Screenshot of the dashboard from Firefox",
+                    "title": "Frontend - Frontend Dashboard",
+                    "screenSizes": {
+                        "small": 100,
+                        "medium": 80,
+                        "large": 90
+                    },
+                    "width": 95,
+                    "y": 50,
+                    "aspectRatio": [16, 8],
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "note",
+                    "level": "normal",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "width": 80,
+                    "content": "For the parts where it says 0 for ID on the tables and the graph, this is a remnant from the previous setup that supported multiple sensors and is not relevant anymore."
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Readings/Chart"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "The dashboard establishes a WebSocket connection to give live sensor readings. The dashboard takes the current and previous values to determine the absolute percent difference between points. A high absolute percent difference beyond a certain threshold suggests a possible mechanical stimulus to the plant. Additionally, the dashboard would use the backend database and live readings to create a line chart of the readings across a few seconds."
+                },
+                {
+                    "type": "grid",
+                    "columns": 2,
+                    "positioning": {
+                        "marginTop": 15
+                    },
+                    "elements": [
+                        {
+                            
+                            "type": "container",
+                            "positioning": {
+                                "alignSelf": "start",
+                                "marginTop": 0
+                            },
+                            "elements": [
+                                {
+                                    "type": "header",
+                                    "level": 3,
+                                    "size": 2,
+                                    "content": "Plant",
+                                    "positioning": {
+                                        "marginTop": 0
+                                    }
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 5,
+                                        "alignSelf": "start"
+                                    },
+                                    "content": "When a mechanical stimulus is detected, the 3D model of a plant in the center is highlighted, and a message appears above it."
+                                },
+                                {
+                                    "type": "header",
+                                    "level": 3,
+                                    "size": 2,
+                                    "content": "Settings"
+                                },
+                                {
+                                    "type": "text",
+                                    "positioning": {
+                                        "marginTop": 5
+                                    },
+                                    "content": "On the right side is another table for settings. Threshold sets the minimum absolute percent difference that is considered a mechanical stimulus. Min and Max set the y-value limits on the graph; setting Max to zero forces the graph to scale its y-value automatically to fit the highest and lowest value."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "image",
+                            "url": "https://assets.joshtreid.com/images/pdigtwinterface/stimulus.webp",
+                            "alt": "Screenshot of the plant in the dashboard being highlighted with text above that says \"Mechanical Stimulus Detected (0)\"",
+                            "title": "Frontend - Plant Stimulus",
+                            "screenSizes": {
+                                "small": 100,
+                                "medium": 80,
+                                "large": 70
+                            },
+                            "width": 100,
+                            "y": 50,
+                            "aspectRatio": [4, 6],
+                            "positioning": {
+                                "marginTop": 0
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -388,8 +607,44 @@
                     "level": 2
                 },
                 {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Fire Alarm"
+                },
+                {
                     "type": "text",
-                    "content": "Words"
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "This circuit used the same sensor electronics, but instead of sending the data to a dashboard, the Arduino used the same absolute percent difference to attempt to detect a fire. When a fire is detected, an LED lights red and a buzzer sounds. Unfortunately, detecting fires was inconsistent, and so the video below just shows me touching the plant to trigger the fire alarm."
+                },
+                {
+                    "type": "ytvideo",
+                    "videoId": "LlexME9RDoY",
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Plant Controller"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "This is a work in progress and may never be finished, but in addition to this entire plant digital twin interface, I began working on a plant controller. How it works is that, using some sort of input, you control a circuit to switch from 0V to 30V. By feeding 30V into a plant like a Mimosa pudica (a.k.a. \"touch-me-not\"), you could wirelessly control when it opens and closes."
+                },
+                {
+                    "type": "ytvideo",
+                    "videoId": "sR9NEONNTug",
+                    "positioning": {
+                        "marginTop": 10
+                    }
                 }
             ]
         },
@@ -404,6 +659,24 @@
                     "content": "The Results",
                     "id": "results",
                     "level": 2
+                },
+                {
+                    "type": "text",
+                    "content": "For improvements if I did it all again, I would get rid of the Arduino and use only the ESP32. I would also get rid of the clunky breadboard wiring setup, and either use a dedicated PCB or perfboard. From the software side, I wouldn't use Django because it was overkill for the scope of this project. Originally, the backend was just Node.js, and I'd probably go back to something similar to that."
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "content": "Overall, however, these electronics were good enough for what the post-graduate needed and gave a lot of valuable experience in working with embedded systems. Below is a video of the dashboard and an actual plant."
+                },
+                {
+                    "type": "ytvideo",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "videoId": "BU9MxKGgfOg"
                 }
             ]
         }

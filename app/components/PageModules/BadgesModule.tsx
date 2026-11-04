@@ -15,28 +15,27 @@ const BadgesModule = ({badges=undefined, positioning={marginInline: 0, justifySe
                 className={`${styles.badges}`}
             >
                 {
-                    badges?.map((badge: Badge, index) => (
-                        <a
-                            href={badge.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            key={index}
-                        >
-                            <Image 
-                                src={badge.icon}
-                                title={badge.title} 
-                                alt={badge.title}
-                                style={{objectPosition: `50% 50%`}}
-                                className={`object-cover  ${badge.invertOn === "dark"? styles.badgeImgOnDark : ""} ${badge.invertOn === "light"? styles.badgeImgOnLight : ""}`} 
-                                width={badge.size ?? 25}
-                                height={badge.size ?? 25}
-                                sizes={`10vw`}
-
-
-                            />
-                        </a>
-
-                    ))
+                    badges?.map((badge: Badge, index) => {
+                        const size = badge.size ?? 25;
+                        return (
+                            <a
+                                href={badge.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                key={index}
+                            >
+                               <Image
+                                    src={badge.icon}
+                                    title={badge.title}
+                                    alt={badge.title}
+                                    width={size}
+                                    height={size}
+                                    style={{ width: size, height: size }}
+                                    className={`object-contain ${badge.invertOn === "dark" ? styles.badgeImgOnDark : ""} ${badge.invertOn === "light" ? styles.badgeImgOnLight : ""}`}
+                                />
+                            </a>
+                        )
+                    })
                 }
             </div>
         </div>

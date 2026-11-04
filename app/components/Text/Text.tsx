@@ -51,21 +51,49 @@ const markupRegex = [
 
 
 const splitRegex = /(\*\*.*?\*\*|\*.*?\*|\`.*?\`|\[.*?\]\(.*?\)|\<.*?\>\(.*?\)|\{.*?\}\(.*?\)|\|.*?\|\(.*?\)|\_.*?\_)/;
+const escapable = /\\([*_`[\]{}<>|()])/g;
+const escapeTokens: Record<string, string> = {
+  '*': '\uE000',
+  '_': '\uE001',
+  '`': '\uE002',
+  '[': '\uE003',
+  ']': '\uE004',
+  '{': '\uE005',
+  '}': '\uE006',
+  '<': '\uE007',
+  '>': '\uE008',
+  '|': '\uE009',
+  '(': '\uE00A',
+  ')': '\uE00B',
+};
 
-const parseMarkup = (text:string) => {
-  return text.split(splitRegex).map((part, index) => {
+const restoreEscapes = (text: string) =>
+  text.replace(/[\uE000-\uE00B]/g, token => {
+    const entry = Object.entries(escapeTokens)
+      .find(([, value]) => value === token);
+
+    return entry ? entry[0] : token;
+  });
+
+const parseMarkup = (text: string) => {
+  const protectedText = text.replace(escapable, (_, character) => {
+    return escapeTokens[character];
+  });
+
+  return protectedText.split(splitRegex).map((part, index) => {
+    if (!part) return null;
+
     for (const { regex, component } of markupRegex) {
-      if (!part) { return null }
+      const match = part.match(regex);
 
-      const match = part.match(regex)
       if (match) {
         return component(match, index);
       }
     }
-    return part
-  })
-}
 
+    return restoreEscapes(part);
+  });
+};
 const Text = ({children} : Props) => {
   if (children as string == null) {return `Failed to parse text: ${children}`}
   return (
