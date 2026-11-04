@@ -692,7 +692,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "For instance, to move the base stepper to **position 400** at **1ms intervals** with **1 step** per interval after a **5ms delay**, it would send: `{\"tgt\":\"base\",\"int\":1,\"del\":0,\"stp\":1}`",
+                    "content": "For instance, to move the base stepper to **position 400** at **1ms intervals** with **1 step** per interval after a **5ms delay**, it would send: `{\"tgt\":\"base\",\"int\":1,\"del\":5,\"stp\":1}`",
                     "positioning": {
                         "marginTop": 5
                     }
@@ -708,7 +708,7 @@
                 },
                 {
                     "type": "header",
-                    "content": "NodeJS",
+                    "content": "Node.js",
                     "level": 3,
                     "size": 2,
                     "positioning": {
