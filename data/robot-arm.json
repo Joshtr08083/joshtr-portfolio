@@ -672,7 +672,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "Finally, I made a locally-hosted webapp to control each motor on the arm. The program can be split into three parts: the ESP32s, the NodeJS backend, and the React dashboard."
+                    "content": "Finally, I made a locally hosted web app to control each motor on the arm. The program can be split into three parts: the ESP32s, the Node.js backend, and the React dashboard."
                 },
                 {
                     "type": "header",
@@ -685,7 +685,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "There are two ESP32. One part of the control circuit (receiver), and another separately connected to a computer/server (sender). The sender ESP32 simply transmits what it receives over Serial to the receiver ESP32 over the ESP-NOW protocol.",
+                    "content": "There are two ESP32s. One part of the control circuit (receiver), and another separately connected to a computer/server (sender). The sender ESP32 simply transmits what it receives over Serial to the receiver ESP32 over the ESP-NOW protocol.",
                     "positioning": {
                         "marginTop": 5
                     }
@@ -724,7 +724,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "For example, the dashboard might want to move base to **position 400**, so it'll send over websockets to the server: `{\"base\":400}`. The server will then populatet interval and steps automatically.",
+                    "content": "For example, the dashboard might want to move the base to **position 400**, so it'll send over WebSockets to the server: `{\"base\":400}`. The server will then populate interval and steps automatically.",
                     "positioning": {
                         "marginTop": 5
                     }
@@ -749,7 +749,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "The dashboard is built using React and compiled with Vite. It is a single page consisting of a slider, enable/disable toggle, and reset to starting position button. Because the dashboard is a webapp and keeps a connection to the backend, another device, like a phone, can be used as a controller simultaneously and both dashboards will update in realtime.",
+                    "content": "The dashboard is built using React and compiled with Vite. It is a single page consisting of a slider, enable/disable toggle, and reset to starting position button. Because the dashboard is a web app and keeps a connection to the backend, another device, like a phone, can be used as a controller simultaneously and both dashboards will update in realtime.",
                     "positioning": {
                         "marginTop": 5
                     }
@@ -798,7 +798,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "Overall, I consider the project a success. There are things that could be improved, however. The overall design is bulkier than it needed to be, the same could've been accomplished with smaller parts. The steppers are pretty slow and because of how the belts are made the belt occasionally slips. The servo on the claw risks burning out when trying to grab things, a different type of servo should have been used or a different type of motor. These are just a few of the improvements that could be made, but despite these, I'm still happy that I was able to get something together."
+                    "content": "Overall, I consider the project a success. There are things that could be improved, however. The overall design is bulkier than it needed to be; the same could've been accomplished with smaller parts. The steppers are pretty slow, and because of how the belts are made, the belt occasionally slips. The servo on the claw risks burning out when trying to grab things; a different type of servo should have been used, or a different type of motor. These are just a few of the improvements that could be made, but despite these, I'm still happy that I was able to get something together."
                 }
             ]
         }
