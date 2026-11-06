@@ -94,7 +94,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "Over two summers, I worked with a post-graduate at NC State who was researching a plant sensor material. His focus was primarily material science; however, my involvement mainly revolved around the electronics and software. The goal of the project was to develop a \"digital twin interface\" for viewing plant stimuli. This involved building the electronics and programming the backend/frontend.",
+                    "content": "Over two summers, I worked with a post-graduate at NC State who was researching a plant sensor material. His focus was primarily material science; however, my involvement mainly revolved around the electronics and software. The goal of the project was to develop a \"digital twin interface\" for viewing real, physical plant stimuli on a digital dashboard. This involved building the electronics and programming the backend/frontend.",
                     "positioning": {
                         "marginTop": 10
                     }
@@ -591,6 +591,26 @@
                             }
                         }
                     ]
+                }, 
+                {
+                    "type": "header",
+                    "content": "Demo",
+                    "size": 2,
+                    "level": 3
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "Below is an example of the dashboard being used. This example uses a different plant 3D model and uses four separate sensors, but the dashboard is for the most part the same."
+                },
+                {
+                    "type": "ytvideo",
+                    "videoId": "eqhwSO8Xduw",
+                    "positioning": {
+                        "marginTop": 10
+                    }
                 }
             ]
         },
