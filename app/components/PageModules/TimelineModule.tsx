@@ -6,7 +6,7 @@ const TimelineModule = ({headers} : TimelineProps) => {
     <div
         className="fixed w-full left-0 top-0 flex justify-center px-5 z-20"
     >
-        <div
+        <nav
             className={`
                 breadcrumbs max-w-4xl text-sm px-6 py-2 rounded-b-2xl ${styles.timeline}
             `}  
@@ -16,7 +16,7 @@ const TimelineModule = ({headers} : TimelineProps) => {
                     headers.map((header, id) => (<li key={id}><a href={`#${header?.id}`}>{header?.title}</a></li>))
                 }
             </ul>
-        </div>
+        </nav>
     </div>
   )
 }

@@ -5,7 +5,7 @@
     "img_x": 50,
     "img_y": 0,
     "description": "First embeded system-ish project with a Raspberry Pi5, ESP32, and 433MHz transmitter/receivers to create a universal remote to control things like lights remotely",
-    "rank": 4,
+    "rank": 3,
 
     "page_data": [
         {
@@ -14,6 +14,22 @@
                 {
                     "title": "Top",
                     "id": ""
+                },
+                {
+                    "title": "RF Modules",
+                    "id": "modules"
+                },
+                {
+                    "title": "Circuit Board",
+                    "id": "circuit"
+                },
+                {
+                    "title": "Raspberry Pi",
+                    "id": "pi5"
+                },
+                {
+                    "title": "Results",
+                    "id": "results"
                 }
             ]
         },
@@ -50,10 +66,29 @@
                 "marginTop": 0
             },
             "elements": [
+                 {
+                    "type":"badges",
+                    "badges": [
+                        {
+                            "title": "Github Repository",
+                            "icon": "https://raw.githubusercontent.com/primer/octicons/9c3c9d7426881584f6f507f3f4a54aea5879648e/icons/mark-github-24.svg",
+                            "url": "https://github.com/Joshtr08083/PiRFController.git",
+                            "invertOn": "dark"
+                        },
+                        {
+                            "url": "https://drive.google.com/drive/folders/1OIYP5uEcCLJ-p_ESyhGSVoUbePX9K1ae?usp=drive_link",
+                            "icon": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Drive_icon_%282026%29.svg/960px-Google_Drive_icon_%282026%29.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail",
+                            "title": "Google Drive"
+                        }
+                    ]
+                },
                 {
                     "type": "header",
                     "content": "The *\"Problem\"*",
-                    "level": 2
+                    "level": 2,
+                    "positioning": {
+                        "marginTop": 10
+                    }
                 },
                 {
                     "type": "grid",
@@ -62,6 +97,7 @@
                         "marginInline": 0,
                         "marginTop": 5
                     },
+                    "align": "start",
                     "elements": [
                         {
                             "type": "container",
@@ -72,15 +108,15 @@
                             "elements": [
                                 {
                                     "type": "text",
-                                    "content": "Here's the *\"problem\":* All the lights in my room are controlled by basic 433 MHz remotes. Having to keep track of multiple remotes is a pain, like coming home at night and having no idea where your remote is.",
+                                    "content": "In the spirit of first-world problems, one thing that has been annoying me is my accumulating collection of remotes. You don't get the most out of wireless technology when you have a remote that can only be in one place. That remote can die, break, or be lost.",
                                     "positioning": {
                                         "marginInline": 0,
-                                        "marginTop": 0
+                                        "marginTop": 5
                                     }
                                 },
                                 {
                                     "type": "text",
-                                    "content": "So here's the solution: A device that can record any 433 MHz remote and that can be accessed remotely to control smart devices from any device, anywhere",
+                                    "content": "So here's the idea: a universal remote that can record and store all your remotes. Then, using a phone, laptop, or even just voice commands, you could control your lights from anywhere.",
                                     "positioning": {
                                         "marginInline": 0,
                                         "marginTop": 5
@@ -91,25 +127,17 @@
                         {
                             "type": "image",
                             "url": "https://assets.joshtreid.com/images/pi-controller/basic-remote.webp",
-                            "title": "Basic 433 MHz Remote",
+                            "title": "The \"Problem\" - Lamp remote",
                             "alt": "Image of a 433 MHz remote that controls a lamp that came with said lamp.",
-                            "width": 90,
-                            "height": 30,
+                            "width": 70,
+                            "aspectRatio": [1, 1],
                             "positioning": {
-                                "marginInline": 0,
-                                "marginTop": 0
+                                "marginTop": 0,
+                                "marginInline": 10,
+                                "justifySelf": "end"
                             }
                         }
                     ]
-                },
-                {
-                    "type": "note",
-                    "level": "normal",
-                    "content": "[433MHz](https://homey.app/en-us/wiki/433-mhz/) is the radio frequency used by many simple commercial applications like garage doors, lights, lamps, smart switches, etc. This project specifically targets 433 MHz only.",
-                    "width": 80,
-                    "positioning": {
-                        "marginTop": 20
-                    }
                 },
                 {
                     "type": "header",
@@ -129,12 +157,345 @@
                 },
                 {
                     "type": "list",
-                    "items": [],
+                    "items": [
+                        "_|RF Modules|(#modules)_",
+                        "_|Circuit Board|(#circuit)_",
+                        "_|Raspberry Pi|(#pi5)_",
+                        "_|Results|(#results)_"
+                    ],
                     "ordered": false,
                     "positioning": {
                         "marginTop": 1
                     }
                 }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "level": 2,
+                    "content": "RF Modules",
+                    "id": "modules"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "content": "The core of the project are two components: a receiver and transmitter. I tried many different components, but the ones I landed on were these 433 MHz superheterodyne RF modules."
+                },
+                {
+                    "type": "image",
+                    "url": "https://assets.joshtreid.com/images/pi-controller/rf_modules.webp",
+                    "alt": "Picture of the 433 MHz superhet RF modules. The transmitter on the left is square-shaped, and the receiver on the right is rectangular.",
+                    "title": "RF Modules - Modules",
+                    "screenSizes": {
+                        "small": 90,
+                        "medium": 70,
+                        "large": 50
+                    },
+                    "width": 70,
+                    "y": 50,
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "note",
+                    "level": "normal",
+                    "content": "[433MHz](https://homey.app/en-us/wiki/433-mhz/) is the radio frequency used by many simple commercial applications like garage doors, lights, lamps, smart switches, etc. This project specifically targets 433 MHz only.",
+                    "width": 80
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Receiver"
+                },
+                {
+                    "type" :"text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "The receiver is the longer, rectangular module. The receiver uses ASK modulation and outputs a plain bit stream. The ESP32 takes this and uses one of two methods that the user has to select. The first method uses the RC-Switch library that attempts to recognize the signal and ouput a protocol, pulse length, bit count, and integer value."
+                },
+                {
+                    "type": "code",
+                    "language": "cpp",
+                    "filename": "esp32.ino",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "content": "mySwitch.enableReceive(RX_PIN);\n\nunsigned long deadline = millis() + 5000;\nwhile (millis() < deadline) {\n    if (mySwitch.available()) {\n        long val   = mySwitch.getReceivedValue();\n        int  bits  = mySwitch.getReceivedBitlength();\n        int  proto = mySwitch.getReceivedProtocol();\n        int  dly   = mySwitch.getReceivedDelay();\n        mySwitch.resetAvailable();\n\n        piSerial.println(String(\"{\\\"status\\\":\\\"success\\\",\\\"type\\\":\\\"recRC\\\",\\\"protocol\\\":\") + proto + \",\\\"delay\\\":\" + dly + \",\\\"bits\\\":\" + bits + \",\\\"value\\\":\" + val + \"}\");\n        mySwitch.disableReceive();\n        return;\n    }\n}\n\nmySwitch.disableReceive();"
+                },
+                {
+                    "type": "text",
+                    "content": "piSerial.println() prints to the Raspberry Pi, which saves the remote as: "
+                },
+                {
+                    "type": "code",
+                    "language": "json",
+                    "filename": "remotes.json",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "content": "{\n    \"name\": \"LampON\",\n    \"type\": \"rc_remote\",\n    \"protocol\": 1,\n    \"delay\": 387,\n    \"bits\": 24,\n    \"value\": 7869186\n},"
+                },
+                {
+                    "type": "text",
+                    "content": "The second method records the raw timing between when the signal altermates between HIGH and LOW. This can then be replayed by the transmitter, allowing the device to copy remotes that can't be decoded by the RC-Switch library."
+                },
+                {
+                    "type": "code",
+                    "language": "cpp",
+                    "filename": "esp32.ino",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "content": "rmt_item32_t* captured = nullptr;\nint capturedCount = 0;\n\nunsigned long deadline = millis() + 5000;\n\nwhile (millis() < deadline) {\n    size_t rx_size = 0;\n    rmt_item32_t* items =\n        (rmt_item32_t*)xRingbufferReceive(rb, &rx_size, 50 / portTICK_PERIOD_MS);\n\n    if (items) {\n        int pulses = rx_size / sizeof(rmt_item32_t);\n\n        if (pulses >= MIN_PULSES) {\n            capturedCount = min(pulses, MAX_RAW);\n            captured = (rmt_item32_t*)malloc(capturedCount * sizeof(rmt_item32_t));\n            if (captured) memcpy(captured, items, capturedCount * sizeof(rmt_item32_t));\n            vRingbufferReturnItem(rb, items);\n            break;\n        }\n        vRingbufferReturnItem(rb, items);\n    }\n}"
+                },
+                {
+                    "type": "text",
+                    "content": "Each timing is recorded and the sign it is recorded represents HIGH or LOW"
+                },
+                {
+                    "type": "code",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "language": "json",
+                    "filename": "remotes.json",
+                    "content": "{\n    \"name\": \"OverheadON3\",\n    \"type\": \"raw_remote\",\n    \"code\": [\n        3933,\n        -4078,\n        747,\n        -465,\n        141,\n        -1047,\n        161,\n        -423,\n        776,\n        -432,\n        771,\n        -436,\n        768,\n        -431,\n        178,\n        -1016,\n        186\n}"
+                },
+                {
+                    "type": "header",
+                    "content": "Transmitter",
+                    "size": 2,
+                    "level": 3
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "The smaller, square-ish model is the transmitter. The ESP32 takes the remote, either `raw_remote` or `rc_remote` and uses either its protocol/delay/value/bit or the raw timings and sends the correct pulses to the transmitter to act like the remote. In combination with the receiver, these two components allow you to save and replay 433 MHz remotes as long as the device doesn't use a security algorithms like rolling codes."
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "level": 2, 
+                    "content": "Circuit Board",
+                    "id": "circuit"
+                },
+                {
+                    "type": "text",
+                    "content": "Regardless if using the RC-Switch libary or the RMT hardware, recording and replaying remotes require controlling pulse timings with microsecond precision. To achieve this, I chose to use an ESP32 in between the Raspberry Pi and the RF modules. To keep everything together, I designed and ordered a PCB."
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Schematic"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content" :"The first-ish step was to crate a schematic in KiCAD. The schematic is used for definining the underlying circuit logic. It defines what components or pins are connected to what and how everything is powered. In the schematic are the 2x20 pin header for the Raspberry Pi, the ESP32, and the RF modules. There are also resistors for dropping the 5V receiver output to 3.3V, and decoupling capcatitors to stabilize local supply voltages."
+                },
+                {
+                    "type": "image",
+                    "url": "https://assets.joshtreid.com/images/pi-controller/schematic.webp",
+                    "alt": "Schematic of the PCB for the project",
+                    "title": "Circuit Board - Schematic",
+                    "screenSizes": {
+                        "small": 90,
+                        "medium": 70,
+                        "large": 50
+                    },
+                    "width": 90,
+                    "y": 50,
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "note",
+                    "level": "warning",
+                    "content": "There is limited information on the modules. Some of the information, such as votlages, come from the reviews, so take this schematic with a grain of salt.",
+                    "width": 80
+                },
+                {
+                    "type": "grid",
+                    "align": "start",
+                    "positioning": {
+                        "marginTop": 20
+                    },
+                    "elements": [
+                        {
+                            "type": "container",
+                            "positioning": {
+                                "marginTop": 0
+                            },
+                            "elements": [
+                                {
+                                    "type": "header",
+                                    "level": 3,
+                                    "size": 2,
+                                    "content": "Symbols",
+                                    "positioning": {
+                                        "marginTop": 0
+                                    }
+                                },
+                                {
+                            
+                                    "type": "text",
+                                    "content": "Not every component is part of KiCAD's symbol library. Or, in other cases, it's simpler to just make your own symbols. A symbol represents a component and its pins. The following is the symbol I made for the ESP32, it's not perfect for every use case, but it works for this project.",
+                                    "positioning": {
+                                        "marginTop": 5
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "image",
+                            "url": "https://assets.joshtreid.com/images/pi-controller/esp32_symbol.webp",
+                            "alt": "Picture of ESP32 symbol in KiCAD.",
+                            "title": "Circuit Board - ESP32 Symbol",
+                            "screenSizes": {
+                                "small": 90,
+                                "medium": 70,
+                                "large": 50
+                            },
+                            "width": 80,
+                            "aspectRatio": [1, 1],
+                            "y": 50,
+                            "positioning": {
+                                "marginTop": 0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "grid",
+                    "align": "start",
+                    "positioning": {
+                        "marginTop": 20
+                    },
+                    "elements": [
+                        {
+                            "type": "container",
+                            "positioning": {
+                                "marginTop": 0
+                            },
+                            "elements": [
+                                {
+                                    "type": "header",
+                                    "level": 3,
+                                    "size": 2,
+                                    "content": "Footprint",
+                                    "positioning": {
+                                        "marginTop": 0
+                                    }
+                                },
+                                {
+                            
+                                    "type": "text",
+                                    "content": "A footprint is assigned to each symbol and defines the component's physical properties on the PCB. Specifically, it defines dimensions and soldering pads. The following is the footprint for the ESP32.",
+                                    "positioning": {
+                                        "marginTop": 5
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "image",
+                            "url": "https://assets.joshtreid.com/images/pi-controller/esp32_footprint.webp",
+                            "alt": "Picture of ESP32 footprint in KiCAD.",
+                            "title": "Circuit Board - ESP32 Footprint",
+                            "screenSizes": {
+                                "small": 90,
+                                "medium": 70,
+                                "large": 50
+                            },
+                            "width": 80,
+                            "aspectRatio": [1, 1],
+                            "y": 50,
+                            "positioning": {
+                                "marginTop": 0
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "PCB Layout"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "After the schematic and footprints are finished, the next step is to arrange the footprints and route traces. Luckily, this board was simple enough I didn't really have to overthink traces too much. Finally, I added holes for mounting on top of the Raspberry Pi, added some silkscreen text, and then prepared the Gerber files to send to [JLCPCB](https://jlcpcb.com/) for manufacturing."
+                },
+                {
+                    "type": "grid",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "elements": [
+                        {
+                            "type": "image",
+                            "url": "https://assets.joshtreid.com/images/pi-controller/pcb_layout.webp",
+                            "alt": "Picture of PCB layout",
+                            "title": "Circuit Board - PCB layout",
+                            "screenSizes": {
+                                "small": 90,
+                                "medium": 70,
+                                "large": 50
+                            },
+                            "width": 90,
+                            "aspectRatio": [1, 1],
+                            "y": 50,
+                            "positioning": {
+                                "marginTop": 0
+                            }
+                        },
+                        {
+                            "type": "image",
+                            "url": "https://assets.joshtreid.com/images/pi-controller/pcb_render.webp",
+                            "alt": "Picture of KiCAD render of the PCB",
+                            "title": "Circuit Board - PCB",
+                            "screenSizes": {
+                                "small": 90,
+                                "medium": 70,
+                                "large": 50
+                            },
+                            "width": 90,
+                            "aspectRatio": [1, 1],
+                            "y": 50,
+                            "positioning": {
+                                "marginTop": 0
+                            }
+                        }
+                    ]
+                }
+
             ]
         }
     ]
