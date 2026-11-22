@@ -490,7 +490,24 @@
                 },
                 {
                     "type": "text",
-                    "content": "For controlling the robot, I used stepper drivers and servo drivers controlled by an ESP32 microcontroller. To make the design semi-permanent, I used perfboard and a 3D-printed box to contain everything."
+                    "content": "For controlling the robot, I used stepper drivers and servo drivers controlled by an ESP32 microcontroller. To make the design semi-permanent, I used perfboard and a 3D-printed box to contain everything. This is the KiCAD schematic I made for reference:"
+                },
+                {
+                    "type": "image",
+                    "url": "https://assets.joshtreid.com/images/robot-arm/control_schematic.webp",
+                    "alt": "Schematic of the control circuit for the project",
+                    "title": "Electronics - Schematic",
+                    "screenSizes": {
+                        "small": 90,
+                        "medium": 70,
+                        "large": 70
+                    },
+                    "width": 90,
+                    "y": 50,
+                    "aspectRatio": [16, 11],
+                    "positioning": {
+                        "marginTop": 10
+                    }
                 },
                 {
                     "type": "header",
