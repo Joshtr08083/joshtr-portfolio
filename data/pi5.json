@@ -647,10 +647,14 @@
                 },
                 {
                     "type": "text",
+                    "content": "There are various things that could be better about this \"universal remote\". One, for instance, is that the remote only supports 433 MHz. 315 MHz remotes, which are another common frequency in North America, would be incompatible."
+                },
+                {
+                    "type": "text",
                     "positioning": {
                         "marginTop": 10
                     },
-                    "content": "Like many things, various improvements could be made. One, for instance, is that the remote only supports 433 MHz. 315 MHz remotes, which are another common frequency in North America, would be incompatible. Another thing that I've been working to fix is that the remote isn't as consistent as I'd like it to be. This could be because of the cheap RF modules I used, but it also might be an issue with the circuit design. To attempt to fix this, I redesigned the PCB by changing the transmitter to 3.3V and adding decoupling capacitors to each component. I have yet to see if this improves the issue and will update here on whether it does."
+                    "content": "Another thing that I've been working to fix is that the remote isn't as consistent as I'd like it to be. This could be because of the cheap RF modules I used, but it also might be an issue with the circuit design. To attempt to fix this, I redesigned the PCB by changing the transmitter's power to 3.3V and adding decoupling capacitors to each component. I have yet to see if this improves the issue and will update here on whether it does."
                 },
                 {
                     "type": "note",
