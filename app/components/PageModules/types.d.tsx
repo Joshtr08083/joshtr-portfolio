@@ -93,7 +93,8 @@ export interface ListProps extends Positioning {
     items: Array<string> // (req) list text
     ordered?: boolean // (opt) order vs unordered list
     paddingInline?: number // (opt) padding left/right
-    paddingBlock?: number // (opt) padding top/bottom
+    paddingBlock?: number // (opt) padding top/bottom,
+    lineSpacing?: number // (opt) space between lines
 }
 
 export interface SectionProps extends Positioning {

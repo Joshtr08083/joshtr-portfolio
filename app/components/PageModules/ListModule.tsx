@@ -2,7 +2,7 @@ import Text from "@/app/components/Text/Text"
 import { ListProps } from "./types.d"
 import positionStyles from "./PositionStyles"
 
-const ListModule = ({items, paddingBlock = 0, positioning={marginInline: 0, justifySelf: "start"}, ordered = true} : ListProps) => {
+const ListModule = ({items, paddingBlock = 0, positioning={marginInline: 0, justifySelf: "start"}, ordered = true, lineSpacing = 0} : ListProps) => {
     const ListTag = ordered? "ol" : "ul"
     
     return (
@@ -15,7 +15,7 @@ const ListModule = ({items, paddingBlock = 0, positioning={marginInline: 0, just
         >
             {
                 items.map((item: string, index:number) => (
-                    <li key={index}><Text>{item}</Text></li>
+                    <li key={index} style={{marginBottom: `calc(var(--spacing) * ${lineSpacing})`}}><Text>{item}</Text></li>
                 ))
             }
         </ListTag>

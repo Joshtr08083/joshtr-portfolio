@@ -34,11 +34,6 @@
             ]
         },
         {
-            "type": "note",
-            "level": "critical",
-            "content": "This page is still under construction and may not be completed yet. I will try to finish it ASAP."
-        },
-        {
             "type": "image",
             "url": "https://assets.joshtreid.com/images/pi-controller/schematic_combined.webp",
             "alt": "Lorem Ipsum",
@@ -314,7 +309,7 @@
                     "positioning": {
                         "marginTop": 5
                     },
-                    "content" :"The first-ish step was to crate a schematic in KiCAD. The schematic is used for definining the underlying circuit logic. It defines what components or pins are connected to what and how everything is powered. In the schematic are the 2x20 pin header for the Raspberry Pi, the ESP32, and the RF modules. There are also resistors for dropping the 5V receiver output to 3.3V, and decoupling capcatitors to stabilize local supply voltages."
+                    "content" :"The first-ish step was to crate a schematic in KiCAD. The schematic is used for definining the underlying circuit logic. It defines what components or pins are connected to what and how everything is powered. In the schematic are the ESP32, the RF modules, and the 2x20 pin header to sit on the Raspberry Pi, . There are also resistors for dropping the 5V receiver output to 3.3V, and decoupling capcatitors to stabilize local supply voltages."
                 },
                 {
                     "type": "image",
@@ -335,7 +330,7 @@
                 {
                     "type": "note",
                     "level": "warning",
-                    "content": "There is limited information on the modules. Some of the information, such as votlages, come from the reviews, so take this schematic with a grain of salt.",
+                    "content": "There is limited information on the modules. Some of the information, such as votlages, come from the reviews. Take this schematic with a grain of salt.",
                     "width": 80
                 },
                 {
@@ -363,7 +358,7 @@
                                 {
                             
                                     "type": "text",
-                                    "content": "Not every component is part of KiCAD's symbol library. Or, in other cases, it's simpler to just make your own symbols. A symbol represents a component and its pins. The following is the symbol I made for the ESP32, it's not perfect for every use case, but it works for this project.",
+                                    "content": "Not every component is part of KiCAD's symbol library. In this case, you would create your own symbol. A symbol represents a component and its pins. The following is the symbol I made for the ESP32, it's not perfect for every use case, but it works for this project.",
                                     "positioning": {
                                         "marginTop": 5
                                     }
@@ -496,6 +491,167 @@
                     ]
                 }
 
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "level": 2,
+                    "content": "Raspberry Pi",
+                    "id": "pi5"
+                },
+                {
+                    "type": "text",
+                    "content": "By itself, the ESP32 is enough to record and play remotes (albeit I might need an microSD card module). However, the main advantage to cloning remotes is to be able to use the remotes from anywhere. That's where the Raspberry Pi comes in."
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Home Assistant"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "Home Assistant is an open-source software that allows you to manage smart devices. The main advatange of Home Assistant is that it provides the frontend for triggering each remote. Home Assistant works both in the browser and as a mobile app, it has easily customizable dashboards, and allows you to create scripts and automations."
+                },
+                {
+                    "type": "image",
+                    "url": "https://assets.joshtreid.com/images/pi-controller/home_assistant_dashboard.webp",
+                    "alt": "Screenshot of web dashboard hosted by Home Assistant",
+                    "title": "Raspberry Pi - Home Assistant Dashboard",
+                    "screenSizes": {
+                        "small": 90,
+                        "medium": 70,
+                        "large": 50
+                    },
+                    "width": 90,
+                    "y": 50,
+                    "aspectRatio": [37, 17],
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "Tailscale"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "Not that it particularly comes up that often, but with the addition of Tailscale, Home Assistant can be accesed from outside the Raspberry Pi's local network. I originally set this up manually through Wireguard, a Dynamic DNS, and port-fowarding. However, Tailscale makes the process much easier and avoids port-forwarding. It's only caveat is really that it relies on Tailscale's servers, so it's not 100% self-hosted."
+                },
+                {
+                    "type": "image",
+                    "url": "https://assets.joshtreid.com/images/pi-controller/tailscale.webp",
+                    "alt": "Screenshot of Tailscale dashboard",
+                    "title": "Raspberry Pi - Tailscale",
+                    "screenSizes": {
+                        "small": 90,
+                        "medium": 70,
+                        "large": 70
+                    },
+                    "width": 90,
+                    "y": 50,
+                    "aspectRatio": [16, 5],
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "header",
+                    "level": 3,
+                    "size": 2,
+                    "content": "RF Daemon"
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "The Raspberry Pi communicates with the ESP32 over UART to send commands to record/play a remote, and receives JSON responses for saving remotes. This is all done through `rf_daemon.py`, which runs constantly in the background. The RF daemon is connected to an MQTT broker. The MQTT broker allows Home Assistant and the RF daemon to communicate."
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 5
+                    },
+                    "content": "For example:"
+                },
+                {
+                    "type": "list",
+                    "positioning": {
+                        "marginTop": 2
+                    },
+                    "lineSpacing": 4,
+                    "items": [
+                        "From the dasbhoard, the user selects an existing button or records a new one.",
+                        "Home Assistant publishes the user's action to the MQTT broker under `rf_rem/command`. It includes in the request the type of action and the existing or new remote's name.",
+                        "`rf_daemon.py` sees the request and relays the command to the ESP32 over UART. If the action is to play an existing remote, it uses `remotes.json` to find the remote's data.",
+                        "The ESP32 receives the command and begins playing or recording the remote. If recording, it returns the remote's data to be saved.",
+                        "If applicable, the RF daemon receives the returned data from the ESP32, saves the remote locally, and publishes the new remote to MQTT under `homeassistant/button/rf_rem/\\{Button Name\\}/config`, which tells Home Assistant to add the remote to its list of available remotes."
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "section",
+            "positioning": {
+                "marginTop": 20
+            },
+            "elements": [
+                {
+                    "type": "header",
+                    "level": 2,
+                    "content": "Results",
+                    "id": "results"
+                },
+                {
+                    "type": "text",
+                    "content": "One thing I like about this project is that it actually is useful to me. While I'm yet to find much of a use for toggling my lights from a coffee shop, being able to control my lights and fan from my computer has been much more convenient than having to get out of my chair to find my remote."
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "content": "Additionally, I like having my fan on at night while I sleep, but I don't like it on in the morning when I have to get out of my warm bed into my cold room. With Home Assistant, I can set up an automated script to turn off my fan 30 minutes before I wake up."
+                },
+                {
+                    "type": "image",
+                    "url": "https://assets.joshtreid.com/images/pi-controller/results.webp",
+                    "alt": "Picture of completed project with Raspberry Pi, custom PCB, ESP32, and RF modules",
+                    "title": "Result - Final product",
+                    "screenSizes": {
+                        "small": 90,
+                        "medium": 70,
+                        "large": 50
+                    },
+                    "width": 90,
+                    "y": 50,
+                    "aspectRatio": [4, 3],
+                    "positioning": {
+                        "marginTop": 10
+                    }
+                },
+                {
+                    "type": "text",
+                    "positioning": {
+                        "marginTop": 10
+                    },
+                    "content": "There are various improvements that could be made. One, for instance, is that the remote only supports 433 MHz. 315 MHz remotes, which are another common frequency in North America, would be incompatible. Another thing that I've been working to fix is that the remote isn't as consistent as I liked it to be. This could be the cheap RF modules I used, but it also might be an issue with the circuit design. To attempt to fix this, I redesigned the PCB by changing the transmitter to 3.3V and adding decoupling capacitors to each component. I am yet to see if this improves the issue and will update here whether it does."
+                }
             ]
         }
     ]
