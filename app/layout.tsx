@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import Background from "./components/Background/Background";
 
@@ -13,12 +13,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['500', '600'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-roboto',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: {
     template: '%s | Joshtreid',
     default: 'Joshtreid'
   },
-  description: "Joshtreid projects website page"
+  description: "Joshtreid projects website page",
+  metadataBase: new URL('https://yourdomain.com')
 };
 
 export const viewport: Viewport = {
@@ -30,7 +45,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${roboto.variable}`}
     >
       
       <body className="rootBody" suppressHydrationWarning>

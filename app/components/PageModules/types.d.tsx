@@ -48,6 +48,7 @@ export interface ImageProps extends Positioning {
     y?: number; // (opt) internal position of image vertical
     screenSizes?: ScreenSize; // (opt) expected size of the image on different screens (e.g., 50vw means image is about half the width of the screen)
     expandable?: boolean;
+    fetchPriority?: "high" | "low" | "auto"
 }
 
 export interface DividerProps  {

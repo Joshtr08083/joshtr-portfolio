@@ -8,7 +8,7 @@ import positionStyles from "./PositionStyles"
 const defaultRounded = {topLeft: true, topRight: true, bottomLeft: true, bottomRight: true};
 const defaultScreenSizes = {small: 100, medium: 50, large: 33};
 
-const ImageModule = ({ url, alt, title, height = undefined, width = undefined, loading="lazy", border=false, rounded=undefined, positioning=undefined, x=50, y=50, screenSizes=undefined, expandable=true, aspectRatio=[16, 9]}: ImageProps) => {
+const ImageModule = ({ url, alt, title, height = undefined, width = undefined, loading="lazy", border=false, rounded=undefined, positioning=undefined, x=50, y=50, screenSizes=undefined, expandable=true, aspectRatio=[16, 9], fetchPriority="auto"}: ImageProps) => {
   const [isOpen, setIsOpen] = useState(false);
   
   rounded = {...defaultRounded, ...rounded}
@@ -39,9 +39,10 @@ const ImageModule = ({ url, alt, title, height = undefined, width = undefined, l
             title={title} 
             alt={alt}
             style={{objectPosition: `${x}% ${y}%`}}
-            className={`object-cover`} 
+            className={`object-cover`}
             fill
             sizes={`(max-width: 768px) ${screenSizes.small}vw, (max-width: 1200px) ${screenSizes.medium}vw, ${screenSizes.large}vw`}
+            fetchPriority={fetchPriority}
             loading={loading}
           />
         </div>

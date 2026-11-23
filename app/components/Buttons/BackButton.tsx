@@ -20,18 +20,20 @@ const BackButton = ( { classes = "", nav = false, url=""}: Props) => {
           onClick = {() => {router.back()}}
           className = {buttonClass}
           style={{content: "back"}}
+          aria-label={nav? "Back": undefined}
       >
         {(nav == false)? "Back" : ""}
       </button>
     :
-      <Link href={url}>
-        <button 
-            className = {buttonClass}
-            style={{content: "back"}}
-        >
-          {(nav == false)? "Back" : ""}
-        </button>
+      <Link
+          href={url}
+          className = {buttonClass}
+          style={{content: "back"}}
+          aria-label={nav? "Back": undefined}
+      >
+        {(nav == false)? "Back" : ""}
       </Link>
+
   )
 }
 
