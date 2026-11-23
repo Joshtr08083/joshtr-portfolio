@@ -182,7 +182,7 @@
                     "positioning": {
                         "marginTop": 10
                     },
-                    "content": "The core of the project are two components: a receiver and transmitter. I tried many different components, but the ones I landed on were these 433 MHz superheterodyne RF modules."
+                    "content": "The core of the project is two components: a receiver and transmitter. I tried many different components, but the ones I landed on were these 433 MHz superheterodyne RF modules."
                 },
                 {
                     "type": "image",
@@ -217,7 +217,7 @@
                     "positioning": {
                         "marginTop": 5
                     },
-                    "content": "The receiver is the longer, rectangular module. The receiver uses ASK modulation and outputs a plain bit stream. The ESP32 takes this and uses one of two methods that the user has to select. The first method uses the RC-Switch library that attempts to recognize the signal and ouput a protocol, pulse length, bit count, and integer value."
+                    "content": "The receiver is the longer, rectangular module. The receiver uses ASK modulation and outputs a plain bit stream. The ESP32 takes this and uses one of two methods that the user has to select. The first method uses the RC-Switch library that attempts to recognize the signal and output a protocol, pulse length, bit count, and integer value."
                 },
                 {
                     "type": "code",
@@ -243,7 +243,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "The second method records the raw timing between when the signal altermates between HIGH and LOW. This can then be replayed by the transmitter, allowing the device to copy remotes that can't be decoded by the RC-Switch library."
+                    "content": "The second method records the raw timing between when the signal alternates between HIGH and LOW. This can then be replayed by the transmitter, allowing the device to copy remotes that can't be decoded by the RC-Switch library."
                 },
                 {
                     "type": "code",
@@ -256,7 +256,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "Each timing is recorded and the sign it is recorded represents HIGH or LOW"
+                    "content": "Each timing is recorded, and the sign of the timing represents HIGH or LOW (e.g., -350 means LOW for 350 microseconds)"
                 },
                 {
                     "type": "code",
@@ -278,7 +278,7 @@
                     "positioning": {
                         "marginTop": 5
                     },
-                    "content": "The smaller, square-ish model is the transmitter. The ESP32 takes the remote, either `raw_remote` or `rc_remote` and uses either its protocol/delay/value/bit or the raw timings and sends the correct pulses to the transmitter to act like the remote. In combination with the receiver, these two components allow you to save and replay 433 MHz remotes as long as the device doesn't use a security algorithms like rolling codes."
+                    "content": "The smaller, square-ish model is the transmitter. The ESP32 takes the remote, either `raw_remote` or `rc_remote`, and uses either its protocol/delay/value/bit or the raw timings and sends the correct pulses to the transmitter to act like the remote. In combination with the receiver, these two components allow you to save and replay 433 MHz remotes as long as the device doesn't use a security algorithm like rolling codes."
                 }
             ]
         },
@@ -296,7 +296,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "Regardless if using the RC-Switch libary or the RMT hardware, recording and replaying remotes require controlling pulse timings with microsecond precision. To achieve this, I chose to use an ESP32 in between the Raspberry Pi and the RF modules. To keep everything together, I designed and ordered a PCB."
+                    "content": "Whether using the RC-Switch library or the RMT hardware, recording and replaying remotes require controlling pulse timings with microsecond precision. To achieve this, I chose to use an ESP32 in between the Raspberry Pi and the RF modules. To keep everything together, I designed and ordered a PCB."
                 },
                 {
                     "type": "header",
@@ -309,7 +309,7 @@
                     "positioning": {
                         "marginTop": 5
                     },
-                    "content" :"The first-ish step was to crate a schematic in KiCAD. The schematic is used for definining the underlying circuit logic. It defines what components or pins are connected to what and how everything is powered. In the schematic are the ESP32, the RF modules, and the 2x20 pin header to sit on the Raspberry Pi, . There are also resistors for dropping the 5V receiver output to 3.3V, and decoupling capcatitors to stabilize local supply voltages."
+                    "content" :"The first-ish step was to create a schematic in KiCAD. The schematic is used for defining the underlying circuit logic. It defines what components or pins are connected to what and how everything is powered. In the schematic are the ESP32, the RF modules, and the 2x20 pin header to sit on the Raspberry Pi. There are also resistors for dropping the 5V receiver output to 3.3V, and decoupling capacitors to stabilize local supply voltages."
                 },
                 {
                     "type": "image",
@@ -330,7 +330,7 @@
                 {
                     "type": "note",
                     "level": "warning",
-                    "content": "There is limited information on the modules. Some of the information, such as votlages, come from the reviews. Take this schematic with a grain of salt.",
+                    "content": "There is limited information on the modules. Some of the information, such as voltages, come from the reviews. Take this schematic with a grain of salt.",
                     "width": 80
                 },
                 {
@@ -358,7 +358,7 @@
                                 {
                             
                                     "type": "text",
-                                    "content": "Not every component is part of KiCAD's symbol library. In this case, you would create your own symbol. A symbol represents a component and its pins. The following is the symbol I made for the ESP32, it's not perfect for every use case, but it works for this project.",
+                                    "content": "Not every component is part of KiCAD's symbol library. In this case, you would create your own symbol. A symbol represents a component and its pins. The following is the symbol I made for the ESP32; it's not perfect for every use case, but it works for this project.",
                                     "positioning": {
                                         "marginTop": 5
                                     }
@@ -446,7 +446,7 @@
                     "positioning": {
                         "marginTop": 5
                     },
-                    "content": "After the schematic and footprints are finished, the next step is to arrange the footprints and route traces. Luckily, this board was simple enough I didn't really have to overthink traces too much. Finally, I added holes for mounting on top of the Raspberry Pi, added some silkscreen text, and then prepared the Gerber files to send to [JLCPCB](https://jlcpcb.com/) for manufacturing."
+                    "content": "After the schematic and footprints are finished, the next step is to arrange the footprints and route traces. Luckily, this board was simple enough that I didn't really have to overthink traces too much. Finally, I added holes for mounting on top of the Raspberry Pi, added some silkscreen text, and then prepared the Gerber files to send to [JLCPCB](https://jlcpcb.com/) for manufacturing."
                 },
                 {
                     "type": "grid",
@@ -507,7 +507,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "By itself, the ESP32 is enough to record and play remotes (albeit I might need an microSD card module). However, the main advantage to cloning remotes is to be able to use the remotes from anywhere. That's where the Raspberry Pi comes in."
+                    "content": "By itself, the ESP32 is enough to record and play remotes (albeit I might need a microSD card module). However, the main advantage of cloning remotes is to be able to use the remotes from anywhere. That's where the Raspberry Pi comes in."
                 },
                 {
                     "type": "header",
@@ -520,7 +520,7 @@
                     "positioning": {
                         "marginTop": 5
                     },
-                    "content": "Home Assistant is an open-source software that allows you to manage smart devices. The main advatange of Home Assistant is that it provides the frontend for triggering each remote. Home Assistant works both in the browser and as a mobile app, it has easily customizable dashboards, and allows you to create scripts and automations."
+                    "content": "Home Assistant is an open-source software that allows you to manage smart devices. The benefit of using Home Assistant is that it provides the frontend for triggering each remote. Home Assistant works both in the browser and as a mobile app, has easily customizable dashboards, and allows you to create scripts and automations."
                 },
                 {
                     "type": "image",
@@ -550,7 +550,7 @@
                     "positioning": {
                         "marginTop": 5
                     },
-                    "content": "Not that it particularly comes up that often, but with the addition of Tailscale, Home Assistant can be accesed from outside the Raspberry Pi's local network. I originally set this up manually through Wireguard, a Dynamic DNS, and port-fowarding. However, Tailscale makes the process much easier and avoids port-forwarding. It's only caveat is really that it relies on Tailscale's servers, so it's not 100% self-hosted."
+                    "content": "Not that it particularly comes up that often, but with the addition of Tailscale, Home Assistant can be accessed from outside the Raspberry Pi's local network. I originally set this up manually through WireGuard, a Dynamic DNS, and port-forwarding. However, Tailscale makes the process much easier and avoids port-forwarding. Its only caveat is really that it relies on Tailscale's servers, so it's not 100% self-hosted."
                 },
                 {
                     "type": "image",
@@ -596,7 +596,7 @@
                     },
                     "lineSpacing": 4,
                     "items": [
-                        "From the dasbhoard, the user selects an existing button or records a new one.",
+                        "From the dashboard, the user selects an existing button or records a new one.",
                         "Home Assistant publishes the user's action to the MQTT broker under `rf_rem/command`. It includes in the request the type of action and the existing or new remote's name.",
                         "`rf_daemon.py` sees the request and relays the command to the ESP32 over UART. If the action is to play an existing remote, it uses `remotes.json` to find the remote's data.",
                         "The ESP32 receives the command and begins playing or recording the remote. If recording, it returns the remote's data to be saved.",
@@ -650,7 +650,13 @@
                     "positioning": {
                         "marginTop": 10
                     },
-                    "content": "There are various improvements that could be made. One, for instance, is that the remote only supports 433 MHz. 315 MHz remotes, which are another common frequency in North America, would be incompatible. Another thing that I've been working to fix is that the remote isn't as consistent as I liked it to be. This could be the cheap RF modules I used, but it also might be an issue with the circuit design. To attempt to fix this, I redesigned the PCB by changing the transmitter to 3.3V and adding decoupling capacitors to each component. I am yet to see if this improves the issue and will update here whether it does."
+                    "content": "Like many things, various improvements could be made. One, for instance, is that the remote only supports 433 MHz. 315 MHz remotes, which are another common frequency in North America, would be incompatible. Another thing that I've been working to fix is that the remote isn't as consistent as I'd like it to be. This could be because of the cheap RF modules I used, but it also might be an issue with the circuit design. To attempt to fix this, I redesigned the PCB by changing the transmitter to 3.3V and adding decoupling capacitors to each component. I have yet to see if this improves the issue and will update here on whether it does."
+                },
+                {
+                    "type": "note",
+                    "level": "normal",
+                    "width": 80,
+                    "content": "I implemented the fix I talk about above after I started this page, but before I wrote most of it. As a result, the banner is a little outdated and doesn't show the fixes I made, but the Circuit Board section does, so I just wanted to explain that discrepancy."
                 }
             ]
         }
