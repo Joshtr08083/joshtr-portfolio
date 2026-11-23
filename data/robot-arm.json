@@ -146,7 +146,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "All of the CAD was done in Fusion360. Having never really done this before, this was a huge learning process. Many hours were spent starting at a blank screen, unsure of where to even start. I watched [builds of other designs](https://www.youtube.com/watch?v=D1tMTEYRVEs&list=PLSueoDrBt5MMTL9O8qAWZiJrNIf8-29Qz&index=4) step-by-step to get as much of an idea as possible, but I wanted to avoid using any pre-made CAD designs."
+                    "content": "All of the CAD was done in Fusion360. Having never really done this before, this was a huge learning process. Many hours were spent staring at a blank screen, unsure of where to even start. I watched [builds of other designs](https://www.youtube.com/watch?v=D1tMTEYRVEs&list=PLSueoDrBt5MMTL9O8qAWZiJrNIf8-29Qz&index=4) step-by-step to get as much of an idea as possible, but I wanted to avoid using any pre-made CAD designs."
                 },
                 {
                     "type": "header",
@@ -309,7 +309,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "The vast majority of the parts were 3D printed. Of course, with the exception of the servos, steppers, scerws, heat-set inserts, ball bearings, shaft collars, 20T pulleys, and 5mm steel rods."
+                    "content": "The vast majority of the parts were 3D printed. Of course, with the exception of the servos, steppers, screws, heat-set inserts, ball bearings, shaft collars, 20T pulleys, and 5mm steel rods."
                 },
                 {
                     "type": "header",
@@ -730,7 +730,7 @@
                 },
                 {
                     "type": "text",
-                    "content": "The ESP32 receives the commands to send from a NodeJS that communicates directly through Serial over USB. The backend also hosts a websockets server and a database. This allows it to receive commands from a browswer dashboard, update other dashboards connected simultaneously, and store the motors' position and states.",
+                    "content": "The ESP32 receives the commands to send from a NodeJS that communicates directly through Serial over USB. The backend also hosts a websockets server and a database. This allows it to receive commands from a browser dashboard, update other dashboards connected simultaneously, and store the motors' position and states.",
                     "positioning": {
                         "marginTop": 5
                     }
