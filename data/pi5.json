@@ -36,8 +36,8 @@
         {
             "type": "image",
             "url": "https://assets.joshtreid.com/images/pi-controller/schematic_combined.webp",
-            "alt": "Lorem Ipsum",
-            "title": "Lorem Ipsum",
+            "alt": "Banner images howing the KiCAD schematic and PCB for the remote",
+            "title": "Raspberry Pi Universal Remote Banner",
             "width": 100,
             "height": 30,
             "loading": "eager",
